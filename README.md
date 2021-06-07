@@ -7,4 +7,4 @@
 - Alejo Rodríguez : 26 años, de Junín, Bs As, estudiante de Licenciatura en Genética y Programación. Amante del Padel y fútbol.
 
 
-- Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/Te6xYpxd/curso-programacion .
+- Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/YEchl1US/integrador .
