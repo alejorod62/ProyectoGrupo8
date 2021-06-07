@@ -1,0 +1,37 @@
+[
+ {
+  "codigo": 1,
+  "titulo": "Arreglar menu principal",
+  "estado": "Terminada"
+ },
+ {
+  "codigo": 2,
+  "titulo": "Crear una funcion para sumar numeros",
+  "estado": "En progreso"
+ },
+ {
+  "codigo": 3,
+  "titulo": "Crear una funcion para restar numeros",
+  "estado": "En progreso"
+ },
+ {
+  "codigo": 4,
+  "titulo": "Crear clase Auto",
+  "estado": "Pendiente"
+ },
+ {
+  "codigo": 11,
+  "titulo": "Testear unidad de producto",
+  "estado": "Pendiente"
+ },
+ {
+  "codigo": 14,
+  "titulo": "Comprobar websocket",
+  "estado": "Pendiente"
+ },
+ {
+  "codigo": 16,
+  "titulo": "Comprobar sintaxis",
+  "estado": "Pendiente"
+ }
+]
