@@ -8,4 +8,4 @@
 - Santiago Migliore : 18 años, de Rosario, Santa Fe y Juego al fútbol en Newell´s.
 - Lourdes Bó : 22 años, de CABA, estudiante de Bibliotecología y fotografía. 
 - Nicolás Bó : 19 años, de CABA, recien egresado de quinto año.
-- Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/Te6xYpxd/curso-programacion .
+- Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/YEchl1US/integrador .
