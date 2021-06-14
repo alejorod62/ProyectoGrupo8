@@ -1,4 +1,4 @@
-# ProyectoGrupal
+# ProyectoGrupo8
 # 
 - Temática y descripción del sitio: Página de servicios sobre cursos y señales de criptomonedas. 
 
