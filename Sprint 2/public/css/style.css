@@ -11,6 +11,10 @@ body {font-family:  'Roboto', sans-serif ;
     display: flex;
 justify-content: space-between;}
 
+.toplogin {
+    display: flex;
+justify-content: start;}
+
 .texto {font-size: 12px ;}
 
 .Icon-Social {display: flex;
