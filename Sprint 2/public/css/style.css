@@ -27,14 +27,15 @@ justify-content: start;}
 
 
 .titulares{font-size: 24px;
-color: black;}
+color: white; background-color: black;}
 
-.nav {background-color: white;}
+.nav {background-color: goldenrod;}
 
 
 footer{text-align: center;
 padding-top: 10%;
-margin: auto;}
+margin: auto;
+background-color: goldenrod;}
 
 .foot{text-align: left;}
 
@@ -53,12 +54,16 @@ margin: auto;}
 #main {text-align: center;
 width: 100%;
 padding-bottom: 10%;
-background-color: rgb(216, 215, 215);
+background-color: black;
 height: auto;
+color: blanchedalmond;
 }
 
 .middle {display: flex;
-justify-content: space-between; align-content: space-between; align-items: initial;}
+justify-content: space-between; align-content: space-between; align-items: initial; padding: 2%;
+ background-color: black; color: white;}
+
+ .form{text-align: left; padding-left: 10%;}
 
 #caja {border: double 5px #ebebeb;
  background-color: white;   
