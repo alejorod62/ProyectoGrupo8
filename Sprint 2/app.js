@@ -15,6 +15,14 @@ app.get('/login', (req,res) =>{
     res.sendFile(path.join(__dirname, './views/register.html'));
  });
 
+ app.get('/cart', (req,res) =>{
+   res.sendFile(path.join(__dirname, './views/carrito.html'));
+});
+
+app.get('/products', (req,res) =>{
+   res.sendFile(path.join(__dirname, './views/productos.html'));
+});
+
 app.use(express.static(path.join(__dirname, './public')));  
 
 app.listen(3002, () => {
