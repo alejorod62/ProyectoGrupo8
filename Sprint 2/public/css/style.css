@@ -19,11 +19,11 @@ justify-content: start;}
 
 .Icon-Social {display: flex;
     justify-content: center;
+    color: #e8c01e;
 }
 .Icon-Social div img {
     width: 50px;
     height: 50px;
-    color: #e8c01e;
   }
 
 
