@@ -16,11 +16,11 @@ app.get('/login', (req,res) =>{
  });
 
  app.get('/cart', (req,res) =>{
-   res.sendFile(path.join(__dirname, './views/carrito.html'));
+   res.sendFile(path.join(__dirname, './views/cart.html'));
 });
 
 app.get('/products', (req,res) =>{
-   res.sendFile(path.join(__dirname, './views/productos.html'));
+   res.sendFile(path.join(__dirname, './views/products.html'));
 });
 
 app.use(express.static(path.join(__dirname, './public')));  
