@@ -1,6 +1,6 @@
 * {box-sizing: border-box;}
 
-body {font-family: 'Raleway', sans-serif; ;
+body {font-family:  'Roboto', sans-serif ;
     font-size: 16px; 
 }
 
@@ -19,7 +19,6 @@ justify-content: start;}
 
 .Icon-Social {display: flex;
     justify-content: center;
-    color: #e8c01e;
 }
 .Icon-Social div img {
     width: 50px;
@@ -42,9 +41,9 @@ background-color: goldenrod;}
 
 .center{text-align: center;}
 
-.crearcuenta { display: block ;padding-left: 80px;}
+.cuenta {position: relative; right: 20%;}
 
-.buscador {display: block ;width: 20%;}
+.buscador {display: block ;width: 20%; position:relative ; right: 20%;}
 
 #imput {margin-left: 30px; margin-top: 20%;}
 
