@@ -4,7 +4,7 @@
 
 - Publico objetivo : Personas mayores de 18 años, de habla hispana, con interés en el mercado de criptoactivos.
 
-- Listado de 5 páginas referentes en las que se basa su proyecto : www.tradinglatino.net  ,  www.protradingskills.com  ,  www.thecryptotothemoon.com , www.tradingybolsaparatorpes.com , www.key4academy.com/home/courses .
+- Listado de 5 páginas referentes en las que se basa su proyecto : www.tradinglatino.net  ,  www.protradingskills.com  ,  www.thecryptotothemoon.com , www.tradingybolsaparatorpes.com , www.key4academy.com/home/courses , www.educacionit.com/curso-de-bitcoins-y-criptomonedas.
 
 - Listado del grupo con una breve descripción de cada uno : 
 - Alejo Rodríguez : 26 años, de Junín, Bs As, estudiante de Licenciatura en Genética y Programación web.
