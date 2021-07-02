@@ -13,7 +13,7 @@ justify-content: space-between;}
 
 .toplogin {
     display: flex;
-justify-content: start;}
+justify-content: space-between;}
 
 .texto {font-size: 12px ;}
 
@@ -41,7 +41,7 @@ background-color: goldenrod;}
 
 .center{text-align: center;}
 
-.cuenta {position: relative; right: 20%;}
+.cuenta {padding: 10px; right: 20%; }
 
 .buscador {display: block ;width: 20%; position:relative ; right: 20%;}
 
