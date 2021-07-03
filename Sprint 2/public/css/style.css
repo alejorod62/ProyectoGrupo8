@@ -51,7 +51,17 @@ background-color: goldenrod;}
 
 #lupa {margin-left: 30px;}
 
+.titulocurso {text-align: center; background-color: goldenrod; }
+
+.producto{border: solid 2px black; margin: 50px; padding: 100px; }
+
+.descripcion {text-align: left; }
+
 .infocursos {text-align: left;}
+
+.imagenescurso{width: 300px; height: 150px; padding: 5px; margin: auto; text-align: center;}
+
+.columnas { font-size: small; text-align: left;}
 
 .carrusel{
     padding: 2%;
