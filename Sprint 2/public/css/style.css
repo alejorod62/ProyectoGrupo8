@@ -45,21 +45,21 @@ background-color: goldenrod;}
 
 .buscador {display: block ;width: 20%; position:relative ; right: 20%;}
 
-#imput {margin-left: 30px; margin-top: 20%;}
+#imput  {margin-left: 30px; margin-top: 20%; width: 100%;}
 
-#logo {margin-left: 2px; width: 20vw;padding: 5px ; height: 20vh;}
+#logo {margin-left: 1vw; width: 40%;padding-left: 0%; height: 100%;}
 
 #lupa {margin-left: 30px;}
 
 .titulocurso {text-align: center; background-color: goldenrod; }
 
-.producto{border: solid 2px black; margin: 50px; padding: 100px; }
+.producto{border: solid 2px black; margin: 50px; padding: 10px; }
 
 .descripcion {text-align: left; }
 
 .infocursos {text-align: left;}
 
-.imagenescurso{width: 300px; height: 150px; padding: 5px; margin: auto; text-align: center;}
+.imagenescurso{width: 50%; height: 11%; padding: 5px; margin: auto; text-align: center;}
 
 .columnas { font-size: small; text-align: left;}
 
@@ -118,7 +118,7 @@ text-align: center;}
 margin: auto;}
 
 
-        @media (min-width: 361px){
+        @media (min-width: 600px){
              body {box-shadow : 0px 0px 10px rgb ( 100 , 100 , 100 ) }
             #mobile {display: block}
             #hambur {display:none}
