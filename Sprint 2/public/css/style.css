@@ -1,4 +1,4 @@
-* {box-sizing: border-box;}
+* {box-sizing: content-box;}
 
 body {font-family:  'Roboto', sans-serif ;
     font-size: 16px; 
