@@ -66,6 +66,8 @@ background-color: goldenrod;}
 
 .columnas { font-size: small; text-align: left;}
 
+.texto2 {border: solid 1px black; padding: 10%; margin: 1%; background: goldenrod linear-gradient(3); }
+
 .carrusel{
     padding: 2%;
     margin-top: 15%;
@@ -76,9 +78,9 @@ background-color: goldenrod;}
 #main {text-align: center;
 width: 100%;
 padding-bottom: 10%;
-background-color: black;
+background-color: white;
 height: auto;
-color: blanchedalmond;
+color: black;
 }
 
 .middle {display: flex;
