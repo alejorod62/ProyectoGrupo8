@@ -25,6 +25,6 @@ app.get('/product', (req,res) =>{
 
 app.use(express.static(path.join(__dirname, './public')));  
 
-app.listen(3002, () => {
-    console.log("Servidor corriendo");
+app.listen(process.env.PORT || 3000, () => {
+   console.log("Servidor corriendo");
 });
