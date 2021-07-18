@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%-include ('.././partials/head')%>
+</head>
+
+<body>
+  <%-include ('.././partials/header-login')%>
+
+ <section class= "Form-Container m-5">
+  <h2>Crear curso</h2>
+  <form class="row g-3">
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre">
+      </div>
+      <div class="col-md-6">
+        <label for="descripcion" class="form-label"> Breve descripcion</label>
+        <textarea class="form-control" id="descripcion"> </textarea>
+      </div>
+      <div class="col-12">
+        <label for="especific" class="form-label">Especificaciones</label>
+        <textarea class="form-control" id="especific"></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="incluye" class="form-label"> Temas que aborda el curso </label>
+        <textarea class="form-control" id="incluye"></textarea>
+      </div>
+      <div class="col-md-4">
+        <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
+        <input type="file" name="imgPath" accept=".jpg"/>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Continuar</button>
+      </div>
+    </form>
+</section>
+
+  <%-include ('.././partials/footer')%>
+</body>
+</html>

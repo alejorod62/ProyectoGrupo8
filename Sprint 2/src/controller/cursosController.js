@@ -63,6 +63,9 @@ const cursosController = {
                 cursoElegido = cursosDisp[i] 
             }
         res.render('products/details', {cursoDetalle: cursoElegido})
+    },
+    nuevo: (req, res) => {
+        res.render('products/new')
     }
 }
 
