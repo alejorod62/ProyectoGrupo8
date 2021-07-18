@@ -16,6 +16,6 @@ app.use(express.static(path.join(__dirname, './public')));
 
 app.set('view engine', 'ejs')
 
-app.listen(3002, () => {
+app.listen(process.env.PORT || 3002, () => {
     console.log("Servidor corriendo");
-});
+ });
