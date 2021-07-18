@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%-include ('head')%>
+</head>
+
+<body>
+    <header class="toplogin">
+      <%-include ('header-login')%>
+    </header>
+
+
+        <section class="Form-Container m-5 ">
+
+           
+            <h2>Ingresar</h2>
+
+            <!-- INICIO DE SESSION -->
+
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">No compartas tu correo eletronico con nadie.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+              </form>
+        </section>
+
+    
+
+    </header>
+
+    <footer class="footer">
+      <%-include ('footer')%>
+    </footer>
+  </body>
+</html>
