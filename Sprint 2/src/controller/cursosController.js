@@ -66,6 +66,10 @@ const cursosController = {
     },
     nuevo: (req, res) => {
         res.render('products/new')
+    } ,
+
+    editar: (req, res) => {
+        res.render('products/edit')
     }
 }
 
