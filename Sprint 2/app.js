@@ -1,25 +1,16 @@
+const mainRouter = require('./src/router/mainRouter')
+const cursosRouter = require('./src/router/cursosRouter')
+// const usuariosRouter = require('./src/router/usuariosRouter')
+
 const express = require('express');
 const path = require('path');
 const app = express();
-const mainRouter = require('./src/router/mainRouter')
 
-app.get('/', mainRouter);
+app.use('/', mainRouter);
 
-app.get('/login', (req,res) =>{
-    res.sendFile(path.join(__dirname, './views/login.html'));
- });
+app.use('/courses', cursosRouter);
 
- app.get('/register', (req,res) =>{
-    res.sendFile(path.join(__dirname, './views/register.html'));
- });
-
- app.get('/cart', (req,res) =>{
-   res.sendFile(path.join(__dirname, './views/cart.html'));
-});
-
-app.get('/product', (req,res) =>{
-   res.sendFile(path.join(__dirname, './views/product.html'));
-});
+ // app.get('/user', usuariosRouter);
 
 app.use(express.static(path.join(__dirname, './public')));  
 
