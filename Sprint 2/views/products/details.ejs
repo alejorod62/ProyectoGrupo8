@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <%-include ('.././partials/head')%>
+  </head>
+
+  <body>
+    <%-include ('.././partials/header')%>
+
+ <main>
+
+    <article class="producto">
+        <h2 class="titulares"><%=cursoDetalle.nombre%></h2>
+        <section class="right">
+            <img src="/img/<%=cursoDetalle.impPath%>" class="imagenescurso" > </img>
+            <div id="info">
+                <p  id="descripcion"> <%=cursoDetalle.descripcion%> </p>
+                <p> Modalidad online</p>
+                <p> 4 encuentros de 2 hs </p>
+                <p> Sin conocimientos previos </p>
+                <p> 6 cuotas sin interés de $748 </p>
+            </div>            
+        </section>
+        
+        <div id="contenido"> 
+            <h4> En este curso vas a aprender </h4>
+            <ul class="columnas">
+                <li> Fundamentos Bitcoin </li>
+                <li>Tecnología Blockchain</li>
+                <li> Creación de Bloques y Cadena de Bloques</li>
+                <li> Mineros y Usuarios</li>
+                <li>Cómo obtener bitcoins y crear una billetera </li>
+                <li>Transferir y recibir criptomonedas</li>
+                <li>Seguridad en el mundo Bitcoin</li>
+                <li>Minería y creación de Criptomonedas</li>
+                <li>Cómo manejar diferentes tipos de Wallets existentes</li>
+                <li>Comercialización de criptomonedas</li>
+                <li>Cómo minar por hardware o cloud mining</li>
+                <li>Tipos de criptomonedas en el mercado</li>
+                </ul>
+                <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
+        </div>
+    </article>  
+
+ </main>
+
+    <%-include ('.././partials/footer')%>
+</body>
+</html>

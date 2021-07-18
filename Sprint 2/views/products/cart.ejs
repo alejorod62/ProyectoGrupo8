@@ -10,25 +10,24 @@
     <%-include ('.././partials/header')%>
 
  <main>
+    <%for(let i=0; i<cursos.length; i++) { %>
     <article class="producto">
-        <h2 class="titulares"> Curso introductorio al mundo de los criptoactivos</h2>
+        <h2 class="titulares"> <%=cursos[i].nombre%></h2>
         <section class="right">
-            <div id="info">
-        
-                <p  id="descripcion"> Descubre el mundo de las criptomonedas,
-                    y conviértete en un experto del tema. </p>
+            <div id="info">        
+                <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
 
                 <p> Modalidad online</p>
                 <p> 4 encuentros de 2 hs </p>
                 <p> Sin conocimientos previos </p>
                 <p> 6 cuotas sin interés de $748 </p>
-        
             </div>
         </section>
         
-                <button id="agregar-al-carrito"> Comprar </button> <!-- aca podria ir un anchor a un pdf o algo -->
+                <button id="agregar-al-carrito"> Comprar </button>
         </div>
     </article>
+    <% } %>
 </main>
 
     <%-include ('.././partials/footer')%>

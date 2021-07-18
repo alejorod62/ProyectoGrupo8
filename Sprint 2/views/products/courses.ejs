@@ -12,23 +12,20 @@
  <main>
 
     <h1 title="CURSOS" class="titulocurso" > CURSOS DISPONIBLES </h1>
+    <%for(let i=0; i<cursos.length; i++) { %>
     <article class="producto">
-        <h2 class="titulares"> Curso introductorio al mundo de los criptoactivos</h2>
-        <section class="right">
-            <img src="/img/curso.jpg" class="imagenescurso" > </img>
-            <div id="info">
-                <p  id="descripcion"> Descubre el mundo de las criptomonedas,
-                    y conviértete en un experto del tema.
-                   Conocé los motivos de su creación,
-                    y cómo se compran e intercambian las criptomonedas. </p>
-
-                <p> Modalidad online</p>
-                <p> 4 encuentros de 2 hs </p>
-                <p> Sin conocimientos previos </p>
-                <p> 6 cuotas sin interés de $748 </p>
-        
-            </div>
-        </section>
+            <h2 class="titulares"> <%=cursos[i].nombre%></h2>
+            <section class="right">
+                <img src="/img/<%=cursos[i].impPath%>" class="imagenescurso" > </img>
+                <div id="info">        
+                    <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
+    
+                    <p> Modalidad online</p>
+                    <p> 4 encuentros de 2 hs </p>
+                    <p> Sin conocimientos previos </p>
+                    <p> 6 cuotas sin interés de $748 </p>
+                </div>
+            </section>
         <div id="contenido"> 
             <h4> En este curso vas a aprender </h4>
             <ul class="columnas">
@@ -45,10 +42,11 @@
                 <li>Cómo minar por hardware o cloud mining</li>
                 <li>Tipos de criptomonedas en el mercado</li>
                 </ul>
-               <a href="./cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> <!-- aca podria ir un anchor a un pdf o algo -->
+               <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         </div>
     </article>    
-
+    <% } %>
+<!--
     <article class="producto">
         <h2 class="titulares"> Inversión y trading de criptomonedas</h2>
         <section class="right">
@@ -80,7 +78,7 @@
                 <li>Niveles Psicológicos, Alertas y Señales. Soportes y Resistencias. Líneas de Tendencia. Canal Tendencial. Distintos Patrones: De Confirmación. Patrones de Reversión. Patrones de Continuación.</li>
                 
                 </ul>
-                <a href="./cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> <!-- aca podria ir un anchor a un pdf o algo -->
+                <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         </div>
     </article>       
 
@@ -122,10 +120,9 @@
             <li>Gráficos Intradiarios, diarios, semanales o mensuales</li>
             <li>Las medias moviles</li>
             </ul>
-            <a href="./cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> <!-- aca podria ir un anchor a un pdf o algo -->
+            <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
     </div>
-</article>  
-
+</article> -->
 
  </main>
 
