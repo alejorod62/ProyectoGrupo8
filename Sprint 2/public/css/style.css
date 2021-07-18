@@ -61,17 +61,17 @@ background-color: goldenrod;}
 
 .descripcion {text-align: left; }
 
-.infocursos {text-align: left;}
+.infocursos {text-align: left; padding: 2% 4%}
 
 .imagenescurso{width: 50%; height: 11%; padding: 5px; margin: auto; text-align: center;}
 
 .columnas { font-size: small; text-align: left;}
 
-.texto2 {border: solid 1px black; padding: 10%; margin: 1%; background: goldenrod linear-gradient(3); }
+.texto2 {border: solid 1px black; padding: 3%; margin: 3%; background: goldenrod linear-gradient(3); border-radius: 5%}
 
 .carrusel{
-    padding: 2%;
-    margin-top: 15%;
+    padding: 3%;
+    margin: 10% 3%;
     border: 1px solid black;
     border-radius: 1rem;
   }
