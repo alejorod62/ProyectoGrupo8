@@ -1,6 +1,6 @@
 const mainRouter = require('./src/router/mainRouter')
 const cursosRouter = require('./src/router/cursosRouter')
-// const usuariosRouter = require('./src/router/usuariosRouter')
+const usuariosRouter = require('./src/router/usuariosRouter')
 
 const express = require('express');
 const path = require('path');
@@ -10,7 +10,7 @@ app.use('/', mainRouter);
 
 app.use('/courses', cursosRouter);
 
- // app.get('/user', usuariosRouter);
+app.use('/user', usuariosRouter);
 
 app.use(express.static(path.join(__dirname, './public')));  
 
