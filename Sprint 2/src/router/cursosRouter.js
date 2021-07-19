@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', cursosController.index)
 router.get('/cart', cursosController.carrito)
-router.get('/details/:id', cursosController.detalle)
+router.get('/:id/details', cursosController.detalle)
 router.get('/new', cursosController.nuevo)
 router.get('/:id/edit', cursosController.editar)
 
