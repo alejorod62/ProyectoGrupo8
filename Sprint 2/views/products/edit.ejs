@@ -13,26 +13,26 @@
   <form class="row g-3">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" requiered/>
+        <div type="text" class="form-control" id="nombre" contenteditable="true"> <%=cursoEditable.nombre%> </div> 
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
-        <textarea class="form-control" id="descripcion" requiered> </textarea>
+        <div class="form-control" id="descripcion"> <%=cursoEditable.descripcion%></div>
       </div>
       <div class="col-12">
         <label for="especific" class="form-label">Especificaciones</label>
-        <textarea class="form-control" id="especific" requiered></textarea>
+        <div class="form-control" id="especific" contenteditable="true"> <%=cursoEditable.especific%></div>
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <textarea class="form-control" id="incluye" requiered></textarea>
+        <div class="form-control" id="incluye" contenteditable="true"> <%=cursoEditable.incluye%></div>
       </div>
       <div class="col-md-4">
         <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
-        <input type="file" name="imgPath" accept=".jpg"/>
+        <img src="img/<%=cursoEditable.imgPath%>" contenteditable="true" type="file" name="imgPath" accept=".jpg"/>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Continuar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
       </div>
     </form>
 </section>

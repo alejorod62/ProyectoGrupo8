@@ -69,8 +69,14 @@ const cursosController = {
     } ,
 
     editar: (req, res) => {
-        res.render('products/edit')
-    }
+        let id = req.params.id;
+        let cursoElegido
+
+        for (let i = 0; i < cursosDisp.length; i++)
+            if (id == cursosDisp[i].id) {
+                cursoElegido = cursosDisp[i] 
+            }
+        res.render('products/edit', {cursoEditable: cursoElegido})    }
 }
 
 module.exports = cursosController;
