@@ -16,7 +16,7 @@
     <article class="producto">
             <h2 class="titulares"> <%=cursos[i].nombre%></h2>
             <section class="right">
-                <img src="/img/<%=cursos[i].impPath%>" class="imagenescurso" > </img>
+                <a href="/courses/<%=cursos[i].id%>/details"> <img src="/img/<%=cursos[i].impPath%>" class="imagenescurso" > </img> </a>
                 <div id="info">        
                     <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
     
