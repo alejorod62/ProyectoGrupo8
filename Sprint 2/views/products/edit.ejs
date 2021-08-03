@@ -9,11 +9,11 @@
   <%-include ('.././partials/header')%>
 
  <section class= "Form-Container m-5">
-  <h2>Editar curso</h2>
-  <form class="row g-3">
+  <h2>Editar curso <%=cursoEditable.nombre%> </h2>
+  <form class="row g-3" action="/courses/<%=cursoEditable.id%>/edit?_method=PUT" method="POST" enctype="multipart/ form-data">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <div type="text" class="form-control" id="nombre" contenteditable="true"> <%=cursoEditable.nombre%> </div> 
+        <div type="text" class="form-control" id="nombre"> <%=cursoEditable.nombre%> </div> 
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
@@ -21,18 +21,18 @@
       </div>
       <div class="col-12">
         <label for="especific" class="form-label">Especificaciones</label>
-        <div class="form-control" id="especific" contenteditable="true"> <%=cursoEditable.especific%></div>
+        <div class="form-control" id="especific"> <%=cursoEditable.especific%></div>
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <div class="form-control" id="incluye" contenteditable="true"> <%=cursoEditable.incluye%></div>
+        <div class="form-control" id="incluye"> <%=cursoEditable.incluye%></div>
       </div>
       <div class="col-md-4">
         <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
-        <img src="img/<%=cursoEditable.imgPath%>" contenteditable="true" type="file" name="imgPath" accept=".jpg"/>
+        <img src="img/<%=cursoEditable.imgPath%>" type="file" name="imgPath" accept=".jpg"/>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
     </form>
 </section>
