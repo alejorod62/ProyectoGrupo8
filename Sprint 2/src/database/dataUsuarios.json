@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "nombre": "lourdes",
+        "nombre": "Lourdes",
+        "apellido": "Bo",
         "mail": "luulibo@gmail.com",
         "contraseña": "LoremIpsum",
         "telefono": "1555732705",
