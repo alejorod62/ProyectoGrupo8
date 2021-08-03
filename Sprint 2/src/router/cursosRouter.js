@@ -20,7 +20,9 @@ router.get('/', cursosController.index)
 router.get('/cart', cursosController.carrito)
 router.get('/:id/details', cursosController.detalle)
 router.get('/new', cursosController.crear)
-router.post('/new', cursosController.guardar); 
+router.post('/new', uploadFile.single('imgCurso'), cursosController.guardar); 
 router.get('/:id/edit', cursosController.editar)
+router.put('/:id/edit', uploadFile.single('imgCurso'), cursosController.modificar); 
+router.delete('/:id', cursosController.borrar); 
 
 module.exports = router;
