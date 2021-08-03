@@ -12,10 +12,9 @@
  <main>
 
     <article class="producto">
-        <a href="/courses/<%=cursoDetalle.id%>/edit"> <button id="editar"> Editar </button> </a> 
         <h2 class="titulares"><%=cursoDetalle.nombre%></h2>
         <section class="right">
-            <img src="/img/<%=cursoDetalle.impPath%>" class="imagenescurso" > </img>
+            <img src="/img/cursos/<%=cursoDetalle.impPath%>" class="imagenescurso" > </img>
             <div id="info">
                 <p  id="descripcion"> <%=cursoDetalle.descripcion%> </p>
                 <%for(let i=0; i<cursoDetalle.especific.length; i++) { %>
@@ -29,10 +28,15 @@
                 <%for(let i=0; i<cursoDetalle.incluye.length; i++) { %>
             <ul class="columnas">
                 <li> <%=cursoDetalle.incluye[i]%> </li>
-                </ul>
+            </ul>
                 <% } %>
-                <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
+            <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         </div>
+        <a href="/courses/<%=cursoDetalle.id%>/edit"> <button type="submit" class="action-button edit"> EDITAR </button> </a> 
+        <form action="/courses/<%=cursoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex"  onsubmit="return confirm('¿Estas seguro?');">
+            <button type="submit" class="action-button delete">ELIMINAR</button>
+        </form>
+
     </article>  
 
  </main>

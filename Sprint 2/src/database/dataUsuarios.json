@@ -2,6 +2,7 @@
     {
         "id": 1,
         "nombre": "Lourdes",
+        "apellido": "Bo",
         "mail": "luulibo@gmail.com",
         "contraseña": "LoremIpsum",
         "telefono": "1555732705",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "nombre": "Alejo",
+        "apellido": "Rodriguez",
         "mail": "alejorodri62@gmail.com",
         "contraseña": "pipipi10",
         "telefono": "153839312",
@@ -20,6 +22,7 @@
     {
         "id": 3,
         "nombre": "Roberto",
+        "apellido": "Sanchez",
         "mail": "roberto@gmail.com",
         "contraseña": "roberto210",
         "telefono": "153833412",

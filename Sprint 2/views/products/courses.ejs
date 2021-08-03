@@ -16,34 +16,16 @@
     <article class="producto">
             <h2 class="titulares"> <%=cursos[i].nombre%></h2>
             <section class="right">
-                <a href="/courses/<%=cursos[i].id%>/details"> <img src="/img/<%=cursos[i].impPath%>" class="imagenescurso" > </img> </a>
+                <a href="/courses/<%=cursos[i].id%>/details"> <img src="/img/cursos/<%=cursos[i].impPath%>" class="imagenescurso" > </img> </a>
                 <div id="info">        
                     <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
-    
                     <p> Modalidad online</p>
                     <p> 4 encuentros de 2 hs </p>
                     <p> Sin conocimientos previos </p>
                     <p> 6 cuotas sin interés de $748 </p>
                 </div>
             </section>
-        <div id="contenido"> 
-            <h4> En este curso vas a aprender </h4>
-            <ul class="columnas">
-                <li> Fundamentos Bitcoin </li>
-                <li>Tecnología Blockchain</li>
-                <li> Creación de Bloques y Cadena de Bloques</li>
-                <li> Mineros y Usuarios</li>
-                <li>Cómo obtener bitcoins y crear una billetera </li>
-                <li>Transferir y recibir criptomonedas</li>
-                <li>Seguridad en el mundo Bitcoin</li>
-                <li>Minería y creación de Criptomonedas</li>
-                <li>Cómo manejar diferentes tipos de Wallets existentes</li>
-                <li>Comercialización de criptomonedas</li>
-                <li>Cómo minar por hardware o cloud mining</li>
-                <li>Tipos de criptomonedas en el mercado</li>
-                </ul>
-               <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
-        </div>
+               <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a>
     </article>    
     <% } %>
 <!--

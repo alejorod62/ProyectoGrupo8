@@ -11,6 +11,7 @@
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
     "lodash": "^4.17.21",
@@ -19,6 +20,11 @@
     "moment": "^2.29.1",
     "multer": "^1.4.2",
     "nodemon": "^2.0.12"
+=======
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "multer": "^1.4.2"
+>>>>>>> 8c84647c45dda16d753b4fa25dfec440d2aaab02
   },
   "devDependencies": {},
   "scripts": {
