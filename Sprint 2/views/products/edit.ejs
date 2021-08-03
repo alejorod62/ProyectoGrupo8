@@ -9,7 +9,7 @@
   <%-include ('.././partials/header')%>
 
  <section class= "Form-Container m-5">
-  <h2>Editar curso <%=cursoEditable.nombre%> </h2>
+  <h2>Editar <%=cursoEditable.nombre%> </h2>
   <form class="row g-3" action="/courses/<%=cursoEditable.id%>/edit?_method=PUT" method="POST" enctype="multipart/ form-data">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
@@ -29,7 +29,7 @@
       </div>
       <div class="col-md-4">
         <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
-        <img src="img/<%=cursoEditable.imgPath%>" type="file" name="imgPath" accept=".jpg"/>
+        <img src="img/cursos/<%=cursoEditable.imgPath%>" type="file" name="imgPath" accept=".jpg"/>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Guardar</button>
