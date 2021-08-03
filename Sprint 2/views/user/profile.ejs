@@ -8,6 +8,29 @@
   <body>
     <%-include ('.././partials/header-login')%>
 
+    <% for(let profile of profiles) { %>
+    <div class="profile" >
+    
+      <a href="/user/profile/<%=profile.id %>" > 
+				<H1 class="titleprofile"> Perfil del usuario <%=profile.nombre %> </H1>
+
+      </a>
+
+							<p>Nombre:<%=profile.nombre %></p>
+							<p>Email:<%=profile.mail %> </p>
+							<p>Contraseña:<%=profile.contraseña %></p>
+              <p>Telefono:<%=profile.telefono %></p>
+              <p>Imagen:<%=profile.imagen %></p>
+
+            
+							
+					
+				
+			</div>
+			<% } %>
+
+      
+
 <!-- armar -->
 
     <%-include ('.././partials/footer')%>

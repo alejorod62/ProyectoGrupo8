@@ -151,6 +151,12 @@ margin: auto;}
             padding: 0px;
             box-sizing: border-box;
            }
+
+           .titleprofile {font-style: italic ; font: bolder ;}
+           .profile  {border: double black 1px;
+                      text-align: center;
+                      border-radius: 5%;
+                      margin: 10%;}
            
 
 
@@ -161,6 +167,7 @@ margin: auto;}
         background: red ;
     }
 }
+
 
 
 

@@ -1,10 +1,28 @@
 [
     {
         "id": 1,
-        "nombre": "lourdes",
+        "nombre": "Lourdes",
         "mail": "luulibo@gmail.com",
         "contraseña": "LoremIpsum",
         "telefono": "1555732705",
+        "imagen": ""
+    } ,
+
+    {
+        "id": 2,
+        "nombre": "Alejo",
+        "mail": "alejorodri62@gmail.com",
+        "contraseña": "pipipi10",
+        "telefono": "153839312",
+        "imagen": ""
+    } ,
+
+    {
+        "id": 3,
+        "nombre": "Roberto",
+        "mail": "roberto@gmail.com",
+        "contraseña": "roberto210",
+        "telefono": "153833412",
         "imagen": ""
     }
 ]
