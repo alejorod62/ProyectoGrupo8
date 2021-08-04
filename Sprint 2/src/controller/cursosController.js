@@ -35,7 +35,7 @@ const cursosController = {
 			}
 		}
 		idNuevo++
-		let fotoNueva = req.file.filename
+//		let fotoNueva = req.file.filename
 		let cursoNuevo = {
 			id: idNuevo,
 			nombre: req.body.nombre,
@@ -43,7 +43,7 @@ const cursosController = {
 			descripcion: req.body.descripcion,
 			especific: req.body.especific,
 			incluye: req.body.incluye,
-			imgPath: fotoNueva		
+//			imgPath: fotoNueva		
 		};
 		cursosTotal.push(cursoNuevo);
 		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' '))
@@ -62,7 +62,7 @@ const cursosController = {
     },
     modificar: (req, res) => {
 		let id = req.params.id;
-		let fotoNueva = req.file.filename
+/*		let fotoNueva = req.file.filename */
 		for (curso of cursosTotal){
 			if (id==curso.id){
 				curso.nombre= req.body.nombre; 
@@ -70,8 +70,8 @@ const cursosController = {
 				curso.descripcion= req.body.descripcion;
 				curso.especific= req.body.especific;
 				curso.incluye= req.body.incluye;
-		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.image));
-				curso.imgPath= fotoNueva;
+/*		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.image));
+				curso.imgPath= fotoNueva; */
 				break;
 			}
 		}

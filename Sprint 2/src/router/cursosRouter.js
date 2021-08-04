@@ -1,7 +1,7 @@
 const cursosController = require('.././controller/cursosController');
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
+/* const multer = require('multer');
 const path = require('path');
 
 const configuracionImagen = multer.diskStorage({
@@ -14,16 +14,17 @@ const configuracionImagen = multer.diskStorage({
     }
 });
 
-const uploadFile = multer({ storage: configuracionImagen});
 
+const uploadFile = multer({ storage: configuracionImagen});
+*/
 
 router.get('/', cursosController.index)
 router.get('/cart', cursosController.carrito)
 router.get('/:id/details', cursosController.detalle)
 router.get('/new', cursosController.crear)
-router.post('/new', uploadFile.single('imgCurso'), cursosController.guardar); 
+router.post('/new', cursosController.guardar); 
 router.get('/:id/edit', cursosController.editar)
-router.put('/:id/edit', uploadFile.single('imgCurso'), cursosController.modificar); 
+router.put('/:id/edit', cursosController.modificar); 
 router.delete('/:id', cursosController.borrar); 
 
 module.exports = router;
