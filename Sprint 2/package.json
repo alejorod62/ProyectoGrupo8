@@ -4,8 +4,21 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.2",
+    "chart": "^0.1.2",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "moment": "^2.29.1"
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "mocha": "^9.0.3",
+    "moment": "^2.29.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.12"
   },
   "devDependencies": {},
   "scripts": {
@@ -14,7 +27,6 @@
   },
   "engines": {
     "node": "8.9.3"
-  
   },
   "author": "",
   "license": "ISC"
