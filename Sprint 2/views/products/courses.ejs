@@ -19,10 +19,11 @@
                 <a href="/courses/<%=cursos[i].id%>/details"> <img src="/img/cursos/<%=cursos[i].impPath%>" class="imagenescurso" > </img> </a>
                 <div id="info">        
                     <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
-                    <p> Modalidad online</p>
-                    <p> 4 encuentros de 2 hs </p>
-                    <p> Sin conocimientos previos </p>
-                    <p> 6 cuotas sin interés de $748 </p>
+                    <ul>
+                        <%for(let e of cursos[i].especific) { %>
+                        <li> <%=e%> </li>
+                        <% } %>
+                    </ul>
                 </div>
             </section>
                <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a>

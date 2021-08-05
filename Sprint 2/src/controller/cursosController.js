@@ -17,13 +17,14 @@ const cursosController = {
         let id = req.params.id;
         let cursoElegido
 
-        for (let i = 0; i < cursosTotal.length; i++)
-            if (id == cursosTotal[i].id) {
-                cursoElegido = cursosTotal[i];
+        for (let curso of cursosTotal) {
+            if (id == curso.id) {
+                cursoElegido = curso;
                 break;
             }
         res.render('products/details', {cursoDetalle: cursoElegido})
-    },
+    	}
+	},
     crear: (req, res) => {
         res.render('products/new')
     } ,
@@ -54,17 +55,17 @@ const cursosController = {
         let id = req.params.id;
         let cursoElegido
 
-        for (let i = 0; i < cursosTotal.length; i++)
-            if (id == cursosTotal[i].id) {
-                cursoElegido = cursosTotal[i] 
+        for (let curso of cursosTotal)
+            if (id == curso.id) {
+                cursoElegido = curso 
             }
         res.render('products/edit', {cursoEditable: cursoElegido})    
     },
     modificar: (req, res) => {
 		let id = req.params.id;
 /*		let fotoNueva = req.file.filename */
-		for (curso of cursosTotal){
-			if (id==curso.id){
+		for (let curso of cursosTotal){
+			if (id==curso.id){ /*
 				curso.nombre= req.body.nombre; 
 				curso.precio= req.body.precio;
 				curso.descripcion= req.body.descripcion;
@@ -72,12 +73,13 @@ const cursosController = {
 				curso.incluye= req.body.incluye;
 /*		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.image));
 				curso.imgPath= fotoNueva; */
+				console.log(req.body)
 				break;
-			}
 		}
 		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' '))
 		res.redirect('/')
-    },
+    	}
+	},
     borrar: (req, res) => {
 		let id = req.params.id;
         let cursoElegido
@@ -93,7 +95,7 @@ const cursosController = {
 		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.imgPath));
 		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' ')),
 		res.redirect('/')
-    }
+	}
 }
 
 module.exports = cursosController;
