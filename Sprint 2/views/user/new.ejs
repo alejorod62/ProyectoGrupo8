@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%-include ('.././partials/head')%>
+</head>
+
+<body>
+  <%-include ('.././partials/header')%>
+
+ <section class= "Form-Container m-5">
+  <h2>Crear Usuario</h2>
+  <form class="row g-3" action="/usuarios/new" method="POST">
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" requiered/>
+      </div>
+      <div class="col-md-6">
+        <label for="apellido" class="form-label"> Apellido</label>
+        <textarea class="form-control" id="apellido" requiered> </textarea>
+      </div>
+      <div class="col-12">
+        <label for="email" class="form-label">Email</label>
+        <textarea class="form-control" id="email" requiered></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="contraseña" class="form-label">Contraseña</label>
+        <textarea class="form-control" id="contraseña" requiered></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">telefono</label>
+        <textarea class="form-control" id="telefono" requiered></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </div>
+      
+    </form>
+</section>
+
+  <%-include ('.././partials/footer')%>
+</body>
+</html>

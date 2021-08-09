@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%-include ('.././partials/head')%>
+</head>
+
+<body>
+  <%-include ('.././partials/header')%>
+
+ <section class= "Form-Container m-5">
+  <h2>Editar <%=usuarioEditable.nombre%> </h2>
+  <form class="row g-3" action="/usarios/<%=usuarioEditable.id%>/edit?_method=PUT" method="POST">
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input value="<%=usuarioEditable.nombre%>" type="text" class="form-control" id="nombre"> </input> 
+      </div>
+      <div class="col-md-6">
+        <label for="apellido" class="form-label">apellido</label>
+        <textarea class="form-control" id="apellido"> <%=usuarioEditable.apellido%> </textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">email</label>
+        <textarea class="form-control" id="email"> <%=usuarioEditable.email%> </textarea>
+      </div>
+      <div class="col-12">
+        <label for="contraseña" class="form-label">contraseña</label>
+        <input value="<%=usuarioEditable.contrseña%>" class="form-control" id="contraseña"> </input>
+      </div>
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">telefono</div>label>
+        <textarea class="form-control" id="telefono"> <%=usuarioEditable.telefono%></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+</section>
+
+  <%-include ('.././partials/footer')%>
+</body>
+</html>
