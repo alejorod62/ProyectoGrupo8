@@ -65,8 +65,21 @@ const usuariosController = {
 		}
         fs.writeFileSync(profileFilePath, JSON.stringify(cursoNuevo, null, ' '))
 		res.redirect('/')
-    }
+    },
+    borrar: (req, res) => {
+		let id = req.params.id;
+        let usuarioElegido
+		let Nusuario = usuariosTotal.filter(function(e){
+			return id!=e.id
+		})
+
+		for (let usuario of usuariosTotal){
+			if (usuario.id == id){
+				usuarioElegido = curso
+			}
+		}
     
+}
 }
 
 module.exports = usuariosController;
