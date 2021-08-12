@@ -22,8 +22,8 @@ const cursosController = {
                 cursoElegido = curso;
                 break;
             }
-        res.render('products/details', {cursoDetalle: cursoElegido})
     	}
+		res.render('products/details', {cursoDetalle: cursoElegido})
 	},
     crear: (req, res) => {
         res.render('products/new')
