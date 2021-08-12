@@ -1,4 +1,4 @@
-const cursosController = require('.././controller/cursosController');
+const cursosController = require('../controller/cursosController');;
 const express = require('express');
 const router = express.Router();
 /* const multer = require('multer');
