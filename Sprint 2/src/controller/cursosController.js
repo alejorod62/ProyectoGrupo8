@@ -15,7 +15,7 @@ const cursosController = {
     },
     detalle: (req, res) => {
         let id = req.params.id;
-        let cursoElegido
+        let cursoElegido;
 
         for (let curso of cursosTotal) {
             if (id == curso.id) {
