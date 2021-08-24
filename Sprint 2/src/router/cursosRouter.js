@@ -24,7 +24,7 @@ router.get('/details/:id', cursosController.detalle)
 router.get('/new', cursosController.crear)
 router.post('/new', cursosController.guardar); 
 router.get('/edit/:id', cursosController.editar)
-router.put('/edit/:id/', cursosController.modificar); 
+router.put('/edit/:id', cursosController.modificar); 
 router.delete('/:id', cursosController.borrar); 
 
 module.exports = router;
