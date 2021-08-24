@@ -32,13 +32,15 @@
                 <% } %>
         </div>
         <br>
-        <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
-        <a href="/courses/edit/<%=cursoDetalle.id%>"> <button type="submit" class="action-button edit"> EDITAR </button> </a> 
-        
-        <form action="/courses/<%=cursoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex"  onsubmit="return confirm('¿Estas seguro?');">
-            <button type="submit" class="action-button delete" id="delete-curso">ELIMINAR</button>
+        <div >
+        <a href="courses/cart"> <button class="button-detail"> Agregar al carrito </button> </a> 
+        <hr>
+        <a href="/courses/edit/<%=cursoDetalle.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
+        <hr>
+        <form action="/courses/<%=cursoDetalle.id%>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estas seguro?');">
+            <button type="submit" class="button-detail">ELIMINAR</button>
         </form>
-
+    </div>
     </article>  
 
  </main>
