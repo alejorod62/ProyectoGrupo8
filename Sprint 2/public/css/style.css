@@ -156,7 +156,24 @@ margin: auto;}
                       text-align: center;
                       border-radius: 5%;
                       margin: 10%;}
-           
+
+                                 
+      .button-detail {border: none;
+        border-radius: 8px;
+        background-color: black;
+        font-size: 1.2em;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 30px;
+        margin-top: 15px;}                
+         :hover.button-detail { background-color: goldenrod; color: black;}             
+    /*#crear-curso 
+    #agregar-carrito 
+    #delete-curso 
+    #edit-curso 
+        
 
 
 

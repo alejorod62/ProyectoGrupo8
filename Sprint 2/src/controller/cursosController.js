@@ -24,7 +24,7 @@ const cursosController = {
                 break;
             }
     	}
-	res.render('products/details', {cursoDetalle: cursoElegido})
+		res.render('products/details', {cursoDetalle: cursoElegido})
 	},
     crear: (req, res) => {
         res.render('products/new')
@@ -66,28 +66,31 @@ const cursosController = {
     },
     modificar: (req, res) => {
 		let id = req.params.id;
+		let cursoElegido;
 /*		let fotoNueva = req.file.filename */
 		for (let curso of cursosTotal){
-			if (id==curso.id){
-				curso.nombre = req.body.nombre; 
-				curso.precio = req.body.precio;
-				curso.descripcion = req.body.descripcion;
-				curso.especific = req.body.especific;
-				curso.incluye = req.body.incluye;
+			if (id==curso.id){ 
+				curso.nombre= req.body.nombre; 
+				curso.precio= req.body.precio;
+				curso.descripcion= req.body.descripcion;
+				curso.especific= req.body.especific;
+				curso.incluye= req.body.incluye;
 /*		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.image));
 				curso.imgPath= fotoNueva; */
-				console.log(req.body)
+				
 				break;
-			}
+		}
+		
     	}
-	fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' '))
-	res.redirect('/')
+		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' ')) ;
+
+		res.redirect('/') ;
 	},
     borrar: (req, res) => {
 		let id = req.params.id;
-        let cursoElegido
+        let cursoElegido;
 		let Ncursos = cursosTotal.filter(function(e){
-			return id!=e.id
+			return id!=e.id;
 		})
 
 		for (let curso of cursosTotal){
@@ -95,9 +98,9 @@ const cursosController = {
 				cursoElegido = curso;
 			}
 		}
-		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.imgPath));
-		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' ')),
-		res.redirect('/')
+		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.image));
+		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' '));
+		res.redirect('/');
 	}
 }
 

@@ -6,14 +6,14 @@ const express = require('express');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 /* const auditoriaMiddleware = require('./middlewares/auditoriaMw'); */
-const session = require('express-session');
+//const session = require('express-session');
 var bodyParser = require('body-parser')
 
 const app = express();
 
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 /*app.use(auditoriaMiddleware); */
-app.use(session( {secret: "Este es mi secreto"} ));
+//app.use(session( {secret: "Este es mi secreto"} ));
 
 app.use('/', mainRouter);
 app.use('/courses', cursosRouter);
@@ -24,6 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());       
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
+app.get("*", (req, res) => {
+    res.send("Ingreso a ruta invalido");
+    });
 
 // ************ Middlewares - (don't touch) ************
 
