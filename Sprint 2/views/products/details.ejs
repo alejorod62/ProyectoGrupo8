@@ -32,7 +32,7 @@
                 <% } %>
             <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         </div>
-        <a href="/courses/<%=cursoDetalle.id%>/edit"> <button type="submit" class="action-button edit"> EDITAR </button> </a> 
+        <a href="/courses/edit/<%=cursoDetalle.id%>"> <button type="submit" class="action-button edit"> EDITAR </button> </a> 
         <form action="/courses/<%=cursoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex"  onsubmit="return confirm('¿Estas seguro?');">
             <button type="submit" class="action-button delete">ELIMINAR</button>
         </form>
