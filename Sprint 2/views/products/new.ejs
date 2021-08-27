@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Crear curso</h2>
-  <form class="row g-3" action="/courses/new" method="POST" >
+  <form class="row g-3" action="/courses/new" method="POST" enctype="multipart/form-data" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" requiered/>
@@ -28,8 +28,8 @@
         <textarea class="form-control" id="incluye" name="incluye" requiered></textarea>
       </div>
       <div class="col-md-4">
-        <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
-<!---        <input type="file" name="imgPath" accept=".jpg"/> -->
+        <label for="ImagenCurso" class="form-label">Imagen del Curso</label>
+        <input type="file"  class="form-control" id="ImagenCurso" name="ImagenCurso" />
       </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Continuar</button>

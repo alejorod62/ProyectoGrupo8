@@ -60,7 +60,7 @@ const usuariosController = {
 				idNuevo = usuario.id
 			}
 		}
-		idNuevo++
+		idNuevo++ ;
 
 		let nombreImagen = req.file.filename;
 

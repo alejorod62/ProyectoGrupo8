@@ -30,15 +30,17 @@ const cursosController = {
         res.render('products/new')
     } ,
     guardar: (req, res) => {
-		console.log('datos: ', req.body)
+
 		let idNuevo = 0;
 		for (curso of cursosTotal){
 			if (idNuevo<curso.id){
 				idNuevo = curso.id;
 			}
 		}
-		idNuevo++
-//		let fotoNueva = req.file.filename
+		idNuevo++ ;
+
+		let fotoNueva = req.file.filename ;
+		
 		let cursoNuevo = {
 			id: idNuevo,
 			nombre: req.body.nombre,
@@ -46,7 +48,7 @@ const cursosController = {
 			descripcion: req.body.descripcion,
 			especific: req.body.especific,
 			incluye: req.body.incluye,
-//			imgPath: fotoNueva		
+			ImagenCurso: fotoNueva		
 		};
 		cursosTotal.push(cursoNuevo);
 		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' '))
