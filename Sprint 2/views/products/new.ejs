@@ -10,22 +10,22 @@
 
  <section class= "Form-Container m-5">
   <h2>Crear curso</h2>
-  <form class="row g-3" action="/courses/new" method="POST">
+  <form class="row g-3" action="/courses/new" method="POST" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" requiered/>
+        <input type="text" class="form-control" id="nombre" name="nombre" requiered/>
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
-        <textarea class="form-control" id="descripcion" requiered> </textarea>
+        <textarea class="form-control" id="descripcion" name="descripcion" requiered> </textarea>
       </div>
       <div class="col-12">
         <label for="especific" class="form-label">Especificaciones</label>
-        <textarea class="form-control" id="especific" requiered></textarea>
+        <textarea class="form-control" id="especific" name="especific" requiered></textarea>
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <textarea class="form-control" id="incluye" requiered></textarea>
+        <textarea class="form-control" id="incluye" name="incluye" requiered></textarea>
       </div>
       <div class="col-md-4">
         <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>

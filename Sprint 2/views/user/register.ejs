@@ -10,26 +10,34 @@
 
  <section class= "Form-Container m-5">
   <h2>Crear Cuenta</h2>
-  <form class="row g-3" enctype="multipart/ form-data">
+  <form action="/user/register" method="POST" class="row g-3" enctype="multipart/form-data">
       <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="inputEmail4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre">
       </div>
       <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="inputPassword4">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" name="apellido">
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <div class="col-md-6">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password">
       </div>
       <div class="col-12">
-        <label for="inputAddress" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="inputAddress" >
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" >
       </div>
       <div class="col-md-6">
-        <label for="inputCity" class="form-label">Ciudad</label>
-        <input type="text" class="form-control" id="inputCity">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" name="ciudad" >
       </div>
       <div class="col-md-4">
-        <label for="inputState" class="form-label">País</label>
-        <select id="inputState" class="form-select">
+        <label for="pais" class="form-label">País</label>
+        <select id="pais" name="pais" class="form-select">
           <option selected>Seleccione...</option>
           <option> Argentina </option>
           <option> Uruguay </option>
@@ -44,8 +52,14 @@
         </select>
       </div>
       <div class="col-md-2">
-        <label for="inputZip" class="form-label">Código postal</label>
-        <input type="text" class="form-control" id="inputZip">
+        <label for="cp" class="form-label">Código postal</label>
+        <input type="text" class="form-control" id="cp" name="cp">
+      </div>
+      <br>
+      <hr>
+      <div class="col-md-4">
+        <label for="ImagenPerfil" class="form-label">Imagen de perfil</label>
+        <input type="file" name="ImagePerfil" class="form-control" id="ImagenPerfil" name="ImagenPerfil" />
       </div>
       <div class="col-12">
         <div class="form-check">

@@ -17,6 +17,7 @@ const usuariosController = {
         res.render('user/profile', {profiles: profile})
     }, 
     registro: (req, res) => {
+		console.log ("anda")
         res.render('user/register')
     },
     crear: (req, res) => {
@@ -39,8 +40,12 @@ const usuariosController = {
 				usuario.nombre= req.body.nombre; 
 				usuario.apellido= req.body.apellido;
 				usuario.email= req.body.email;
-				usuario.contraseña= req.body.contraseña;
-				usuario.telefono= req.body.telefono;
+				usuario.password= req.body.password;
+				usuario.direccion= req.body.direccion;
+				usuario.ciudad= req.body.ciudad;
+				usuario.pais= req.body.pais;
+				usuario.cp= req.body.cp;
+				usuario.ImagenPerfil= req.body.ImagenPerfil;
 		}
 		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
 		res.redirect('/')
@@ -48,23 +53,35 @@ const usuariosController = {
     },
     
     guardar: (req, res) => {
-		let idNuevo
+		
+		let idNuevo=0
 		for (usuario of usuariosTotal){
 			if (idNuevo<usuario.id){
 				idNuevo = usuario.id
 			}
 		}
 		idNuevo++
+
+		let nombreImagen = req.file.filename;
+
 		let cursoNuevo = {
 			id: idNuevo,
 			nombre: req.body.nombre,
 			apellido: req.body.apellido,
 			email: req.body.email,
-			contrseña: req.body.contraseña,
-            telefono: req.body.telefono,		
+			password: req.body.password,
+            direccion: req.body.direccion,	
+			ciudad: req.body.ciudad,
+			pais: req.body.pais,
+			cp: req.body.cp,
+			ImagenPerfil: nombreImagen
+
 		}
-        fs.writeFileSync(profileFilePath, JSON.stringify(cursoNuevo, null, ' '))
-		res.redirect('/')
+
+		usuariosTotal.push(cursoNuevo);
+
+        fs.writeFileSync(profileFilePath, JSON.stringify(usuariosTotal, null, ' '))
+		res.redirect('/') 
     },
     borrar: (req, res) => {
 		let id = req.params.id;

@@ -1,31 +1,39 @@
 [
-    {
-        "id": 1,
-        "nombre": "Lourdes",
-        "apellido": "Bo",
-        "mail": "luulibo@gmail.com",
-        "contraseña": "LoremIpsum",
-        "telefono": "1555732705",
-        "imagen": ""
-    } ,
-
-    {
-        "id": 2,
-        "nombre": "Alejo",
-        "apellido": "Rodriguez",
-        "mail": "alejorodri62@gmail.com",
-        "contraseña": "pipipi10",
-        "telefono": "153839312",
-        "imagen": ""
-    } ,
-
-    {
-        "id": 3,
-        "nombre": "Roberto",
-        "apellido": "Sanchez",
-        "mail": "roberto@gmail.com",
-        "contraseña": "roberto210",
-        "telefono": "153833412",
-        "imagen": ""
-    }
+ {
+  "id": 1,
+  "nombre": "Lourdes",
+  "apellido": "Bo",
+  "email": "luulibo@gmail.com",
+  "password": "LoremIpsum",
+  "direccion": "1555732705",
+  "ciudad": "Capital Federal",
+  "pais": "Argentina",
+  "cp": "1000",
+  "ImagenPerfil": ""
+ },
+ {
+  "id": 2,
+  "nombre": "Alejo",
+  "apellido": "Rodriguez",
+  "email": "alejorodri62@gmail.com",
+  "password": "pipipi10",
+  "direccion": "153839312",
+  "ciudad": "Capital Federal",
+  "pais": "Argentina",
+  "cp": "1000",
+  "ImagenPerfil": ""
+ },
+ 
+ {
+  "id": 3,
+  "nombre": "Agustina",
+  "apellido": "Fazzi",
+  "email": "afazzi@gmail.com",
+  "password": "pipi10",
+  "direccion": "Fracia 1414",
+  "ciudad": "Rosario",
+  "pais": "Argentina",
+  "cp": "2000",
+  "ImagenPerfil": "1630088006422.jpg"
+ }
 ]

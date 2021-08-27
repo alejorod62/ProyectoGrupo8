@@ -13,19 +13,19 @@
   <form class="row g-3" action="/courses/edit/<%=cursoEditable.id%>?_method=PUT" method="POST">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input value="<%=cursoEditable.nombre%>" type="text" class="form-control" id="nombre"> </input> 
+        <input value="<%=cursoEditable.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
-        <textarea class="form-control" id="descripcion"> <%=cursoEditable.descripcion%> </textarea>
+        <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoEditable.descripcion%> </textarea>
       </div>
       <div class="col-12">
         <label for="especific" class="form-label">Especificaciones</label>
-        <input value="<%=cursoEditable.especific%>" class="form-control" id="especific"> </input>
+        <input value="<%=cursoEditable.especific%>" class="form-control" id="especific" name="especific"> </input>
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <textarea class="form-control" id="incluye"> <%=cursoEditable.incluye%></textarea>
+        <textarea class="form-control" id="incluye" name="incluye"> <%=cursoEditable.incluye%></textarea>
       </div>
       <div class="col-md-4">
         <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
