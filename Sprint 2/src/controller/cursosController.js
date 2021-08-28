@@ -78,12 +78,9 @@ const cursosController = {
 				curso.especific= req.body.especific;
 				curso.incluye= req.body.incluye;
 				curso.ImagenCurso= fotoNueva;
-			
-				fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.ImagenCurso));
-
 				
-				break;
-		
+				break;	
+			//	 fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.ImagenCurso));
 		}
 		
     	}
