@@ -40,7 +40,7 @@ const cursosController = {
 		idNuevo++ ;
 
 		let fotoNueva = req.file.filename ;
-		
+
 		let cursoNuevo = {
 			id: idNuevo,
 			nombre: req.body.nombre,
@@ -69,7 +69,7 @@ const cursosController = {
     modificar: (req, res) => {
 		let id = req.params.id;
 		let cursoElegido;
-/*		let fotoNueva = req.file.filename */
+		let fotoNueva = req.file.filename ;
 		for (let curso of cursosTotal){
 			if (id==curso.id){ 
 				curso.nombre= req.body.nombre; 
@@ -77,10 +77,13 @@ const cursosController = {
 				curso.descripcion= req.body.descripcion;
 				curso.especific= req.body.especific;
 				curso.incluye= req.body.incluye;
-/*		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.image));
-				curso.imgPath= fotoNueva; */
+				curso.ImagenCurso= fotoNueva;
+			
+				fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.ImagenCurso));
+
 				
 				break;
+		
 		}
 		
     	}
@@ -100,7 +103,7 @@ const cursosController = {
 				cursoElegido = curso;
 			}
 		}
-		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.image));
+		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.ImagenCurso));
 		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' '));
 		res.redirect('/');
 	}

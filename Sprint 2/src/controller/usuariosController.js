@@ -34,7 +34,7 @@ const usuariosController = {
         res.render('user/edit', {usuarioEditable: usuarioElegido})    
     },
     modificar: (req, res) => {
-		let id = req.params.id;
+	/*	let id = req.params.id;
 		for (let usuario of usuariosTotal){
 			if (id==usuario.id){ 
 				usuario.nombre= req.body.nombre; 
@@ -49,8 +49,8 @@ const usuariosController = {
 		}
 		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
 		res.redirect('/')
-    	}
-    },
+    	} */
+    } ,
     
     guardar: (req, res) => {
 		

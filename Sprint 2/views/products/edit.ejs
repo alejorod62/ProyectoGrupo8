@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Editar <%=cursoEditable.nombre%> </h2>
-  <form class="row g-3" action="/courses/edit/<%=cursoEditable.id%>?_method=PUT" method="POST">
+  <form class="row g-3" action="/courses/edit/<%=cursoEditable.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=cursoEditable.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
@@ -28,9 +28,10 @@
         <textarea class="form-control" id="incluye" name="incluye"> <%=cursoEditable.incluye%></textarea>
       </div>
       <div class="col-md-4">
-        <label for="imgPath">  <strong> Imagen ilustrativa  </strong> </label>
-<!---       <input src="img/cursos/<%=cursoEditable.imgPath%>" type="file" name="imgPath" accept=".jpg"/>--> 
-      </div>
+        <div class="col-md-4">
+          <label for="ImagenCurso" class="form-label">Imagen del Curso</label>
+          <input type="file"  class="form-control" id="ImagenCurso" name="ImagenCurso" />
+        </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>
       </div>
