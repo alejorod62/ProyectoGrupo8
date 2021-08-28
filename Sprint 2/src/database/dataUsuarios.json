@@ -58,5 +58,17 @@
   "pais": "México",
   "cp": "sadd",
   "ImagenPerfil": "1630135926505.png"
+ },
+ {
+  "id": 6,
+  "nombre": "Roberto",
+  "apellido": "Sanchez",
+  "email": "robertsanchez@gmail.com",
+  "password": "68686",
+  "direccion": "rene 45",
+  "ciudad": "Chivilcol",
+  "pais": "Venezuela",
+  "cp": "3213",
+  "ImagenPerfil": "1630137023939.jpg"
  }
 ]
