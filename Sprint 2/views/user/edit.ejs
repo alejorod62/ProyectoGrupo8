@@ -9,8 +9,8 @@
   <%-include ('.././partials/header')%>
 
  <section class= "Form-Container m-5">
-  <h2>Editar <%=usuarioEditable.nombre%> </h2>
-  <form class="row g-3" action="/usarios/<%=usuarioEditable.id%>/edit?_method=PUT" method="POST">
+  <h2>Editar perfil</h2>
+  <form class="row g-3" action="/usarios/edit/<%=usuarioEditable.id%>?_method=PUT" method="POST">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=usuarioEditable.nombre%>" type="text" class="form-control" id="nombre"> </input> 
@@ -28,7 +28,7 @@
         <input value="<%=usuarioEditable.contraseña%>" class="form-control" id="contraseña"> </input>
       </div>
       <div class="col-md-6">
-        <label for="telefono" class="form-label">telefono</div>label>
+        <label for="telefono" class="form-label">telefono</label>
         <textarea class="form-control" id="telefono"> <%=usuarioEditable.telefono%></textarea>
       </div>
       <div class="col-12">

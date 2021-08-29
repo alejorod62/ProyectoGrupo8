@@ -8,29 +8,23 @@
   <body>
     <%-include ('.././partials/header-login')%>
 
-    <% for(let profile of profiles) { %>
-    <div class="profile" >
+    <div class="perfil" >
     
-      <a href="/user/profile/<%=profile.id %>" > 
-				<H1 class="titleprofile"> Perfil del usuario <%=profile.nombre %> </H1>
+      <a href="/user/perfil/<%=perfil.id %>" > 
+				<H1 class="titleprofile"> Perfil del usuario <%=perfil.nombre %> </H1>
 
       </a>
 
-							<p>Nombre:<%=profile.nombre %></p>
-							<p>Email:<%=profile.email %> </p>
-							<p>Contraseña:<%=profile.password %></p>
-              <p>Direccion:<%=profile.direccion %></p>
-              <p>Ciudad:<%=profile.ciudad %></p>
-              <p>Pais:<%=profile.pais %></p>
-              <p>Codigo postal:<%=profile.cp %></p>
-              <img src="/img/usuarios/<%=profile.ImagenPerfil%>" class="imagenescurso" > </img>
-
-            
-							
-					
+							<p>Nombre:<%=perfil.nombre %></p>
+							<p>Email:<%=perfil.email %> </p>
+							<p>Contraseña:<%=perfil.password %></p>
+              <p>Direccion:<%=perfil.direccion %></p>
+              <p>Ciudad:<%=perfil.ciudad %></p>
+              <p>Pais:<%=perfil.pais %></p>
+              <p>Codigo postal:<%=perfil.cp %></p>
+              <img src="/img/usuarios/<%=perfil.ImagenPerfil%>" class="imagenescurso" > </img>					
 				
 			</div>
-			<% } %>
 
     <%-include ('.././partials/footer')%>
   </body>

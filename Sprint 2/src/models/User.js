@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { reduceRight } = require('lodash');
 const path = require('path');
 
 const User = {
@@ -58,7 +57,5 @@ const User = {
         return true;
     }
 }
-
-console.log(User.delete(7))
 
 module.exports = User;
