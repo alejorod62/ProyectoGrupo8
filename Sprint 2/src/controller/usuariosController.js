@@ -15,8 +15,18 @@ const usuariosController = {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
-        res.send('holi')
-    },
+		let usuarioExistente = User.findByEmail(req.body.email);
+		if (usuarioExistente){
+			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
+			if (passCorrecta=true) {
+				res.render('/user/profile', {perfil: usuarioElegido}); 
+			} else {
+				res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
+			}
+		} else {
+			res.send('Usuario inexistente') //proximamente armamos error y validaciones 
+		}
+	},
     perfil: (req, res) => {
 		let id = req.params.id;
         let usuarioElegido
@@ -29,7 +39,6 @@ const usuariosController = {
         res.render('user/profile', {perfil: usuarioElegido}) 
     }, 
     registro: (req, res) => {
-		console.log ("anda")
         res.render('user/register')
     },
 	guardar: (req, res) => {	
@@ -38,8 +47,14 @@ const usuariosController = {
 			password: bcryptjs.hashSync(req.body.password, 10),
 			ImagenPerfil: req.file.filename
 		}
+
+		let usuarioExistente = User.findByEmail(req.body.email);
+		if (usuarioExistente) {
+			res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
+		} else { 
 		User.create(usuarioNuevo)
 		res.redirect('/') 
+		}
     },
     editar: (req, res) => {
         let id = req.params.id;
