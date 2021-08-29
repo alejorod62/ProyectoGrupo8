@@ -13,23 +13,23 @@
   <form class="row g-3" action="/usarios/edit/<%=usuarioEditable.id%>?_method=PUT" method="POST">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input value="<%=usuarioEditable.nombre%>" type="text" class="form-control" id="nombre"> </input> 
+        <input value="<%=usuarioEditable.nombre%>" type="text" class="form-control" name="nombre" id="nombre"> </input> 
       </div>
       <div class="col-md-6">
         <label for="apellido" class="form-label">apellido</label>
-        <textarea class="form-control" id="apellido"> <%=usuarioEditable.apellido%> </textarea>
+        <textarea class="form-control" name="apellido" id="apellido"> <%=usuarioEditable.apellido%> </textarea>
       </div>
       <div class="col-md-6">
         <label for="email" class="form-label">email</label>
-        <textarea class="form-control" id="email"> <%=usuarioEditable.email%> </textarea>
+        <textarea class="form-control" name="email" id="email"> <%=usuarioEditable.email%> </textarea>
       </div>
       <div class="col-12">
         <label for="contraseña" class="form-label">contraseña</label>
-        <input value="<%=usuarioEditable.contraseña%>" class="form-control" id="contraseña"> </input>
+        <input value="<%=usuarioEditable.contraseña%>" class="form-control" name="contraseña" id="contraseña"> </input>
       </div>
       <div class="col-md-6">
         <label for="telefono" class="form-label">telefono</label>
-        <textarea class="form-control" id="telefono"> <%=usuarioEditable.telefono%></textarea>
+        <textarea class="form-control" name="telefono" id="telefono"> <%=usuarioEditable.telefono%></textarea>
       </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>

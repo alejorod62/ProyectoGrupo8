@@ -20,7 +20,7 @@ const uploadFile = multer({ storage: configImagenPerfil });
 
 router.get('/login', usuariosController.login)
 router.post('/login', usuariosController.ingreso)
-router.get('/profile', usuariosController.perfil)
+router.get('/profile/:id', usuariosController.perfil)
 router.get('/register', usuariosController.registro)
 router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar)
 router.get('/edit/:id', usuariosController.editar)

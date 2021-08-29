@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const User = require('../models/User')
+const bcryptjs = require('bcryptjs');
 
 const profileFilePath = path.join(__dirname, '../database/dataUsuarios.json');
 const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
@@ -22,7 +23,8 @@ const usuariosController = {
 
         for (let usuario of usuariosTotal)
             if (id == usuario.id) {
-                usuarioElegido = usuario 
+                usuarioElegido = usuario;
+				break;
             }
         res.render('user/profile', {perfil: usuarioElegido}) 
     }, 
@@ -30,35 +32,13 @@ const usuariosController = {
 		console.log ("anda")
         res.render('user/register')
     },
-	guardar: (req, res) => {
-		/*User.create(req.body)*/
-		let idNuevo=0
-		for (usuario of usuariosTotal){
-			if (idNuevo<usuario.id){
-				idNuevo = usuario.id
-			}
+	guardar: (req, res) => {	
+		let usuarioNuevo= {
+			...req.body,
+			password: bcryptjs.hashSync(req.body.password, 10),
+			ImagenPerfil: req.file.filename
 		}
-		idNuevo++ ;
-
-		let nombreImagen = req.file.filename;
-
-		let cursoNuevo = {
-			id: idNuevo,
-			nombre: req.body.nombre,
-			apellido: req.body.apellido,
-			email: req.body.email,
-			password: req.body.password,
-            direccion: req.body.direccion,	
-			ciudad: req.body.ciudad,
-			pais: req.body.pais,
-			cp: req.body.cp,
-			ImagenPerfil: nombreImagen
-
-		}
-
-		usuariosTotal.push(cursoNuevo);
-
-        fs.writeFileSync(profileFilePath, JSON.stringify(usuariosTotal, null, ' '))
+		User.create(usuarioNuevo)
 		res.redirect('/') 
     },
     editar: (req, res) => {
@@ -98,7 +78,7 @@ const usuariosController = {
 
 		for (let usuario of usuariosTotal){
 			if (usuario.id == id){
-				usuarioElegido = curso
+				usuarioElegido = usuario
 			}
 		}
 	}
