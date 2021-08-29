@@ -23,6 +23,6 @@ router.post('/login', usuariosController.ingreso)
 router.get('/profile', usuariosController.perfil)
 router.get('/register', usuariosController.registro)
 router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar)
-router.get('/:id/edit', usuariosController.editar)
-router.put('/:id/edit', usuariosController.modificar);
+router.get('/edit/:id', usuariosController.editar)
+router.put('/edit/:id', usuariosController.modificar);
 module.exports = router;

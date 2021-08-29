@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const User = require('../models/User')
 
 const profileFilePath = path.join(__dirname, '../database/dataUsuarios.json');
 const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
@@ -16,15 +17,21 @@ const usuariosController = {
         res.send('holi')
     },
     perfil: (req, res) => {
-        const profile = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
-        res.render('user/profile', {profiles: profile})
+		let id = req.params.id;
+        let usuarioElegido
+
+        for (let usuario of usuariosTotal)
+            if (id == usuario.id) {
+                usuarioElegido = usuario 
+            }
+        res.render('user/profile', {perfil: usuarioElegido}) 
     }, 
     registro: (req, res) => {
 		console.log ("anda")
         res.render('user/register')
     },
 	guardar: (req, res) => {
-		
+		/*User.create(req.body)*/
 		let idNuevo=0
 		for (usuario of usuariosTotal){
 			if (idNuevo<usuario.id){
