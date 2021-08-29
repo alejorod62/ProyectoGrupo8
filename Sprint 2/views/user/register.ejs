@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Crear Cuenta</h2>
-  <form action="/user/register" method="POST" class="row g-3" enctype="multipart/form-data">
+  <form action="/user/register" method="POST" class="row g-3" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre">
@@ -37,7 +37,7 @@
       </div>
       <div class="col-md-4">
         <label for="pais" class="form-label">País</label>
-        <select id="pais" name="pais" class="form-select">
+        <select id="pais" name="pais" class="form-select" requiered>
           <option selected>Seleccione...</option>
           <option> Argentina </option>
           <option> Uruguay </option>

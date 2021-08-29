@@ -12,6 +12,9 @@ const usuariosController = {
     login: (req, res) => {
         res.render('user/login')
     },
+	ingreso: (req, res) => {
+        res.send('holi')
+    },
     perfil: (req, res) => {
         const profile = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
         res.render('user/profile', {profiles: profile})
@@ -20,39 +23,7 @@ const usuariosController = {
 		console.log ("anda")
         res.render('user/register')
     },
-    crear: (req, res) => {
-        res.render('products/new')
-    },
-    editar: (req, res) => {
-        let id = req.params.id;
-        let usuarioElegido
-
-        for (let usuario of usuariosTotal)
-            if (id == usuario.id) {
-                usuarioElegido = usuario 
-            }
-        res.render('user/edit', {usuarioEditable: usuarioElegido})    
-    },
-    modificar: (req, res) => {
-	/*	let id = req.params.id;
-		for (let usuario of usuariosTotal){
-			if (id==usuario.id){ 
-				usuario.nombre= req.body.nombre; 
-				usuario.apellido= req.body.apellido;
-				usuario.email= req.body.email;
-				usuario.password= req.body.password;
-				usuario.direccion= req.body.direccion;
-				usuario.ciudad= req.body.ciudad;
-				usuario.pais= req.body.pais;
-				usuario.cp= req.body.cp;
-				usuario.ImagenPerfil= req.body.ImagenPerfil;
-		}
-		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
-		res.redirect('/')
-    	} */
-    } ,
-    
-    guardar: (req, res) => {
+	guardar: (req, res) => {
 		
 		let idNuevo=0
 		for (usuario of usuariosTotal){
@@ -83,6 +54,34 @@ const usuariosController = {
         fs.writeFileSync(profileFilePath, JSON.stringify(usuariosTotal, null, ' '))
 		res.redirect('/') 
     },
+    editar: (req, res) => {
+        let id = req.params.id;
+        let usuarioElegido
+
+        for (let usuario of usuariosTotal)
+            if (id == usuario.id) {
+                usuarioElegido = usuario 
+            }
+        res.render('user/edit', {usuarioEditable: usuarioElegido})    
+    },
+    modificar: (req, res) => {
+	/*	let id = req.params.id;
+		for (let usuario of usuariosTotal){
+			if (id==usuario.id){ 
+				usuario.nombre= req.body.nombre; 
+				usuario.apellido= req.body.apellido;
+				usuario.email= req.body.email;
+				usuario.password= req.body.password;
+				usuario.direccion= req.body.direccion;
+				usuario.ciudad= req.body.ciudad;
+				usuario.pais= req.body.pais;
+				usuario.cp= req.body.cp;
+				usuario.ImagenPerfil= req.body.ImagenPerfil;
+		}
+		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
+		res.redirect('/')
+    	} */
+    } ,
     borrar: (req, res) => {
 		let id = req.params.id;
         let usuarioElegido
@@ -95,8 +94,7 @@ const usuariosController = {
 				usuarioElegido = curso
 			}
 		}
-    
-}
+	}
 }
 
 module.exports = usuariosController;
