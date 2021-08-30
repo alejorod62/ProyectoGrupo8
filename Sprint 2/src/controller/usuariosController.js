@@ -19,7 +19,9 @@ const usuariosController = {
 		if (usuarioExistente){
 			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
 			if (passCorrecta=true) {
-				res.render('/user/profile', {perfil: usuarioElegido}); 
+				delete usuarioExistente.password;
+				req.session.usuarioLogueado = usuarioExistente
+				res.redirect('/user/profile', {perfil: usuarioElegido}); 
 			} else {
 				res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
 			}
@@ -36,10 +38,12 @@ const usuariosController = {
                 usuarioElegido = usuario;
 				break;
             }
-        res.render('user/profile', {perfil: usuarioElegido}) 
+        res.redirect('user/profile', {
+			usuario: req.session.usuarioLogueado,
+		}) 
     }, 
     registro: (req, res) => {
-        res.render('user/register')
+        res.redirect('user/register')
     },
 	guardar: (req, res) => {	
 		let usuarioNuevo= {
@@ -67,7 +71,7 @@ const usuariosController = {
         res.render('user/edit', {usuarioEditable: usuarioElegido})    
     },
     modificar: (req, res) => {
-	/*	let id = req.params.id;
+		let id = req.params.id;
 		for (let usuario of usuariosTotal){
 			if (id==usuario.id){ 
 				usuario.nombre= req.body.nombre; 
@@ -82,7 +86,7 @@ const usuariosController = {
 		}
 		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
 		res.redirect('/')
-    	} */
+    	} 
     } ,
     borrar: (req, res) => {
 		let id = req.params.id;
