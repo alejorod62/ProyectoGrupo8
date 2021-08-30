@@ -43,7 +43,7 @@ const usuariosController = {
 		}) 
     }, 
     registro: (req, res) => {
-        res.redirect('user/register')
+        res.render('user/register')
     },
 	guardar: (req, res) => {	
 		let usuarioNuevo= {
