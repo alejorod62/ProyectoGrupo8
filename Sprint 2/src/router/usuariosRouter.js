@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const logueoMw = require('.././middlewares/logueoMw')
-const restrictMw = require('.././middlewares/restrictMw')
+const profileMw = require('.././middlewares/profileMw')
 
 /* Multer config */
 
@@ -22,9 +22,11 @@ const uploadFile = multer({ storage: configImagenPerfil });
 
 router.get('/login', logueoMw, usuariosController.login)
 router.post('/login', usuariosController.ingreso)
-router.get('/profile', restrictMw, usuariosController.perfil)
+router.get('/profile', profileMw, usuariosController.perfil)
 router.get('/register', logueoMw, usuariosController.registro)
 router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar)
 router.get('/edit/:id', usuariosController.editar)
 router.put('/edit/:id', usuariosController.modificar);
+router.get('/logout', usuariosController.logout);
+
 module.exports = router;
