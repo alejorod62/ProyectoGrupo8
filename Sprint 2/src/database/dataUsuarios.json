@@ -70,5 +70,29 @@
   "pais": "Venezuela",
   "cp": "3213",
   "ImagenPerfil": "1630137023939.jpg"
+ },
+ {
+  "id": 7,
+  "nombre": "Alejo",
+  "apellido": "Rodriguez",
+  "email": "alejorodri63@gmail.com",
+  "password": "$2a$10$ztbC4J/My2/IEDyLPpBlmuKpyx.5mWm9WJ9fLPeWD232DpMeqwqbe",
+  "direccion": "dsadsa",
+  "ciudad": "asdasd",
+  "pais": "México",
+  "cp": "222",
+  "ImagenPerfil": "1630360773291.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "ssd",
+  "apellido": "scad",
+  "email": "dsds@dsadas.com",
+  "password": "$2a$10$HBW6MRV1Oe1HN6bVHyBhf.dA12Wy9ky4DO41wFZepF1UMmjsk85Fi",
+  "direccion": "dsadas",
+  "ciudad": "dssad",
+  "pais": "Brasil",
+  "cp": "222",
+  "ImagenPerfil": "1630370314733.png"
  }
 ]

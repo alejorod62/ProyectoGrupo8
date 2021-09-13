@@ -15,10 +15,11 @@ const usuariosController = {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
+		console.log (req) ;
 		let usuarioExistente = User.findByEmail(req.body.email);
 		if (usuarioExistente){
 			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
-			if (passCorrecta=true) {
+			if (passCorrecta==true) {
 				delete usuarioExistente.password;
 				req.session.usuarioLogueado = usuarioExistente
 				res.redirect('/user/profile', {perfil: usuarioElegido}); 
@@ -38,12 +39,12 @@ const usuariosController = {
                 usuarioElegido = usuario;
 				break;
             }
-        res.redirect('user/profile', {
+        res.render('user/profile', {
 			usuario: req.session.usuarioLogueado,
 		}) 
     }, 
     registro: (req, res) => {
-        res.redirect('user/register')
+        res.render('user/register')
     },
 	guardar: (req, res) => {	
 		let usuarioNuevo= {
