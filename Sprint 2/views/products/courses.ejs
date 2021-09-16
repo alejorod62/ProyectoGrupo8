@@ -12,7 +12,11 @@
  <main>
 
     <h1 title="CURSOS" class="titulocurso" > CURSOS DISPONIBLES </h1>
-    <%for(let i=0; i<cursos.length; i++) { %>
+    <% for(let curso of Allcursos) { %>
+        <h3><%=curso.nombre%></h3>
+        <% } %>
+
+    <!--
     <article class="producto">
             <h2 class="titulares"> <%=cursos[i].nombre%></h2>
             <section class="right">
@@ -36,7 +40,7 @@
      </div>
 
      <br>
-<!--
+
     <article class="producto">
         <h2 class="titulares"> Inversión y trading de criptomonedas</h2>
         <section class="right">

@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-const logueoMw = require('.././middlewares/logueoMw') ;
-const profileMw = require('.././middlewares/profileMw') ;
+const logueoMw = require('.././middlewares/logueoMw');
+const profileMw = require('.././middlewares/profileMw');
+const navBarMw = require('.././middlewares/navBarMw');
 
 /* Multer config */
 

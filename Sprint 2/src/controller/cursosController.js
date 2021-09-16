@@ -1,15 +1,30 @@
 const fs = require('fs');
 const path = require('path');
 
-const cursosFilePath = path.join(__dirname, '../database/dataCursos.json');
+const cursosFilePath = path.join(__dirname, '../data/dataCursos.json');
 const cursosTotal = JSON.parse(fs.readFileSync(cursosFilePath, 'utf-8'));
+
+const db = require('../database/models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const cursosController = {
     index: (req, res) => {
-		const cursosTotal = JSON.parse(fs.readFileSync(cursosFilePath, 'utf-8'));
-        res.render('products/courses', {cursos: cursosTotal})
+	
+
+		db.cursos.findAll().then((cursos) =>{
+
+			let listaCursos=[];
+
+			for (let curso of cursos){
+				listaCursos.push(curso.nombre);
+			}
+
+			console.log("ver: ", listaCursos);
+
+			res.render('products/courses',{Allcursos: listaCursos});
+
+		});
     }, 
     carrito: (req, res) => {
         res.render('products/cart', {cursos: cursosTotal})
