@@ -10,7 +10,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const cursosController = {
     index: (req, res) => {
-	
+		
 
 		db.cursos.findAll().then((cursos) =>{
 
@@ -19,6 +19,8 @@ const cursosController = {
 			for (let curso of cursos){
 				listaCursos.push(curso.nombre);
 			}
+
+			//db.cursos.catch((error)=>{}) ;
 
 			console.log("ver: ", listaCursos);
 

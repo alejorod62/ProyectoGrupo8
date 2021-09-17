@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, './views')));
 app.use(express.urlencoded({ extended: false }));   
 app.use(express.json());  
 
-
 app.get("*", (req, res) => {
     res.send("Ingreso a ruta invalido");
     });

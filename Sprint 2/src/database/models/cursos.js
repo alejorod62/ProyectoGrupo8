@@ -10,10 +10,10 @@ function cursosData(sequelize, Datatypes){
       descripcion: {type: Datatypes.TEXT},
       horarios: { type: Datatypes.STRING(100)},
       duracion: {type: Datatypes.STRING(50)},
-      requisitos: {type: Datatypes.STRING(200),
+      requisitos: {type: Datatypes.STRING(200)},
       cuotas: {type: Datatypes.STRING(100)} 
     }
-    }
+    
   
     config = {camelCase: false, timestamps: false}; 
   
