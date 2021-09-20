@@ -5,6 +5,7 @@ const path = require('path');
 const multer = require('multer');
 const logueoMw = require('.././middlewares/logueoMw');
 const profileMw = require('.././middlewares/profileMw');
+const navBarMw = require('.././middlewares/navBarMw');
 
 /* Multer config */
 
@@ -20,12 +21,12 @@ const configImagenPerfil = multer.diskStorage({
 
 const uploadFile = multer({ storage: configImagenPerfil });
 
-router.get('/login', logueoMw, usuariosController.login);
-router.post('/login', usuariosController.ingreso);
-router.get('/profile', profileMw, usuariosController.perfil);
-router.get('/register', /*logueoMw,*/ usuariosController.registro);
-router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar);
-router.get('/edit/:id', usuariosController.editar);
+router.get('/login', logueoMw, usuariosController.login) ;
+router.post('/login', usuariosController.ingreso) ;
+router.get('/profile', profileMw, usuariosController.perfil) ;
+router.get('/register', logueoMw, usuariosController.registro) ;
+router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar) ;
+router.get('/edit/:id', usuariosController.editar) ;
 router.put('/edit/:id', usuariosController.modificar);
 router.get('/logout', usuariosController.logout);
 

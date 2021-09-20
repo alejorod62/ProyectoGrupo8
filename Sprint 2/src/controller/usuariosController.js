@@ -3,7 +3,7 @@ const path = require('path');
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs');
 
-const profileFilePath = path.join(__dirname, '../database/dataUsuarios.json');
+const profileFilePath = path.join(__dirname, '../data/dataUsuarios.json');
 const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
 
 
@@ -15,10 +15,11 @@ const usuariosController = {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
+		console.log (req) ;
 		let usuarioExistente = User.findByEmail(req.body.email);
 		if (usuarioExistente){
 			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
-			if (passCorrecta=true) {
+			if (passCorrecta==true) {
 				delete usuarioExistente.password;
 				req.session.usuarioLogueado = usuarioExistente
 				res.redirect('/user/profile', {perfil: usuarioElegido}); 
@@ -38,7 +39,7 @@ const usuariosController = {
                 usuarioElegido = usuario;
 				break;
             }
-        res.redirect('user/profile', {
+        res.render('user/profile', {
 			usuario: req.session.usuarioLogueado,
 		}) 
     }, 
