@@ -19,7 +19,20 @@ function usuariosData(sequelize, Datatypes){
     config = {camelCase: false, timestamps: false}; 
   
     const usuarios = sequelize.define(alias,cols,config)
-  
+/*
+    usuarios.associate = function (modelos){
+
+      usuarios.belongsToMany(modelos.usuarios, {
+        as: "cursos",
+        through: "cursos_usuarios",   // tabla intermedia
+        foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
+        otherKey: "usuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
+        timestamps: false
+      });
+    
+    
+    }
+  */
     return usuarios;
   }
   

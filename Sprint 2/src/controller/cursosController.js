@@ -18,7 +18,10 @@ const cursosController = {
 
 			for (let curso of cursos){
 				listaCursos.push(curso.nombre);
+				
 			}
+
+
 
 			//db.cursos.catch((error)=>{}) ;
 

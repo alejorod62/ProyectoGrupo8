@@ -10,90 +10,12 @@
     <%-include ('.././partials/header')%>
 
  <main>
-
     <% for(let curso of Allcursos) { %>
-        <p> -------------------------------- </p>
+       
         <h3> Nombre curso: <%=curso%>  </h3>
+       
         <% } %>
 
-   
-<!--
-    <article class="producto">
-        <h2 class="titulares"> Inversión y trading de criptomonedas</h2>
-        <section class="right">
-            <img src="/img/curso2.jpg" class="imagenescurso" > </img>
-            <div id="info">
-                <p  id="descripcion"> Este curso tiene como finalidad familiarizar a los participantes al mundo de la "Inversión con Criptomonedas", comenzando por la descripción y sus características, hasta lograr implementar herramientas para su operatoria y trading. 
-                    Adicionalmente, también brindamos recomendaciones para realizar operaciones, normas de seguridad a tener en cuenta, y sitios fiables. Esta instancia de fromación constituye, sin duda, una base fundamental para quienes quieran comenzar con la operatoria de "Criptomonedas", y lo hagan con seguridad, pasión y las herramientas necesarias. </p>
-
-                <p> Modalidad online</p>
-                <p> 8 encuentros de 2 hs </p>
-                <p> Realizar estrategias para optimizar sus resultados.</p>
-                <p> Utilizar métodos de detección temprana.</p>
-                <p>Comprender el momento del Mercado (Alertas y Señales).</p>
-                <p>Lograr que los participantes se sientan confiados y seguros al realizar sus operaciones con Criptomonedas.</p>
-                <p> 6 cuotas sin interés de $1548 </p>
-        
-            </div>
-        </section>
-        <div id="contenido"> 
-            <h4> En este curso vas a aprender </h4>
-            <ul class="columnas">
-                <li> Introducción a las Criptomonedas, nacimiento , evolución y criterio Filosofía del Bitcoiner, Sistema de Cobros y Pagos sin permiso, Ejecución Libre </li>
-                <li>Arquitectura y funcionamiento de las Criptos, Mecanismo y Desarrollo. El Cliente Bitcoin Core, su visión y esperanza. Mineros, Formadores y Armadores del Negocio Gastos y Comisiones de las transacciones Política Monetaria, Resguardos</li>
-                <li> Los Monederos, su Función. Direcciones, Contacto. Diferentes Monederos. Monederos On-line. Monederos físicos (Hardware wallets).Explorador de Bloques. Los Paper Wallet (Generación de direcciones de papel). Recomendaciones. Reconstrucción de carteras (Semillas)</li>
-                <li> Mineros y Usuarios</li>
-                <li>Intercambio comercial extra-bursátil. Participantes. Bolsas de criptomonedas (Exchanges). Principales exchanges. Características y Funcionamiento. La Apertura de Cuenta, Requisitos Generales. </li>
-                <li>Medidas de Seguridad. Qué debemos Tener en Cuenta. Formas de Fondeo local e internacional. (Bancos y Pagadores). Coins y Dinero Fiduciario (fiat).</li>
-                <li>Los distintos Tipos de Gráficos. Plataforma para analizar Gráficos.(Recomendados del Curso). Tipos de gráficos, Porción de Tiempo a Analizar. Jerarquía de Estudios a emplear.n</li>
-                <li>Niveles Psicológicos, Alertas y Señales. Soportes y Resistencias. Líneas de Tendencia. Canal Tendencial. Distintos Patrones: De Confirmación. Patrones de Reversión. Patrones de Continuación.</li>
-                
-                </ul>
-                <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
-        </div>
-    </article>       
-
-<article class="producto">
-    <h2 class="titulares"> Analista Técnico financiero y bursátil</h2>
-    <section class="right">
-        <img src="/img/curso3.jpg" class="imagenescurso" > </img>
-        <div id="info">
-            <p  id="descripcion"> Gracias a este curso de análisis técnico los participantes podrán comprender los mercados financieros, para que puedan hacer sus propios análisis de inversión y desarrollar sus estrategias o sistemas de trading Rentables. El programa tiene un enfoque práctico y de aplicación inmediata. Esta instancia formativa está pensada para ser cursada de forma independiente, pero su aprobación, más las de los siguientes tres cursos: Analista de Inversiones y Mercados financieros, con aplicación de simulador de operaciones bursátiles en tiempo real Ejecutivo en Finanzas y Mercado de Capitales Administrador de inversiones y Gestión de Patrimonios Financieros, con aplicación de simulador de operaciones bursátiles en tiempo real. Dará lugar a que los participantes obtengan el Certificado de Experto Universitario en Mercado de Capitales. </p>
-
-            <p> Modalidad online</p>
-            <p>Objetivo general:  Formar a los participantes para analizar gráficos e histogramas y, a partir de allí, tomar decisiones, evaluar riesgos, asesorar a inversores y acompañar decisiones con un enfoque amplio.
-            </p>
-              <p>  Objetivos específicos: Detecten con claridad y practicidad las oportunidades para armar o desarmar carteras.>
-              </p>
-               <p> Apliquen los conocimientos al momento de administrar una cartera de inversión, y adquieran criterios para orientar a los inversores a complementar la inteligencia en la selección de activos.
-            </p>
-               <p> Conozcan y aprendan a interpretar los indicadores básicos, para luego desarrollar interpretaciones más avanzadas con otros indicadores mas complejos.</p>
-            </p>
-            <p> 12 encuentros de 3 hs </p>
-            <p> Se requieren conocimientos previos </p>
-            <p> 12 cuotas sin interés de $2388 </p>
-    
-        </div>
-    </section>
-    <div id="contenido"> 
-        <h4> En este curso vas a aprender </h4>
-        <ul class="columnas">
-            <li> Conceptos básicos </li>
-            <li>Definición y fundamentos del Análisis Técnico</li>
-            <li> Análisis Técnico vs. Análisis Fundamental</li>
-            <li> Análisis Técnico Estadístico vs. Chartismo</li>
-            <li>Un poco de historia sobre el Análisis Técnico </li>
-            <li>Series temporales de cotizaciones</li>
-            <li>Software de Análisis Técnico</li>
-            <li>Gráficos de barras</li>
-            <li>Gráficos de línea</li>
-            <li>Gráficos de Candlestick</li>
-            <li>Gráficos Intradiarios, diarios, semanales o mensuales</li>
-            <li>Las medias moviles</li>
-            </ul>
-            <a href="courses/cart"> <button id="agregar-al-carrito"> Agregar al carrito </button> </a> 
-    </div>
-</article> -->
 
  </main>
 
