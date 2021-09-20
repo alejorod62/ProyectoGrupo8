@@ -7,7 +7,7 @@ function uscursosData(sequelize, Datatypes){
       UsuarioFK: {type: Datatypes.INTEGER(50)},
       CursosFK: {type: Datatypes.INTEGER},
       Fecha: {type: Datatypes.DATE},
-      Precio: {type: Datatypes.TINYINT},
+      Precio: {type: Datatypes.INTEGER},
       Medio_PagoFK: {type: Datatypes.INTEGER},
     }
   
