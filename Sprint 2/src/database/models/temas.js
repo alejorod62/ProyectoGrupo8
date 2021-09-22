@@ -5,14 +5,14 @@ function temasData(sequelize, Datatypes){
     cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       titulo: {type: Datatypes.STRING(50)},
-      CursosFK: {type: Datatypes.INTEGER},
+      CursosFK: {type: Datatypes.INTEGER(11)},
     }
   
     config = {camelCase: false, timestamps: false}; 
   
     const temas = sequelize.define(alias,cols,config)
 
-    /*
+
     temas.associate = function (modelos){
 
       temas.hasMany(modelos.cursos, {   
@@ -20,7 +20,7 @@ function temasData(sequelize, Datatypes){
         foreignKey: "CursosFK"
       });
     }
-  */
+
     return temas;
     }
   

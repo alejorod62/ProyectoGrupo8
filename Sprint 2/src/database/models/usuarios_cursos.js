@@ -13,9 +13,9 @@ function uscursosData(sequelize, Datatypes){
   
     config = {camelCase: false, timestamps: false}; 
   
-    const usarioscursos = sequelize.define(alias,cols,config)
+    const uscursosData = sequelize.define(alias,cols,config)
   
-    return usuarioscursos;
+    return uscursosData;
     }
   
   
