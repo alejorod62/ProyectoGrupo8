@@ -12,8 +12,7 @@ function cursosData(sequelize, Datatypes){
       duracion: {type: Datatypes.STRING(50)},
       requisitos: {type: Datatypes.STRING(200)},
       cuotas: {type: Datatypes.STRING(100)},
-/*      TemasFK: {type: Datatypes.INTEGER(11)},*/
-      UsuarioFK: {type: Datatypes.INTEGER(11)} 
+      TemasFK: {type: Datatypes.STRING(11)}
     }
     
   
@@ -22,12 +21,13 @@ function cursosData(sequelize, Datatypes){
     const cursos = sequelize.define(alias,cols,config)
 
   cursos.associate = function (modelos){
+
+    cursos.hasMany(modelos.temas, {
+      as: "temas",
+      foreignKey: "TemasFK"
+           });
+
 /*
-      cursos.belongsTo(modelos.temas, {   
-        as: "temas",
-        foreignKey: "TemasFK"
-      });
-*/
       cursos.belongsToMany(modelos.usuarios, {
         as: "usuarios",
         through: "usuarios_Cursos",   // tabla intermedia
@@ -35,8 +35,9 @@ function cursosData(sequelize, Datatypes){
         otherKey: "UsuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false
       });
+*/
     }    
-  
+
     return cursos;
   }
   
