@@ -3,7 +3,7 @@ function temasData(sequelize, Datatypes){
     alias = 'temas';
   
     cols = {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+      id: {type: Datatypes.INTEGER(11), primaryKey: true, autoIncrement: true},
       titulo: {type: Datatypes.STRING(50)},
       CursosFK: {type: Datatypes.INTEGER(11)},
     }

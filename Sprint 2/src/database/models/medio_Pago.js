@@ -3,7 +3,7 @@ function pagosData(sequelize, Datatypes){
     alias = 'medio_Pago';
   
     cols = {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+      id: {type: Datatypes.INTEGER(11), primaryKey: true, autoIncrement: true},
       tipo: {type: Datatypes.STRING(50)},
     }
     
