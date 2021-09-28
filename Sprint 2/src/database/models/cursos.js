@@ -1,4 +1,4 @@
-function cursosData(sequelize, Datatypes){
+function cursos(sequelize, Datatypes){
 
     alias = 'cursos';
   
@@ -22,7 +22,7 @@ function cursosData(sequelize, Datatypes){
 
   cursos.associate = function (modelos){
 
-    cursos.hasMany(modelos.temas, {
+    cursos.belongsTo(modelos.temas, {
       as: "temas",
       foreignKey: "TemasFK"
       });
@@ -30,16 +30,16 @@ function cursosData(sequelize, Datatypes){
       cursos.belongsToMany(modelos.usuarios, {
         as: "usuarios",
         through: "usuarios_Cursos",   // tabla intermedia
-        foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-        otherKey: "UsuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
+        foreignKey: "UsuarioFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
+        otherKey: "CursosFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false
       });
 
       cursos.belongsToMany(modelos.usuarios, {
-        as: "usuarios",
+        as: "usuariosP",
         through: "profesor_Curso",   // tabla intermedia
-        foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-        otherKey: "UsuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
+        foreignKey: "UsuarioFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
+        otherKey: "CursosFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false
       });
     }    
@@ -48,4 +48,4 @@ function cursosData(sequelize, Datatypes){
   }
   
   
-  module.exports = cursosData;
+  module.exports = cursos;

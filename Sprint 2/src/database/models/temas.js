@@ -1,4 +1,4 @@
-function temasData(sequelize, Datatypes){
+function temas(sequelize, Datatypes){
 
     alias = 'temas';
   
@@ -15,9 +15,9 @@ function temasData(sequelize, Datatypes){
 
     temas.associate = function (modelos){
 
-      temas.belongsTo(modelos.cursos, {   
+      temas.hasMany(modelos.cursos, {   
         as: "cursos",
-        foreignKey: "CursosFK"
+        foreignKey: "TemasFK"
       });
     }
 
@@ -25,4 +25,4 @@ function temasData(sequelize, Datatypes){
     }
   
   
-  module.exports = temasData;
+  module.exports = temas;

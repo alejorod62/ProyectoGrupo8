@@ -22,15 +22,15 @@ function usuariosData(sequelize, Datatypes){
 
     usuarios.associate = function (modelos){
 
-      usuarios.belongsToMany(modelos.usuarios, {
+      usuarios.belongsToMany(modelos.cursos, {
         as: "cursos",
         through: "cursos_usuarios",   // tabla intermedia
         foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
         otherKey: "usuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false
       });
-      cursos.belongsToMany(modelos.usuarios, {
-        as: "usuarios",
+      usuarios.belongsToMany(modelos.cursos, {
+        as: "cursosP",
         through: "profesor_Curso",   // tabla intermedia
         foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
         otherKey: "UsuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
