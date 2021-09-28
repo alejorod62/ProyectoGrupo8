@@ -13,9 +13,17 @@ function uscursosData(sequelize, Datatypes){
   
     config = {camelCase: false, timestamps: false}; 
   
-    const uscursosData = sequelize.define(alias,cols,config)
+    const uscursos = sequelize.define(alias,cols,config)
   
-    return uscursosData;
+    uscursos.associate = function (modelos){
+
+    uscursos.belongsTo(modelos.medio_Pago, {
+      as: "medio_Pago",
+      foreignKey: "Medio_PagoFK"
+      });
+    }
+
+    return uscursos;
     }
   
   

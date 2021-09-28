@@ -1,4 +1,4 @@
-function pagosData(sequelize, Datatypes){
+function medio_Pago(sequelize, Datatypes){
 
     alias = 'medio_Pago';
   
@@ -7,13 +7,20 @@ function pagosData(sequelize, Datatypes){
       tipo: {type: Datatypes.STRING(50)},
     }
     
-  
     config = {camelCase: false, timestamps: false}; 
   
-    const pagos = sequelize.define(alias,cols,config)
+    const pago = sequelize.define(alias,cols,config)
   
-    return pagos;
+    pago.associate = function (modelos){
+
+      pago.hasMany(modelos.usuarios_Cursos, {   
+        as: "usuarios_Cursos",
+        foreignKey: "Medio_PagoFK"
+      });
+    }
+
+    return pago;
   }
   
   
-  module.exports = pagosData;
+  module.exports = medio_Pago;
