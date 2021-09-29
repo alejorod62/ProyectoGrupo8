@@ -10,23 +10,18 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const cursosController = {
     index: (req, res) => {
-		console.log(db.cursos)
 
 		db.cursos.findAll().then((cursos) =>{
 
 			let listaCursos=[];
 
-			for (let curso of cursos){
-				listaCursos.push(curso.nombre);
-				
+			for (let u of cursos){
+				listaCursos.push(u);
 			}
-
-
 
 //			db.cursos.catch((error)=>{}) ;
 
-			console.log("ver: ", listaCursos);
-
+			console.log("cursos: ", listaCursos);
 			res.render('products/courses',{Allcursos: listaCursos});
 
 		});

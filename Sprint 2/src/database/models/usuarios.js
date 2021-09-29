@@ -1,4 +1,4 @@
-function usuariosData(sequelize, Datatypes){
+function usuarios(sequelize, Datatypes){
 
     alias = 'usuarios';
   
@@ -42,4 +42,4 @@ function usuariosData(sequelize, Datatypes){
   }
   
   
-  module.exports = usuariosData;
+  module.exports = usuarios;

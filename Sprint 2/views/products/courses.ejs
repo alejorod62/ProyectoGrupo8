@@ -10,12 +10,37 @@
     <%-include ('.././partials/header')%>
 
  <main>
+
+    <h1 title="CURSOS" class="titulocurso" > CURSOS DISPONIBLES </h1>
+
     <% for(let curso of Allcursos) { %>
-       
-        <h3> Nombre curso: <%=curso%>  </h3>
+      
+    <article class="producto">
+            <h2 class="titulares"> <%=curso.nombre%></h2>
+            <section class="right">
+                <a href="/courses/details/<%=curso.id%>"> <img src="/img/cursos/<%=curso.nombreImagen%>" class="imagenescurso" > </img> </a>
+                       
+              <div id="info">        
+                  <p  id="descripcion"> <%=curso.descripcion%> </p>
+                  <ul>
+                      <li> Horarios: <%=curso.horarios%> </li>
+                      <li> Duracion: <%=curso.duracion%> </li>
+                      <li> Requisitos: <%=curso.requisitos%> </li>
+                      <li> Cuotas: <%=curso.cuotas%> </li>
+
+                  </ul>
+              </div>
+        </section>
+               <a href="courses/cart"> <button class="button-detail" id="agregar-al-carrito"> Agregar al carrito </button> </a>
+               <a href="/courses/details/<%=curso.id%>"> <button class="button-detail">Detalles del curso</button> </a>
+      </article>         
        
         <% } %>
 
+        <div > <a href="courses/new"> <button class="button-detail" id="crear-curso"> Crear curso </button> </a>
+        </div>
+   
+        <br>
 
  </main>
 

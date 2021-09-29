@@ -1,4 +1,4 @@
-function profcursoData(sequelize, Datatypes){
+function profesor_Curso(sequelize, Datatypes){
 
     alias = 'profesor_Curso';
   
@@ -10,10 +10,10 @@ function profcursoData(sequelize, Datatypes){
   
     config = {camelCase: false, timestamps: false}; 
   
-    const profcursoData = sequelize.define(alias,cols,config)
+    const profesor_Curso = sequelize.define(alias,cols,config)
   
-    return profcursoData;
+    return profesor_Curso;
     }
   
   
-  module.exports = profcursoData;
+  module.exports = profesor_Curso;

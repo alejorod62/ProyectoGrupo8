@@ -1,4 +1,4 @@
-function uscursosData(sequelize, Datatypes){
+function usuarios_Cursos(sequelize, Datatypes){
 
     alias = 'usuarios_Cursos';
   
@@ -13,18 +13,18 @@ function uscursosData(sequelize, Datatypes){
   
     config = {camelCase: false, timestamps: false}; 
   
-    const uscursos = sequelize.define(alias,cols,config)
+    const usuarios_Cursos = sequelize.define(alias,cols,config)
   
-    uscursos.associate = function (modelos){
+    usuarios_Cursos.associate = function (modelos){
 
-    uscursos.belongsTo(modelos.medio_Pago, {
+      usuarios_Cursos.belongsTo(modelos.medio_Pago, {
       as: "medio_Pago",
       foreignKey: "Medio_PagoFK"
       });
     }
 
-    return uscursos;
+    return usuarios_Cursos;
     }
   
   
-  module.exports = uscursosData;
+  module.exports = usuarios_Cursos;
