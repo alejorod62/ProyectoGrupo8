@@ -30,16 +30,13 @@ const cursosController = {
         res.render('products/cart', {cursos: cursosTotal})
     },
     detalle: (req, res) => {
-        let id = req.params.id;
-        let cursoElegido;
 
-        for (let curso of cursosTotal) {
-            if (id == curso.id) {
-                cursoElegido = curso;
-                break;
-            }
-    	}
-		res.render('products/details', {cursoDetalle: cursoElegido})
+		db.cursos.findByPk(req.params.id)
+			.then(function (curso){
+				res.render('products/details', {cursoElegido: curso})
+
+			})
+
 	},
     crear: (req, res) => {
         res.render('products/new')

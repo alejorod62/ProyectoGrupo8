@@ -7,7 +7,7 @@ function medio_Pago(sequelize, Datatypes){
       tipo: {type: Datatypes.STRING(50)},
     }
     
-    config = {camelCase: false, timestamps: false}; 
+    config = {camelCase: false, timestamps: false, tableName:"medio_Pago"}; 
   
     const pago = sequelize.define(alias,cols,config)
   

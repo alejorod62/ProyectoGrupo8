@@ -8,7 +8,7 @@ function profesor_Curso(sequelize, Datatypes){
       CursosFK: {type: Datatypes.INTEGER(11)}
     }
   
-    config = {camelCase: false, timestamps: false}; 
+    config = {camelCase: false, timestamps: false, tableName: "profesor_Curso"}; 
   
     const profesor_Curso = sequelize.define(alias,cols,config)
   
