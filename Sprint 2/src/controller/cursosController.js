@@ -21,9 +21,10 @@ const cursosController = {
 
 //			db.cursos.catch((error)=>{}) ;
 
-			console.log("cursos: ", listaCursos);
+			
 			res.render('products/courses',{Allcursos: listaCursos});
 
+			
 		});
     }, 
     carrito: (req, res) => {
@@ -36,6 +37,35 @@ const cursosController = {
 				res.render('products/details', {cursoElegido: curso})
 
 			})
+/*
+			db.cursos.findAll({include: [{association: 'temas'}, {association: 'cursos'}]})
+		.then((cursos) =>{
+			
+			let listaCursos=[];
+		
+			for (curso of cursos){
+
+				let listaTemas=[];
+
+				for (temas of cursos.temas){
+					listaTemas.push(temas.id + ' ' + temas.titulo);
+				}
+
+				let objaux={
+					nombre:  cursos.nombre,
+					temas:  cursos.temas.nombre,
+					cursos: listaCursos
+				}
+
+				listaTemas.push(objaux);
+				
+			}
+
+			console.log("ver: ", listaTemas);
+
+			res.render('products/courses',{Allcursos: listaCursos});
+
+		}); */
 
 	},
     crear: (req, res) => {
