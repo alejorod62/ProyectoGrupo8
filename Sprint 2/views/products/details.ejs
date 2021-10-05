@@ -24,8 +24,10 @@
         <div id="contenido"> 
             <h4> En este curso vas a aprender </h4>
             <ul class="columnas">
-                <li> <%=cursoElegido.cuotas%> </li>
+                <% for (let tema of cursoElegido.temas.id){ %>
+                <li> <%=tema.titulo%> </li>
             </ul>
+                <% } %>
         </div>
         <br>
         <div >

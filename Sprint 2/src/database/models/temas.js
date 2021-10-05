@@ -15,9 +15,9 @@ function temas(sequelize, Datatypes){
 
     temas.associate = function (modelos){
 
-      temas.hasMany(modelos.cursos, {   
+      temas.belongsTo(modelos.cursos, {   
         as: "cursos",
-        foreignKey: "TemasFK"
+        foreignKey: "CursosFK"
       });
     }
 

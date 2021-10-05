@@ -12,7 +12,6 @@ function cursos(sequelize, Datatypes){
       duracion: {type: Datatypes.STRING(50)},
       requisitos: {type: Datatypes.STRING(200)},
       cuotas: {type: Datatypes.STRING(100)},
-      TemasFK: {type: Datatypes.INTEGER(11)}
     }
     
   
@@ -22,9 +21,9 @@ function cursos(sequelize, Datatypes){
 
   cursos.associate = function (modelos){
 
-    cursos.belongsTo(modelos.temas, {
+    cursos.hasMany(modelos.temas, {
       as: "temas",
-      foreignKey: "TemasFK"
+      foreignKey: "CursosFK"
       });
 
       cursos.belongsToMany(modelos.usuarios, {
