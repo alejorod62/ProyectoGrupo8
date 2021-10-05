@@ -10,24 +10,24 @@
     <%-include ('.././partials/header')%>
 
  <main>
-    <% for(let curso of Alltemas) { %>
 
        
     <article class="producto">
-        <h2 class="titulares"><%=curso.nombre%></h2>
+        <h2 class="titulares"><%=cursoElegido.nombre%></h2>
         <section class="right">
-            <img src="/img/cursos/<%=curso.nombreImagen%>" class="imagenescurso" > </img>
+            <img src="/img/cursos/<%=cursoElegido.nombreImagen%>" class="imagenescurso" > </img>
             <div id="info">
-                <p  id="descripcion"> <%=curso.descripcion%> </p>
-                <p> Precio : $<%=curso.precio%> </p>
+                <p  id="descripcion"> <%=cursoElegido.descripcion%> </p>
+                <p> Precio : $<%=cursoElegido.precio%> </p>
             </div>            
         </section>
         
         <div id="contenido"> 
             <h4> En este curso vas a aprender </h4>
             <ul class="columnas">
-                
-                <li>  Temas:   <%=curso.temas%> </li>
+                <%for (let tema of cursoElegido.temas) { %>
+                <li>  <%=tema.titulo%> </li>
+                <% } %>
             </ul>
                
         </div>
@@ -35,12 +35,12 @@
         <div >
         <a href="courses/cart"> <button class="button-detail"> Agregar al carrito </button> </a> 
         <hr>
-        <a href="/courses/edit/<%=curso.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
+        <a href="/courses/edit/<%=cursoElegido.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
         <hr>
-        <form action="/courses/<%=curso.id%>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estas seguro?');">
+        <form action="/courses/<%=cursoElegido.id%>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estas seguro?');">
             <button type="submit" class="button-detail">ELIMINAR</button>
         </form>
-        <% } %>
+
     </div>
     </article>  
 
