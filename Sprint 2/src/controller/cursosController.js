@@ -10,7 +10,6 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const cursosController = {
     index: (req, res) => {
-
 		db.cursos.findAll().then((cursos) =>{
 
 			let listaCursos=[];
@@ -53,35 +52,13 @@ const cursosController = {
 				res.render('products/details', {cursoElegido: curso})
 
 			})
-/*
-			db.cursos.findAll({include: [{association: 'temas'}, {association: 'cursos'}]})
-		.then((cursos) =>{
-			
-			let listaCursos=[];
-		
-			for (curso of cursos){
 
-				let listaTemas=[];
+			db.cursos.findAll({include: [{association: 'temas'}]})
+		.then(function(cursos){
 
-				for (temas of cursos.temas){
-					listaTemas.push(temas.id + ' ' + temas.titulo);
-				}
+			res.render('products/courses',{Allcursos: cursoElegido});
 
-				let objaux={
-					nombre:  cursos.nombre,
-					temas:  cursos.temas.nombre,
-					cursos: listaCursos
-				}
-
-				listaTemas.push(objaux);
-				
-			}
-
-			console.log("ver: ", listaTemas);
-
-			res.render('products/courses',{Allcursos: listaCursos});
-
-		}); */
+		}); 
 
 	},
     crear: (req, res) => {
