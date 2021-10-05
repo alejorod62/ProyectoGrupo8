@@ -31,8 +31,24 @@ const cursosController = {
         res.render('products/cart', {cursos: cursosTotal})
     },
     detalle: (req, res) => {
+		db.cursos.findAll({include: [{association: 'temas'}]}).then((cursos) =>{
 
-		db.cursos.findByPk(req.params.id)
+			let listaCursos=[];
+
+			for (let u of cursos){
+				listaCursos.push(u);
+			}
+
+//			db.cursos.catch((error)=>{}) ;
+
+			
+			res.render('products/courses',{Allcursos: listaCursos});
+
+			
+		});
+
+
+	/*	db.cursos.findByPk(req.params.id)
 			.then(function (curso){
 				res.render('products/details', {cursoElegido: curso})
 
