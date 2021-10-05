@@ -32,19 +32,40 @@ const cursosController = {
     detalle: (req, res) => {
 		db.cursos.findAll({include: [{association: 'temas'}]}).then((cursos) =>{
 
-			let listaCursos=[];
+			let Allcursos=[];
+		
+			for (curso of cursos){
 
-			for (let u of cursos){
-				listaCursos.push(u);
+				let listaCursos=[];
+
+				for (tema of curso.temas){
+					listaCursos.push(tema.titulo);
+				}
+
+				let objaux={
+					nombre:  curso.nombre,
+					nombreImagen: curso.nombreImagen,
+					descripcion: curso.descripcion,
+					precio: curso.precio,
+					temas: listaCursos
+				}
+
+				Allcursos.push(objaux);
+				
 			}
+			
+			res.render('products/details',{Alltemas: Allcursos});
+			
+			}
+			
 
 //			db.cursos.catch((error)=>{}) ;
 
 			
-			res.render('products/courses',{Allcursos: listaCursos});
+			
 
 			
-		});
+		);
 
 
 	/*	db.cursos.findByPk(req.params.id)
@@ -59,7 +80,7 @@ const cursosController = {
 			res.render('products/courses',{Allcursos: cursoElegido});
 
 		}); 
-
+*/
 	},
     crear: (req, res) => {
         res.render('products/new')
