@@ -20,12 +20,16 @@
         <textarea class="form-control" id="descripcion" name="descripcion" requiered> </textarea>
       </div>
       <div class="col-12">
-        <label for="especific" class="form-label">Especificaciones</label>
-        <textarea class="form-control" id="especific" name="especific" requiered></textarea>
+        <label for="especific" class="form-label">Requisitos</label>
+        <input class="form-control" id="requisitos" name="requisitos" requiered></input>
+
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <textarea class="form-control" id="incluye" name="incluye" requiered></textarea>
+        <select class="form-control" id="temas" >
+          <% for (let tema of temas) { %>
+        <option value="<%=tema.titulo%>" class="form-control" id="temas" name="temas"> <%=tema.titulo%></option>
+          <% } %>
       </div>
       <div class="col-md-4">
         <label for="ImagenCurso" class="form-label">Imagen del Curso</label>

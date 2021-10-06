@@ -9,28 +9,36 @@
   <%-include ('.././partials/header')%>
 
  <section class= "Form-Container m-5">
-  <h2>Editar <%=cursoEditable.nombre%> </h2>
-  <form class="row g-3" action="/courses/edit/<%=cursoEditable.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <h2>Editar <%=cursoAEditar.nombre%> </h2>
+  <form class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>?_method=PUT" method="POST" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input value="<%=cursoEditable.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
+        <input value="<%=cursoAEditar.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
-        <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoEditable.descripcion%> </textarea>
+        <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoAEditar.descripcion%> </textarea>
       </div>
       <div class="col-12">
-        <label for="especific" class="form-label">Especificaciones</label>
-        <input value="<%=cursoEditable.especific%>" class="form-control" id="especific" name="especific"> </input>
+        <label for="especific" class="form-label">Especificaciones</label> 
+        <input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input>
+        <input value="<%=cursoAEditar.duracion%>" class="form-control" id="duracion" class="especific" name="duracion"> </input>
+        <input value="<%=cursoAEditar.requisitos%>" class="form-control" id="requisitos" class="especific" name="requisitos"> </input>
+        <input value="<%=cursoAEditar.precio%>" class="form-control" id="precio" class="especific" name="precio"> </input>
+        <input value="<%=cursoAEditar.cuotas%>" class="form-control" id="cuotas" class="especific" name="cuotas"> </input>
       </div>
       <div class="col-md-6">
         <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <textarea class="form-control" id="incluye" name="incluye"> <%=cursoEditable.incluye%></textarea>
+        <select class="form-control" id="temas" >
+          <% for (let tema of temas) { %>
+        <option value="<%=tema.titulo%>" class="form-control" id="temas" name="temas"> <%=tema.titulo%></option>
+          <% } %>
+      </select>
       </div>
-      <div class="col-md-4">
+         <div class="col-md-4">
         <div class="col-md-4">
-          <label for="ImagenCurso" class="form-label">Imagen del Curso</label>
-          <input type="file"  class="form-control" id="ImagenCurso" name="ImagenCurso" />
+<!--          <label for="ImagenCurso" class="form-label">Imagen del Curso</label>
+          <input type="file"  class="form-control" id="ImagenCurso" name="ImagenCurso" /> -->
         </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>

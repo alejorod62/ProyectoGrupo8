@@ -5,6 +5,7 @@ const cursosFilePath = path.join(__dirname, '../data/dataCursos.json');
 const cursosTotal = JSON.parse(fs.readFileSync(cursosFilePath, 'utf-8'));
 
 const db = require('../database/models');
+const cursos = require('../database/models/cursos');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -39,66 +40,50 @@ const cursosController = {
 
 	},
     crear: (req, res) => {
-        res.render('products/new')
+		db.temas.findAll().then(function(temas){
+			return res.render('products/new', {temas:temas});
+		})
     } ,
-    guardar: (req, res) => {
-
-		let idNuevo = 0;
-		for (curso of cursosTotal){
-			if (idNuevo<curso.id){
-				idNuevo = curso.id;
-			}
-		}
-		idNuevo++ ;
-
-		let fotoNueva = req.file.filename ;
-
-		let cursoNuevo = {
-			id: idNuevo,
+    guardar: function (req, res) {
+		db.cursos.create({
 			nombre: req.body.nombre,
 			precio: req.body.precio,
+			nombreImagen: req.body.nombreImagen,
 			descripcion: req.body.descripcion,
-			especific: req.body.especific,
-			incluye: req.body.incluye,
-			ImagenCurso: fotoNueva		
-		};
-		cursosTotal.push(cursoNuevo);
-		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' '))
-		res.render('index',{cursos: cursosTotal})
+			horarios: req.body.horarios,
+			duracion: req.body.duracion,
+			requisitos: req.body.requisitos,
+			cuotas: req.body.cuotas
+		});
+		res.redirect('/')
 	},
 
     editar: (req, res) => {
-        let id = req.params.id;
-        let cursoElegido;
+		let pedidoCurso = db.cursos.findByPk(req.params.id);
+		let pedidoTemas = db.temas.findAll();
 
-        for (let curso of cursosTotal) {
-            if (id == curso.id) {
-                cursoElegido = curso 
-            }
-		}
-        res.render('products/edit', {cursoEditable: cursoElegido})    
+		Promise.all([pedidoCurso, pedidoTemas]).then(function ([cursos, temas]){
+			res.render('products/edit', {cursoAEditar: cursos, temas: temas})    
+		})
     },
-    modificar: (req, res) => {
-		let id = req.params.id;
-		let cursoElegido;
-		let fotoNueva = req.file.filename ;
-		for (let curso of cursosTotal){
-			if (id==curso.id){ 
-				curso.nombre= req.body.nombre; 
-				curso.precio= req.body.precio;
-				curso.descripcion= req.body.descripcion;
-				curso.especific= req.body.especific;
-				curso.incluye= req.body.incluye;
-				curso.ImagenCurso= fotoNueva;
-				
-				break;	
-			//	 fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', curso.ImagenCurso));
-		}
-		
-    	}
-		fs.writeFileSync(cursosFilePath, JSON.stringify(cursosTotal, null, ' ')) ;
+    modificar: function (req, res) {
+		db.cursos.update({
+			nombre: req.body.nombre, 
+			precio: req.body.precio,
+			nombreImagen: req.body.nombreImagen,
+			descripcion: req.body.descripcion,
+			horarios: req.body.horarios,
+			duracion: req.body.duracion,
+			requisitos: req.body.requisitos,
+			cuotas: req.body.cuotas,
+		},
+		{
+			where: {
+				id: req.params.id
+			}
+		})
 
-		res.redirect('/') ;
+		res.render('/') ;
 	},
     borrar: (req, res) => {
 		let id = req.params.id;
