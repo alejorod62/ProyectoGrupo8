@@ -85,8 +85,14 @@ const cursosController = {
 
 		res.render('/') ;
 	},
-    borrar: (req, res) => {
-		let id = req.params.id;
+    borrar: (req, res) => { 
+          db.cursos.destroy ({
+			where: {
+				id: req.params.id
+			}
+
+		  }) ;
+	/*	let id = req.params.id;
         let cursoElegido;
 		let Ncursos = cursosTotal.filter(function(e){
 			return id!=e.id;
@@ -98,7 +104,7 @@ const cursosController = {
 			}
 		}
 		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.ImagenCurso));
-		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' '));
+		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' ')); */
 		res.redirect('/');
 	}
 }
