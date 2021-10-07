@@ -3,6 +3,9 @@ const path = require('path');
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs');
 
+const db = require('../database/models');
+const usuarios = require('../database/models/usuarios');
+
 const profileFilePath = path.join(__dirname, '../data/dataUsuarios.json');
 const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
 
@@ -16,7 +19,7 @@ const usuariosController = {
     },
 	ingreso: (req, res) => {
 		console.log (req) ;
-		let usuarioExistente = User.findByEmail(req.body.email);
+		let usuarioExistente = User.findOne(req.body.email);
 		if (usuarioExistente){
 			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
 			if (passCorrecta==true) {
@@ -50,17 +53,23 @@ const usuariosController = {
 		let usuarioNuevo= {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
-			ImagenPerfil: req.file.filename
+			nombreImagen: req.file.filename
 		}
 
-		let usuarioExistente = User.findByEmail(req.body.email);
-		if (usuarioExistente) {
-			res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
-		} else { 
-		User.create(usuarioNuevo)
-		res.redirect('/') 
-		}
-    },
+		db.usuarios.findOne({
+			where: {
+				email: req.body.email,
+			}
+		}) 
+		.then ((usuarioExistente) => {
+			if (usuarioExistente) {
+				res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
+			} else {
+			db.usuarios.create(usuarioNuevo)
+			res.redirect('/') 
+			}
+		})
+	},
     editar: (req, res) => {
         let id = req.params.id;
         let usuarioElegido
