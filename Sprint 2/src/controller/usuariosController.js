@@ -1,17 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const User = require('../models/User')
-const bcryptjs = require('bcryptjs');
-
 const db = require('../database/models');
 const usuarios = require('../database/models/usuarios');
-
-const profileFilePath = path.join(__dirname, '../data/dataUsuarios.json');
-const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
-
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
+const bcryptjs = require('bcryptjs');
 
 const usuariosController = {
     login: (req, res) => {
