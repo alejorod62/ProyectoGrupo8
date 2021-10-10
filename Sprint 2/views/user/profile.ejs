@@ -15,14 +15,14 @@
 
       </a>
 
-							<p>Nombre:<%=usuario.nombre %></p>
+							<p>Nombre:<%=usuario.nombre %> <%=usuario.apellido %></p>
 							<p>Email:<%=usuario.email %> </p>
-							<p>Contraseña:<%=usuario.password %></p>
+							<p>Contraseña:<%=usuario.clave %></p>
               <p>Direccion:<%=usuario.direccion %></p>
-              <p>Ciudad:<%=usuario.ciudad %></p>
-              <p>Pais:<%=usuario.pais %></p>
+              <p>Localidad:<%=usuario.ciudad %>, <%=usuario.pais %></p>
+              <p>Teléfono:<%=usuario.telefono %></p>
               <p>Codigo postal:<%=usuario.cp %></p>
-              <img src="/img/usuarios/<%=usuario.ImagenPerfil%>" class="imagenescurso" > </img>					
+              <img src="/img/usuarios/<%=usuario.nombreImagen%>" class="imagenescurso" > </img>					
 				
 			</div>
 
