@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const usuarios = require('../database/models/usuarios');
 const bcryptjs = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 const usuariosController = {
     login: (req, res) => {
@@ -48,8 +49,12 @@ const usuariosController = {
     registro: (req, res) => {
         res.render('user/register')
     },
-	guardar: (req, res) => {	
-		let usuarioNuevo= {
+	guardar: (req, res) => {
+		const validaciones = validationResult(req);
+		console.log(validaciones);
+		res.send('/')
+		
+		/* let usuarioNuevo= {
 			...req.body,
 			clave: bcryptjs.hashSync(req.body.clave, 10),
 			nombreImagen: req.file.filename
@@ -63,9 +68,9 @@ const usuariosController = {
 				res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
 			} else {
 			db.usuarios.create(usuarioNuevo)
-			res.redirect('index') 
+			res.redirect('/') 
 			}
-		})
+		})*/
 	},
     editar: (req, res) => {
 		db.usuarios.findOne({
@@ -86,7 +91,7 @@ const usuariosController = {
 			usuarioElegido.clave= req.body.clave;
 			usuarioElegido.telefono= req.body.telefono;
 			usuarioElegido.nombreImagen= req.body.nombreImagen;
-		res.redirect('index') 				
+		res.redirect('/') 				
     	})
 	} ,
     borrar: (req, res) => {
@@ -96,7 +101,7 @@ const usuariosController = {
 			}
 
 		  }) ;
-		res.redirect('index');
+		res.redirect('/');
 /*
 		let id = req.params.id;
         let usuarioElegido
@@ -112,7 +117,7 @@ const usuariosController = {
 	},
 	logout: (req, res) => {
 		req.session.destroy()
-		return res.redirect('index')
+		return res.redirect('/')
 	}
 }
 
