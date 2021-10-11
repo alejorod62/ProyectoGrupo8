@@ -63,7 +63,7 @@ const usuariosController = {
 				res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
 			} else {
 			db.usuarios.create(usuarioNuevo)
-			res.redirect('/') 
+			res.redirect('index') 
 			}
 		})
 	},
@@ -86,7 +86,7 @@ const usuariosController = {
 			usuarioElegido.clave= req.body.clave;
 			usuarioElegido.telefono= req.body.telefono;
 			usuarioElegido.nombreImagen= req.body.nombreImagen;
-		res.redirect('/') 				
+		res.redirect('index') 				
     	})
 	} ,
     borrar: (req, res) => {
