@@ -83,7 +83,7 @@ const cursosController = {
 			}
 		})
 
-		res.render('/') ;
+		res.redirect('/') ;
 	},
     borrar: (req, res) => { 
           db.cursos.destroy ({
@@ -92,19 +92,7 @@ const cursosController = {
 			}
 
 		  }) ;
-	/*	let id = req.params.id;
-        let cursoElegido;
-		let Ncursos = cursosTotal.filter(function(e){
-			return id!=e.id;
-		})
-
-		for (let curso of cursosTotal){
-			if (curso.id == id){
-				cursoElegido = curso;
-			}
-		}
-		fs.unlinkSync(path.join(__dirname, '../../public/img/cursos/', cursoElegido.ImagenCurso));
-		fs.writeFileSync(cursosFilePath, JSON.stringify(Ncursos, null, ' ')); */
+	
 		res.redirect('/');
 	}
 }
