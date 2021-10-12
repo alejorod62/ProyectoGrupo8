@@ -5,7 +5,7 @@ const path = require('path');
 const multer = require('multer');
 const logueoMw = require('.././middlewares/logueoMw');
 const profileMw = require('.././middlewares/profileMw');
-const validacionesR = require('.././middlewares/validacionesRMw');
+const validacionesR = require('.././middlewares/validacionesR');
 
 /* Multer config */
 

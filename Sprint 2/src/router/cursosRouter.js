@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const validacionesCursos = require('.././middlewares/validacionesCursos');
 
 /* Multer config */
 const configuracionImagen = multer.diskStorage({
@@ -21,7 +22,7 @@ router.get('/', cursosController.index)
 router.get('/cart', cursosController.carrito)
 router.get('/details/:id', cursosController.detalle)
 router.get('/new', cursosController.crear)
-router.post('/new', uploadFile.single ("nombreImagen") , cursosController.guardar); 
+router.post('/new', uploadFile.single ("nombreImagen") , validacionesCursos, cursosController.guardar); 
 router.get('/edit/:id', cursosController.editar)
 router.put('/edit/:id' , uploadFile.single ("nombreImagen"), cursosController.modificar); 
 router.delete('/:id', cursosController.borrar); 

@@ -43,18 +43,17 @@ const usuariosController = {
                 usuarioElegido = usuario;
 				break;
             }*/
-        res.render('user/profile', {usuario: req.session.usuarioLogueado,
-    	})
+        res.render('user/profile', {usuario: req.session.usuarioLogueado})
 	}, 
     registro: (req, res) => {
         res.render('user/register')
     },
 	guardar: (req, res) => {
-		const validaciones = validationResult(req);
-		console.log(validaciones);
-		res.send('/')
-		
-		/* let usuarioNuevo= {
+	/*	const errors = validationResult(req);
+		console.log(errors);
+		res.send(errors);		
+		*/
+		 let usuarioNuevo= {
 			...req.body,
 			clave: bcryptjs.hashSync(req.body.clave, 10),
 			nombreImagen: req.file.filename
@@ -70,29 +69,30 @@ const usuariosController = {
 			db.usuarios.create(usuarioNuevo)
 			res.redirect('/') 
 			}
-		})*/
+		})
 	},
     editar: (req, res) => {
 		db.usuarios.findOne({
 			where: {id: req.params.id}
 		})
 		.then((usuarioElegido) => {
-			res.render('user/edit', {usuarioEditable: usuarioElegido})    
+			res.render('user/edit', {usuario: usuarioElegido})    
 		})
     },
     modificar: (req, res) => {
-		db.usuarios.findOne({
-            where: {id: req.params.id}
-        })
-        .then((usuarioElegido) => {
-			usuarioElegido.nombre= req.body.nombre; 
-			usuarioElegido.apellido= req.body.apellido;
-			usuarioElegido.email= req.body.email;
-			usuarioElegido.clave= req.body.clave;
-			usuarioElegido.telefono= req.body.telefono;
-			usuarioElegido.nombreImagen= req.body.nombreImagen;
+		db.usuarios.update({
+			nombre: req.body.nombre, 
+			apellido: req.body.apellido,
+			email: req.body.email,
+			clave: req.body.clave,
+			telefono: req.body.telefono,
+		},
+		{
+			where: {
+				id: req.params.id
+			}
+		})
 		res.redirect('/') 				
-    	})
 	} ,
     borrar: (req, res) => {
 		db.usuarios.destroy ({

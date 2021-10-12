@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const cursos = require('../database/models/cursos');
+const { validationResult } = require('express-validator');
 
 const cursosController = {
     index: (req, res) => {
@@ -36,17 +37,23 @@ const cursosController = {
     } ,
 
     guardar: function (req, res) {
-		db.cursos.create({
-			nombre: req.body.nombre,
-			precio: req.body.precio,
-			nombreImagen: req.body.nombreImagen,
-			descripcion: req.body.descripcion,
-			horarios: req.body.horarios,
-			duracion: req.body.duracion,
-			requisitos: req.body.requisitos,
-			cuotas: req.body.cuotas
-		});
-		res.redirect('index')
+		const errors = validationResult(req);
+		res.send(errors);
+/* 		if (errors.isEmpty()){
+			db.cursos.create({
+				nombre: req.body.nombre,
+				precio: req.body.precio,
+				nombreImagen: req.body.nombreImagen,
+				descripcion: req.body.descripcion,
+				horarios: req.body.horarios,
+				duracion: req.body.duracion,
+				requisitos: req.body.requisitos,
+				cuotas: req.body.cuotas
+			});
+			res.redirect('/')
+		} else {
+			res.render('products/new', {errors: errors.array()});
+		}*/
 	},
 
     editar: (req, res) => {
@@ -75,7 +82,7 @@ const cursosController = {
 			}
 		})
 
-		res.render('index') ;
+		res.render('/') ;
 	},
 
     borrar: (req, res) => { 
@@ -85,7 +92,7 @@ const cursosController = {
 			}
 
 		  }) ;
-		res.redirect('index');
+		res.redirect('/');
 	}
 }
 
