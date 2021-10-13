@@ -32,28 +32,29 @@ const cursosController = {
 
     crear: (req, res) => {
 		db.temas.findAll().then(function(temas){
-			return res.render('products/new', {temas:temas});
+			return res.render('products/new', {listaTemas:temas});
 		})
     } ,
 
     guardar: function (req, res) {
 		const errors = validationResult(req);
-		res.send(errors);
-/* 		if (errors.isEmpty()){
+		const temas = db.temas.findAll()
+		if (errors.isEmpty()){
 			db.cursos.create({
 				nombre: req.body.nombre,
-				precio: req.body.precio,
-				nombreImagen: req.body.nombreImagen,
 				descripcion: req.body.descripcion,
-				horarios: req.body.horarios,
 				duracion: req.body.duracion,
+				horarios: req.body.horarios,
 				requisitos: req.body.requisitos,
-				cuotas: req.body.cuotas
+			/*	temas: req.body.temas,*/
+				precio: req.body.precio,
+				cuotas: req.body.cuotas,
+				nombreImagen: req.body.nombreImagen,
 			});
 			res.redirect('/')
 		} else {
-			res.render('products/new', {errors: errors.array()});
-		}*/
+			res.render('products/new', {errors: errors.array(), listaTemas: temas});
+		}
 	},
 
     editar: (req, res) => {

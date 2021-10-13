@@ -14,26 +14,56 @@
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre">
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="nombre") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="apellido" class="form-label">Apellido</label>
         <input type="text" class="form-control" id="apellido" name="apellido">
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="apellido") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="email" class="form-label">Correo Electrónico</label>
         <input type="email" class="form-control" id="email" name="email" />
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="email") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="clave" class="form-label">Contraseña</label>
         <input type="password" class="form-control" id="clave" name="clave">
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="clave") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-10">
         <label for="direccion" class="form-label">Dirección</label>
         <input type="text" class="form-control" id="direccion" name="direccion" >
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="direccion") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="ciudad" class="form-label">Ciudad</label>
         <input type="text" class="form-control" id="ciudad" name="ciudad" >
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="ciudad") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-4">
         <label for="pais" class="form-label">País</label>
@@ -50,10 +80,20 @@
           <option> Venezuela </option>
           <option> México </option>
         </select>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="pais") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="telefono" class="form-label">Número de teléfono</label>
         <input type="text" class="form-control" id="telefono" name="telefono">
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="telefono") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <br>
       <hr>

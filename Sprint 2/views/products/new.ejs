@@ -14,24 +14,74 @@
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" requiered/>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="nombre") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
-      <div class="col-md-6">
+      <div class="col-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
         <textarea class="form-control" id="descripcion" name="descripcion" requiered> </textarea>
-      </div>
-      <div class="col-12">
-        <label for="especific" class="form-label">Requisitos</label>
-        <input class="form-control" id="requisitos" name="requisitos" requiered></input>
-
-      </div>
-      <div class="col-md-6">
-        <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <select class="form-control" id="temas" >
-          <% for (let tema of temas) { %>
-        <option value="<%=tema.titulo%>" class="form-control" id="temas" name="temas"> <%=tema.titulo%></option>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="descripcion") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
           <% } %>
+        <% } %>
+      </div>
+      <div class="col-6">
+        <label for="duracion" class="form-label">Duracion</label>
+        <input type="text" class="form-control" id="duracion" name="duracion" requiered/>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="duracion") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-4">
+        <label for="horarios" class="form-label">Horarios</label>
+        <input type="text" class="form-control" id="horarios" name="horarios" requiered/>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="horarios") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
+      </div>
+
+      <div class="col-12">
+        <label for="requisitos" class="form-label">Requisitos</label>
+        <input class="form-control" id="requisitos" name="requisitos" requiered></input>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="requisitos") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
+      </div>
+<!--      <div class="col-md-6">
+        <label for="temas" class="form-label"> Temas que aborda el curso </label>
+        <select class="form-control" id="temas">
+          <%for (let tema of listaTemas) { %>
+        <option value="<%=tema.titulo%>" class="form-control" id="temas" name="temas"> <%=tema.titulo%> </option>
+      </div>      -->
+      <div class="col-md-4">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="precio" name="precio" requiered/>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="precio") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
+      </div>
+      <div class="col-md-6">
+        <label for="cuotas" class="form-label">Cuotas</label>
+        <input class="form-control" id="cuotas" name="cuotas" requiered></input>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="cuotas") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
+      </div>
+      <div class="col-4">
         <label for="nombreImagen" class="form-label">Imagen del Curso</label>
         <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" />
       </div>
