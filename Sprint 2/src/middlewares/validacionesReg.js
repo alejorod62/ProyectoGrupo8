@@ -1,6 +1,6 @@
 const { check } = require('express-validator')
 
-let validacionesR = [
+let validacionesReg = [
     check('nombre')
         .notEmpty().withMessage('Campo vacio')
         .isLength({ min: 5, max: 30}).withMessage('Debe ingresar entre 10 y 30 caracteres'),
@@ -15,5 +15,5 @@ let validacionesR = [
     check('telefono').isNumeric().withMessage('Ingrese un número telefónico sin guiones ni puntos')
 ];  
 
-module.exports = validacionesR;
+module.exports = validacionesReg;
 

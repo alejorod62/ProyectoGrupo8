@@ -14,6 +14,10 @@ const usuariosController = {
 		})
 		console.log(usuarioP)
 	}, */
+		const errors = validationResult(req);
+		console.log(errors);
+		res.send(errors);
+		/*
 		db.usuarios.findOne({
 			where: {
 				email: req.body.email,
@@ -32,7 +36,7 @@ const usuariosController = {
 			} else {
 				res.send('Usuario inexistente') //proximamente armamos error y validaciones 
 			}
-		})
+		})*/
 	},
     perfil: (req, res) => {
 	/*	let id = req.params.id;
@@ -80,6 +84,9 @@ const usuariosController = {
 		})
     },
     modificar: (req, res) => {
+		const errors = validationResult(req);
+		console.log(errors);
+		res.send(errors);/*
 		db.usuarios.update({
 			nombre: req.body.nombre, 
 			apellido: req.body.apellido,
@@ -92,7 +99,7 @@ const usuariosController = {
 				id: req.params.id
 			}
 		})
-		res.redirect('/') 				
+		res.redirect('/') 			*/	
 	} ,
     borrar: (req, res) => {
 		db.usuarios.destroy ({
