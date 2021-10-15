@@ -4,15 +4,15 @@ let validacionesCursos = [
     body('nombre')
         .notEmpty().withMessage('Campo vacío').bail()
         .isLength({ min: 5, max: 30}).withMessage('Debe ingresar entre 5 y 30 caracteres'),
-    body('descripcion').notEmpty().withMessage('Campo vacío'),
+    body('descripcion')
+        .notEmpty().withMessage('Campo vacío')
+        .isLength({ min: 50}).withMessage('Debe ingresar más de 50 caracteres'),
     body('duracion')
         .notEmpty().withMessage('Campo vacío')
-        .isLength({min: 10, max:50}).withMessage('Debe ingresar entre 10 y 50 caracteres')
-        .isAlphanumeric().withMessage('Especifique la duración y cantidad de encuentros'),
+        .isLength({min: 10, max:50}).withMessage('Debe ingresar entre 10 y 50 caracteres'),
     body('horarios')
         .notEmpty().withMessage('Campo vacío')
-        .isLength({min: 10, max:100}).withMessage('Debe ingresar entre 10 y 100 caracteres')
-        .isAlphanumeric().withMessage('Especifique horarios y días'),
+        .isLength({min: 10, max:100}).withMessage('Debe ingresar entre 10 y 100 caracteres'),
     body('requisitos')
         .notEmpty().withMessage('Campo vacío')
         .isLength({min: 10, max: 200}).withMessage('Debe ingresar entre 10 y 200 caracteres'),

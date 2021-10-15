@@ -18,9 +18,16 @@ const cursosController = {
     }, 
 
     carrito: (req, res) => {
-        res.render('products/cart', {cursos: cursosTotal})
-    },
+		db.cursos.findAll().then((cursos) =>{
 
+			let listaCursos=[];
+
+			for (let u of cursos){
+				listaCursos.push(u);
+			}
+        res.render('products/cart', {cursos: listaCursos})
+    	})
+	},
     detalle: (req, res) => {
 		db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((curso) =>{	
 		res.render('products/details',{cursoElegido: curso});
@@ -73,6 +80,7 @@ const cursosController = {
 			nombreImagen: req.body.nombreImagen,
 			descripcion: req.body.descripcion,
 			horarios: req.body.horarios,
+			temas: req.body.temas,
 			duracion: req.body.duracion,
 			requisitos: req.body.requisitos,
 			cuotas: req.body.cuotas,
@@ -83,7 +91,7 @@ const cursosController = {
 			}
 		})
 
-		res.render('/') ;
+		res.redirect('/') ;
 	},
 
     borrar: (req, res) => { 

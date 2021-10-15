@@ -8,45 +8,38 @@ const usuariosController = {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
-	/* console.log(req.body.email)
-	let usuarioP = db.usuarios.findOne({
-			where: { email: req.body.email}
-		})
-		console.log(usuarioP)
-	}, */
-		const errors = validationResult(req);
-		console.log(errors);
-		res.send(errors);
-		/*
-		db.usuarios.findOne({
+/*		const errors = validationResult(req); */
+
+			db.usuarios.findOne({
+				where: {
+					email: req.body.email,
+				}
+			}) 
+			.then ((usuarioExistente) => {
+				if (usuarioExistente) {
+				let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
+				if (passCorrecta==true) {
+			/*		delete usuarioExistente.clave;*/
+					req.session.usuarioLogueado = usuarioExistente
+					res.redirect('/user/profile', {perfil: usuarioElegido}); 
+				} else {
+					res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
+				}
+				} else {
+					res.send('Usuario inexistente') //proximamente armamos error y validaciones 
+				}
+			})
+	},
+    perfil: (req, res) => {
+		/*db.usuarios.findOne({
 			where: {
-				email: req.body.email,
+				id: req.params.id,
 			}
 		}) 
 		.then ((usuarioExistente) => {
-			if (usuarioExistente) {
-			let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
-			if (passCorrecta==true) {
-				delete usuarioExistente.clave;
-				req.session.usuarioLogueado = usuarioExistente
-				res.redirect('/user/profile', {perfil: usuarioElegido}); 
-			} else {
-				res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
-			}
-			} else {
-				res.send('Usuario inexistente') //proximamente armamos error y validaciones 
-			}
+        res.render('user/profile', {usuario: usuarioExistente})
 		})*/
-	},
-    perfil: (req, res) => {
-	/*	let id = req.params.id;
-        let usuarioElegido
 
-        for (let usuario of usuariosTotal)
-            if (id == usuario.id) {
-                usuarioElegido = usuario;
-				break;
-            }*/
         res.render('user/profile', {usuario: req.session.usuarioLogueado})
 	}, 
     registro: (req, res) => {
@@ -84,9 +77,9 @@ const usuariosController = {
 		})
     },
     modificar: (req, res) => {
-		const errors = validationResult(req);
+	/*	const errors = validationResult(req);
 		console.log(errors);
-		res.send(errors);/*
+		res.send(errors);*/
 		db.usuarios.update({
 			nombre: req.body.nombre, 
 			apellido: req.body.apellido,
@@ -99,7 +92,7 @@ const usuariosController = {
 				id: req.params.id
 			}
 		})
-		res.redirect('/') 			*/	
+		res.redirect('/') 			
 	} ,
     borrar: (req, res) => {
 		db.usuarios.destroy ({
@@ -109,18 +102,6 @@ const usuariosController = {
 
 		  }) ;
 		res.redirect('/');
-/*
-		let id = req.params.id;
-        let usuarioElegido
-		let Nusuario = usuariosTotal.filter(function(e){
-			return id!=e.id
-		})
-
-		for (let usuario of usuariosTotal){
-			if (usuario.id == id){
-				usuarioElegido = usuario
-			}
-		}*/
 	},
 	logout: (req, res) => {
 		req.session.destroy()
