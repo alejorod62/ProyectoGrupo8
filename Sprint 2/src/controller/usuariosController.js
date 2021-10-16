@@ -8,28 +8,30 @@ const usuariosController = {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
-/*		const errors = validationResult(req); */
+		let errors =[]
+		db.usuarios.findOne({
+            where: {
+                email: req.body.email,
+            }
+        }) 
+        .then ((usuarioExistente) => {
+            if (usuarioExistente) {
+            let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
+            if (passCorrecta==true) {
+        /*      delete usuarioExistente.clave;*/
+                req.session.usuarioLogueado = usuarioExistente
+                res.redirect('/user/profile', {perfil: usuarioElegido}); 
+            } else {
+                errors.push({clave: 'Contraseña incorrecta'});
+                res.render('user/login', {error: errors}) //proximamente armamos error y validaciones 
+            }
+			} else {
+                errors.push({email: 'Usuario inexistente'});
+                res.render('user/login', {error: errors}) //proximamente armamos error y validaciones 
+            }
+        })
+    },
 
-			db.usuarios.findOne({
-				where: {
-					email: req.body.email,
-				}
-			}) 
-			.then ((usuarioExistente) => {
-				if (usuarioExistente) {
-				let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
-				if (passCorrecta==true) {
-			/*		delete usuarioExistente.clave;*/
-					req.session.usuarioLogueado = usuarioExistente
-					res.redirect('/user/profile', {perfil: usuarioElegido}); 
-				} else {
-					res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
-				}
-				} else {
-					res.send('Usuario inexistente') //proximamente armamos error y validaciones 
-				}
-			})
-	},
     perfil: (req, res) => {
 		/*db.usuarios.findOne({
 			where: {

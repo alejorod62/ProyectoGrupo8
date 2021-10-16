@@ -24,7 +24,7 @@ const configImagenPerfil = multer.diskStorage({
 const uploadFile = multer({ storage: configImagenPerfil });
 
 router.get('/login', /*logueoMw,*/ usuariosController.login) ;
-router.post('/login', /*validacionesLog,*/ usuariosController.ingreso) ;
+router.post('/login', usuariosController.ingreso) ;
 router.get('/profile/:id', /*profileMw,*/ usuariosController.perfil) ;
 router.get('/register', /*logueoMw, */usuariosController.registro) ;
 router.post('/register', uploadFile.single ('nombreImagen'), validacionesReg, usuariosController.guardar) ;
