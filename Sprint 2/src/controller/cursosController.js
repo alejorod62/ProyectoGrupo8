@@ -1,13 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
-const cursosFilePath = path.join(__dirname, '../data/dataCursos.json');
-const cursosTotal = JSON.parse(fs.readFileSync(cursosFilePath, 'utf-8'));
-
 const db = require('../database/models');
 const cursos = require('../database/models/cursos');
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const cursosController = {
     index: (req, res) => {
@@ -18,32 +10,31 @@ const cursosController = {
 			for (let u of cursos){
 				listaCursos.push(u);
 			}
-
 //			db.cursos.catch((error)=>{}) ;
-
 			
-			res.render('products/courses',{Allcursos: listaCursos});
-
-			
+		res.render('products/courses',{Allcursos: listaCursos});	
 		});
     }, 
+
     carrito: (req, res) => {
         res.render('products/cart', {cursos: cursosTotal})
     },
+
     detalle: (req, res) => {
-		db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((curso) =>{
-		
+		db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((curso) =>{	
 		res.render('products/details',{cursoElegido: curso});
 		}
 //			db.cursos.catch((error)=>{}) ;
 		);
 
 	},
+
     crear: (req, res) => {
 		db.temas.findAll().then(function(temas){
 			return res.render('products/new', {temas:temas});
 		})
     } ,
+
     guardar: function (req, res) {
 		db.cursos.create({
 			nombre: req.body.nombre,
@@ -55,7 +46,7 @@ const cursosController = {
 			requisitos: req.body.requisitos,
 			cuotas: req.body.cuotas
 		});
-		res.redirect('/')
+		res.redirect('index')
 	},
 
     editar: (req, res) => {
@@ -66,6 +57,7 @@ const cursosController = {
 			res.render('products/edit', {cursoAEditar: cursos, temas: temas})    
 		})
     },
+
     modificar: function (req, res) {
 		db.cursos.update({
 			nombre: req.body.nombre, 
@@ -85,6 +77,7 @@ const cursosController = {
 
 		res.redirect('/') ;
 	},
+
     borrar: (req, res) => { 
           db.cursos.destroy ({
 			where: {

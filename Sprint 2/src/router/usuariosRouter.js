@@ -5,7 +5,7 @@ const path = require('path');
 const multer = require('multer');
 const logueoMw = require('.././middlewares/logueoMw');
 const profileMw = require('.././middlewares/profileMw');
-const navBarMw = require('.././middlewares/navBarMw');
+const validacionesR = require('.././middlewares/validacionesRMw');
 
 /* Multer config */
 
@@ -25,9 +25,10 @@ router.get('/login', logueoMw, usuariosController.login) ;
 router.post('/login', usuariosController.ingreso) ;
 router.get('/profile', profileMw, usuariosController.perfil) ;
 router.get('/register', logueoMw, usuariosController.registro) ;
-router.post('/register', uploadFile.single ('ImagenPerfil') ,usuariosController.guardar) ;
+router.post('/register', uploadFile.single ('nombreImagen'), validacionesR, usuariosController.guardar) ;
 router.get('/edit/:id', usuariosController.editar) ;
-router.put('/edit/:id', usuariosController.modificar);
+router.put('/edit/:id', uploadFile.single ('nombreImagen'), usuariosController.modificar);
+router.delete('/edit/:id', usuariosController.borrar); 
 router.get('/logout', usuariosController.logout);
 
 module.exports = router;

@@ -1,95 +1,108 @@
-const fs = require('fs');
-const path = require('path');
-const User = require('../models/User')
+const db = require('../database/models');
+const usuarios = require('../database/models/usuarios');
 const bcryptjs = require('bcryptjs');
-
-const profileFilePath = path.join(__dirname, '../data/dataUsuarios.json');
-const usuariosTotal = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
-
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
+const { validationResult } = require('express-validator');
 
 const usuariosController = {
     login: (req, res) => {
         res.render('user/login')
     },
 	ingreso: (req, res) => {
-		console.log (req) ;
-		let usuarioExistente = User.findByEmail(req.body.email);
-		if (usuarioExistente){
-			let passCorrecta = bcryptjs.compareSync(req.body.password, usuarioExistente.password);
+	/* console.log(req.body.email)
+	let usuarioP = db.usuarios.findOne({
+			where: { email: req.body.email}
+		})
+		console.log(usuarioP)
+	}, */
+		db.usuarios.findOne({
+			where: {
+				email: req.body.email,
+			}
+		}) 
+		.then ((usuarioExistente) => {
+			if (usuarioExistente) {
+			let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
 			if (passCorrecta==true) {
-				delete usuarioExistente.password;
+				delete usuarioExistente.clave;
 				req.session.usuarioLogueado = usuarioExistente
 				res.redirect('/user/profile', {perfil: usuarioElegido}); 
 			} else {
 				res.send('Contraseña incorrecta') //proximamente armamos error y validaciones 
 			}
-		} else {
-			res.send('Usuario inexistente') //proximamente armamos error y validaciones 
-		}
+			} else {
+				res.send('Usuario inexistente') //proximamente armamos error y validaciones 
+			}
+		})
 	},
     perfil: (req, res) => {
-		let id = req.params.id;
+	/*	let id = req.params.id;
         let usuarioElegido
 
         for (let usuario of usuariosTotal)
             if (id == usuario.id) {
                 usuarioElegido = usuario;
 				break;
-            }
-        res.render('user/profile', {
-			usuario: req.session.usuarioLogueado,
-		}) 
-    }, 
+            }*/
+        res.render('user/profile', {usuario: req.session.usuarioLogueado,
+    	})
+	}, 
     registro: (req, res) => {
         res.render('user/register')
     },
-	guardar: (req, res) => {	
-		let usuarioNuevo= {
+	guardar: (req, res) => {
+		const validaciones = validationResult(req);
+		console.log(validaciones);
+		res.send('/')
+		
+		/* let usuarioNuevo= {
 			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			ImagenPerfil: req.file.filename
+			clave: bcryptjs.hashSync(req.body.clave, 10),
+			nombreImagen: req.file.filename
 		}
 
-		let usuarioExistente = User.findByEmail(req.body.email);
-		if (usuarioExistente) {
-			res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
-		} else { 
-		User.create(usuarioNuevo)
-		res.redirect('/') 
-		}
-    },
+		db.usuarios.findOne({
+			where: {email: req.body.email}
+		}) 
+		.then ((usuarioExistente) => {
+			if (usuarioExistente) {
+				res.send("Ya existe un usuario creado con el email ingresado.") //proximamente armamos error y validaciones 
+			} else {
+			db.usuarios.create(usuarioNuevo)
+			res.redirect('/') 
+			}
+		})*/
+	},
     editar: (req, res) => {
-        let id = req.params.id;
-        let usuarioElegido
-
-        for (let usuario of usuariosTotal)
-            if (id == usuario.id) {
-                usuarioElegido = usuario 
-            }
-        res.render('user/edit', {usuarioEditable: usuarioElegido})    
+		db.usuarios.findOne({
+			where: {id: req.params.id}
+		})
+		.then((usuarioElegido) => {
+			res.render('user/edit', {usuarioEditable: usuarioElegido})    
+		})
     },
     modificar: (req, res) => {
-		let id = req.params.id;
-		for (let usuario of usuariosTotal){
-			if (id==usuario.id){ 
-				usuario.nombre= req.body.nombre; 
-				usuario.apellido= req.body.apellido;
-				usuario.email= req.body.email;
-				usuario.password= req.body.password;
-				usuario.direccion= req.body.direccion;
-				usuario.ciudad= req.body.ciudad;
-				usuario.pais= req.body.pais;
-				usuario.cp= req.body.cp;
-				usuario.ImagenPerfil= req.body.ImagenPerfil;
-		}
-		fs.writeFileSync(profileFilePath, JSON.stringify(usuario, null, ' '))
-		res.redirect('/')
-    	} 
-    } ,
+		db.usuarios.findOne({
+            where: {id: req.params.id}
+        })
+        .then((usuarioElegido) => {
+			usuarioElegido.nombre= req.body.nombre; 
+			usuarioElegido.apellido= req.body.apellido;
+			usuarioElegido.email= req.body.email;
+			usuarioElegido.clave= req.body.clave;
+			usuarioElegido.telefono= req.body.telefono;
+			usuarioElegido.nombreImagen= req.body.nombreImagen;
+		res.redirect('/') 				
+    	})
+	} ,
     borrar: (req, res) => {
+		db.usuarios.destroy ({
+			where: {
+				id: req.params.id
+			}
+
+		  }) ;
+		res.redirect('/');
+/*
 		let id = req.params.id;
         let usuarioElegido
 		let Nusuario = usuariosTotal.filter(function(e){
@@ -100,7 +113,7 @@ const usuariosController = {
 			if (usuario.id == id){
 				usuarioElegido = usuario
 			}
-		}
+		}*/
 	},
 	logout: (req, res) => {
 		req.session.destroy()

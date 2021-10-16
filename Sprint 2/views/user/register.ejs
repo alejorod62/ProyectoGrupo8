@@ -24,10 +24,10 @@
         <input type="email" class="form-control" id="email" name="email" />
       </div>
       <div class="col-md-6">
-        <label for="password" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="password" name="password">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="clave" name="clave">
       </div>
-      <div class="col-12">
+      <div class="col-10">
         <label for="direccion" class="form-label">Dirección</label>
         <input type="text" class="form-control" id="direccion" name="direccion" >
       </div>
@@ -37,7 +37,7 @@
       </div>
       <div class="col-md-4">
         <label for="pais" class="form-label">País</label>
-        <select id="pais" name="pais" class="form-select" requiered>
+        <select id="pais" name="pais" class="form-select" >
           <option selected>Seleccione...</option>
           <option> Argentina </option>
           <option> Uruguay </option>
@@ -51,20 +51,20 @@
           <option> México </option>
         </select>
       </div>
-      <div class="col-md-2">
-        <label for="cp" class="form-label">Código postal</label>
-        <input type="text" class="form-control" id="cp" name="cp">
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">Número de teléfono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono">
       </div>
       <br>
       <hr>
       <div class="col-md-4">
-        <label for="ImagenPerfil" class="form-label">Imagen de perfil</label>
-        <input type="file" class="form-control" id="ImagenPerfil" name="ImagenPerfil" />
+        <label for="nombreImagen" class="form-label">Imagen de perfil</label>
+        <input type="file" class="form-control" id="nombreImagen" name="nombreImagen" />
       </div>
       <div class="col-12">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
+          <label class="form-check-label" for="gridCheck" requiered>
             Estoy de acuerdo con los "Terminos y condiciones"
           </label>
         </div>

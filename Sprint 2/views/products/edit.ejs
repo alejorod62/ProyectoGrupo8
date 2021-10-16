@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Editar <%=cursoAEditar.nombre%> </h2>
-  <form class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>?_method=PUT" method="POST" >
+  <form class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>?_method=PUT" method="POST" enctype="multipart/form-data" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=cursoAEditar.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
@@ -37,8 +37,8 @@
       </div>
          <div class="col-md-4">
         <div class="col-md-4">
-<!--          <label for="ImagenCurso" class="form-label">Imagen del Curso</label>
-          <input type="file"  class="form-control" id="ImagenCurso" name="ImagenCurso" /> -->
+          <label for="nombreImagen" class="form-label">Imagen del Curso</label>
+          <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" />
         </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>
