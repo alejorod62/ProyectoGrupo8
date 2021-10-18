@@ -15,7 +15,7 @@ window.onload = function () {
     var boton_submit = document.getElementById('boton_submit');
     var formulario = document.getElementById('form1');
     
-
+   console.log ('validandoporfront')
   //   Evento 2
     formulario.addEventListener('submit',function(event){ 
         event.preventDefault();
@@ -27,7 +27,7 @@ window.onload = function () {
 
     function funcion_comprobacion(){
 
-        if ( (nombres.value=="") || (email.value=="") || (!email.value.includes("@")) ) {
+        if ( (nombres.value=="") || (email.value=="") || (apellido.value=="") || (clave.value=="") || (direccion.value=="") || (ciudad.value=="") || (pais.value=="") || (telefono.value=="") || (!email.value.includes("@")) ) {
             alert("Complete los campos con el formato correspondiente");
         }
         else{
