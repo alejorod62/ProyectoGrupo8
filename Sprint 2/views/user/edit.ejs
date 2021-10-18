@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Editar perfil</h2>
-  <form class="row g-3" action="/user/edit/<%=usuario.id%>" method="POST" enctype="multipart/form-data" >
+  <form class="row g-3" action="/user/edit" method="POST" enctype="multipart/form-data" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=usuario.nombre%>" type="text" class="form-control" name="nombre" id="nombre"> </input> 
@@ -39,7 +39,7 @@
         <button type="submit" class="button-detail">Guardar</button>
       </div>
     </form>
-    <form action="/user/edit/<%=usuario.id%>" method="POST" onsubmit="return confirm('¿Estas seguro?');">
+    <form action="/user/edit" method="POST" onsubmit="return confirm('¿Estas seguro?');">
       <button type="submit" class="button-detail">ELIMINAR</button>
     </form>
 </section>
