@@ -16,17 +16,17 @@
     <% for(let curso of Allcursos) { %>
       
     <article class="producto">
-            <h2 class="titulares"> <%=curso.nombre%></h2>
+            <h2 class="titulares" id="nombre"> <%=curso.nombre%></h2>
             <section class="right">
                 <a href="/courses/details/<%=curso.id%>"> <img src="/img/cursos/<%=curso.nombreImagen%>" class="imagenescurso" > </img> </a>
                        
               <div id="info">        
                   <p  id="descripcion"> <%=curso.descripcion%> </p>
                   <ul>
-                      <li> Horarios: <%=curso.horarios%> </li>
-                      <li> Duracion: <%=curso.duracion%> </li>
-                      <li> Requisitos: <%=curso.requisitos%> </li>
-                      <li> Cuotas: <%=curso.cuotas%> </li>
+                      <li id="horarios"> Horarios: <%=curso.horarios%> </li>
+                      <li id="duracion"> Duracion: <%=curso.duracion%> </li>
+                      <li id="requisitos"> Requisitos: <%=curso.requisitos%> </li>
+                      <li id="cuotas"> Cuotas: <%=curso.cuotas%> </li>
 
                   </ul>
               </div>
@@ -43,6 +43,7 @@
         <br>
 
  </main>
+<script src="/js/carritologic.js" type="text/javascript">  </script> 
 
     <%-include ('.././partials/footer')%>
 </body>
