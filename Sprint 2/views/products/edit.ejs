@@ -10,7 +10,7 @@
 
  <section class= "Form-Container m-5">
   <h2>Editar <%=cursoAEditar.nombre%> </h2>
-  <form class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>?_method=PUT" method="POST" enctype="multipart/form-data" >
+  <form class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>" method="POST" enctype="multipart/form-data" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=cursoAEditar.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 

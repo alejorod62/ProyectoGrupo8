@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const cursos = require('../database/models/cursos');
+const { validationResult } = require('express-validator');
 
 const cursosController = {
     index: (req, res) => {
@@ -17,9 +18,16 @@ const cursosController = {
     }, 
 
     carrito: (req, res) => {
-        res.render('products/cart', {cursos: cursosTotal})
-    },
+		db.cursos.findAll().then((cursos) =>{
 
+			let listaCursos=[];
+
+			for (let u of cursos){
+				listaCursos.push(u);
+			}
+        res.render('products/cart', {cursos: listaCursos})
+    	})
+	},
     detalle: (req, res) => {
 		db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((curso) =>{	
 		res.render('products/details',{cursoElegido: curso});
@@ -31,22 +39,29 @@ const cursosController = {
 
     crear: (req, res) => {
 		db.temas.findAll().then(function(temas){
-			return res.render('products/new', {temas:temas});
+			return res.render('products/new', {listaTemas:temas});
 		})
     } ,
 
     guardar: function (req, res) {
-		db.cursos.create({
-			nombre: req.body.nombre,
-			precio: req.body.precio,
-			nombreImagen: req.body.nombreImagen,
-			descripcion: req.body.descripcion,
-			horarios: req.body.horarios,
-			duracion: req.body.duracion,
-			requisitos: req.body.requisitos,
-			cuotas: req.body.cuotas
-		});
-		res.redirect('index')
+		const errors = validationResult(req);
+		const temas = db.temas.findAll()
+		if (errors.isEmpty()){
+			db.cursos.create({
+				nombre: req.body.nombre,
+				descripcion: req.body.descripcion,
+				duracion: req.body.duracion,
+				horarios: req.body.horarios,
+				requisitos: req.body.requisitos,
+			/*	temas: req.body.temas,*/
+				precio: req.body.precio,
+				cuotas: req.body.cuotas,
+				nombreImagen: req.body.nombreImagen,
+			});
+			res.redirect('/')
+		} else {
+			res.render('products/new', {errors: errors.array(), listaTemas: temas});
+		}
 	},
 
     editar: (req, res) => {
@@ -65,6 +80,7 @@ const cursosController = {
 			nombreImagen: req.body.nombreImagen,
 			descripcion: req.body.descripcion,
 			horarios: req.body.horarios,
+			temas: req.body.temas,
 			duracion: req.body.duracion,
 			requisitos: req.body.requisitos,
 			cuotas: req.body.cuotas,

@@ -37,7 +37,7 @@
         <hr>
         <a href="/courses/edit/<%=cursoElegido.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
         <hr>
-        <form action="/courses/<%=cursoElegido.id%>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estas seguro?');">
+        <form action="/courses/<%=cursoElegido.id%>" method="POST" onsubmit="return confirm('¿Estas seguro?');">
             <button type="submit" class="button-detail">ELIMINAR</button>
         </form>
 

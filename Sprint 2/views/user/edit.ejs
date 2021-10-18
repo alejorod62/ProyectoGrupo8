@@ -10,36 +10,36 @@
 
  <section class= "Form-Container m-5">
   <h2>Editar perfil</h2>
-  <form class="row g-3" action="/user/edit/<%=usuarioEditable.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <form class="row g-3" action="/user/edit/<%=usuario.id%>" method="POST" enctype="multipart/form-data" >
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
-        <input value="<%=usuarioEditable.nombre%>" type="text" class="form-control" name="nombre" id="nombre"> </input> 
+        <input value="<%=usuario.nombre%>" type="text" class="form-control" name="nombre" id="nombre"> </input> 
       </div>
       <div class="col-md-6">
         <label for="apellido" class="form-label">apellido</label>
-        <textarea class="form-control" name="apellido" id="apellido"> <%=usuarioEditable.apellido%> </textarea>
+        <textarea class="form-control" name="apellido" id="apellido"> <%=usuario.apellido%> </textarea>
       </div>
       <div class="col-md-6">
         <label for="email" class="form-label">Email</label>
-        <textarea class="form-control" name="email" id="email"> <%=usuarioEditable.email%> </textarea>
+        <textarea class="form-control" name="email" id="email"> <%=usuario.email%> </textarea>
       </div>
       <div class="col-12">
         <label for="clave" class="form-label">Contraseña</label>
-        <input type="password" value="<%=usuarioEditable.clave%>" class="form-control" name="clave" id="clave"> </input>
+        <input type="password" value="<%=usuario.clave%>" class="form-control" name="clave" id="clave"> </input>
       </div>
       <div class="col-md-6">
         <label for="telefono" class="form-label"> Número de teléfono</label>
-        <textarea class="form-control" name="telefono" id="telefono"> <%=usuarioEditable.telefono%></textarea>
+        <textarea class="form-control" name="telefono" id="telefono"> <%=usuario.telefono%></textarea>
       </div>
       <div class="col-md-4">
         <label for="nombreImagen" class="form-label">Imagen de perfil</label>
-        <input type="file" value="<%=usuarioEditable.nombreImagen%>" class="form-control" id="nombreImagen" name="nombreImagen" />
+        <input type="file" value="<%=usuario.nombreImagen%>" class="form-control" id="nombreImagen" name="nombreImagen" />
       </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>
       </div>
     </form>
-    <form action="/user/edit/<%=usuarioEditable.id%>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estas seguro?');">
+    <form action="/user/edit/<%=usuario.id%>" method="POST" onsubmit="return confirm('¿Estas seguro?');">
       <button type="submit" class="button-detail">ELIMINAR</button>
     </form>
 </section>
