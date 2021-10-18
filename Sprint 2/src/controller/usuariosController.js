@@ -19,30 +19,20 @@ const usuariosController = {
             let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
             if (passCorrecta==true) {
         /*      delete usuarioExistente.clave;*/
-                req.session.usuarioLogueado = usuarioExistente
-                res.redirect('/user/profile', {perfil: usuarioElegido}); 
+				req.session.usuario = usuarioExistente
+                res.redirect('/user/profile'); 
             } else {
                 errors.push({clave: 'Contraseña incorrecta'});
-                res.render('user/login', {error: errors}) //proximamente armamos error y validaciones 
+                res.render('user/login', {error: errors})  
             }
 			} else {
                 errors.push({email: 'Usuario inexistente'});
-                res.render('user/login', {error: errors}) //proximamente armamos error y validaciones 
+                res.render('user/login', {error: errors})  
             }
         })
     },
-
     perfil: (req, res) => {
-		/*db.usuarios.findOne({
-			where: {
-				id: req.params.id,
-			}
-		}) 
-		.then ((usuarioExistente) => {
-        res.render('user/profile', {usuario: usuarioExistente})
-		})*/
-
-        res.render('user/profile', {usuario: req.session.usuarioLogueado})
+        res.render('user/profile', {perfil: req.session.usuario})
 	}, 
     registro: (req, res) => {
         res.render('user/register')
