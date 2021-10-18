@@ -21,7 +21,12 @@ window.onload = function () {
     function funcion_comprobacione(){
 
         if ( (email.value=="") ||  (clave.value=="") || (!email.value.includes("@")) ) {
-            alert("Complete los campos con el formato correspondiente");
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo esta mal..',
+                text: 'Complete correctamente con su usuario y clave.',
+                
+              });
         }
         else{
             formulario.submit(); // se realiza el submit (va para el backend con los campos validados)

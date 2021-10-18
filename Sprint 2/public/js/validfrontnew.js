@@ -26,7 +26,12 @@ window.onload = function () {
     function funcion_comprobacion(){
 
         if ( (nombres.value=="") || (descripcion.value=="") || (duracion.value=="") || (horarios.value=="") || (requisitos.value=="") || (precio.value=="") || (cuotas.value=="") || (nombreImagen.value=="") ) {
-            alert("Complete los campos con el formato correspondiente");
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo esta mal..',
+                text: 'Complete correctamente con los datos del nuevo curso.',
+                
+              });
         }
         else{
             formulario.submit(); // se realiza el submit (va para el backend con los campos validados)

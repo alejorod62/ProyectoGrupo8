@@ -28,7 +28,12 @@ window.onload = function () {
     function funcion_comprobacion(){
 
         if ( (nombres.value=="") || (email.value=="") || (apellido.value=="") || (clave.value=="") || (direccion.value=="") || (ciudad.value=="") || (pais.value=="") || (telefono.value=="") || (!email.value.includes("@")) ) {
-            alert("Complete los campos con el formato correspondiente");
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo esta mal..',
+                text: 'Complete correctamente todos sus datos.',
+                
+              });
         }
         else{
             formulario.submit(); // se realiza el submit (va para el backend con los campos validados)
