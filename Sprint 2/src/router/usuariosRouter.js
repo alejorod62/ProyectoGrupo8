@@ -3,10 +3,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-const logueoMw = require('.././middlewares/logueoMw');
 const profileMw = require('.././middlewares/profileMw');
 const validacionesReg = require('.././middlewares/validacionesReg');
-const validacionesLog = require('.././middlewares/validacionesLog');
 const validacionesEdit = require('.././middlewares/validacionesEdit');
 
 /* Multer config */
@@ -23,14 +21,14 @@ const configImagenPerfil = multer.diskStorage({
 
 const uploadFile = multer({ storage: configImagenPerfil });
 
-router.get('/login', /*logueoMw,*/ usuariosController.login) ;
+router.get('/login', usuariosController.login) ;
 router.post('/login', usuariosController.ingreso) ;
 router.get('/profile', /*profileMw,*/ usuariosController.perfil) ;
-router.get('/register', /*logueoMw, */usuariosController.registro) ;
+router.get('/register', usuariosController.registro) ;
 router.post('/register', uploadFile.single ('nombreImagen'), validacionesReg, usuariosController.guardar) ;
-router.get('/edit/:id', usuariosController.editar) ;
-router.post('/edit/:id', uploadFile.single ('nombreImagen'), /*validacionesEdit, */usuariosController.modificar);
-router.post('/edit/:id', usuariosController.borrar); 
+router.get('/edit', usuariosController.editar) ;
+router.post('/edit', uploadFile.single ('nombreImagen'),/*validacionesEdit, */ usuariosController.modificar);
+router.post('/edit', usuariosController.borrar); 
 router.get('/logout', usuariosController.logout);
 
 module.exports = router;

@@ -1,5 +1,4 @@
 const db = require('../database/models');
-const usuarios = require('../database/models/usuarios');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
@@ -62,7 +61,7 @@ const usuariosController = {
 	},
     editar: (req, res) => {
 		db.usuarios.findOne({
-			where: {id: req.params.id}
+			where: {id: req.session.usuario.id}
 		})
 		.then((usuarioElegido) => {
 			res.render('user/edit', {usuario: usuarioElegido})    
@@ -81,7 +80,7 @@ const usuariosController = {
 		},
 		{
 			where: {
-				id: req.params.id
+				id: req.session.usuario.id
 			}
 		})
 		res.redirect('/') 			
@@ -89,7 +88,7 @@ const usuariosController = {
     borrar: (req, res) => {
 		db.usuarios.destroy ({
 			where: {
-				id: req.params.id
+				id: req.session.usuario.id
 			}
 
 		  }) ;
