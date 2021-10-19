@@ -10,12 +10,12 @@
     <%-include ('.././partials/header')%>
 
  <main>
-    <%for(let i=0; i<cursos.length; i++) { %>
+    <%for(curso of arrayCursos) { %>
     <article class="producto">
-        <h2 class="titulares"> <%=cursos[i].nombre%></h2>
+        <h2 class="titulares"> <%=curso.nombre%></h2>
         <section class="right">
             <div id="info">        
-                <p  id="descripcion"> <%=cursos[i].descripcion%> </p>
+                <p  id="descripcion"> <%=curso.descripcion%> </p>
 
                 <p> Modalidad online</p>
                 <p> 4 encuentros de 2 hs </p>
@@ -29,6 +29,7 @@
     </article>
     <% } %>
 </main>
+<script src="/js/carritologic.js" type="text/javascript">  </script> 
 
     <%-include ('.././partials/footer')%>
 </body>

@@ -18,7 +18,13 @@
             <img src="/img/cursos/<%=cursoElegido.nombreImagen%>" class="imagenescurso" > </img>
             <div id="info">
                 <p  id="descripcion"> <%=cursoElegido.descripcion%> </p>
-                <p id="precio"> Precio : $<%=cursoElegido.precio%> </p>
+                <ul>
+                    <li id="horarios"> Horarios: <%=cursoElegido.horarios%> </li>
+                    <li id="duracion"> Duracion: <%=cursoElegido.duracion%> </li>
+                    <li id="requisitos"> Requisitos: <%=cursoElegido.requisitos%> </li>
+                    <li id="precio"> Precio : $<%=cursoElegido.precio%>" </li>
+                    <li id="cuotas"> Cuotas: <%=cursoElegido.cuotas%> </li>
+                </ul>
             </div>            
         </section>
         
@@ -33,7 +39,7 @@
         </div>
         <br>
         <div >
-        <a href="courses/cart"> <button class="button-detail"  id="agregar-al-carrito"> Agregar al carrito </button> </a> 
+        <a href="/courses/cart"> <button class="button-detail"  id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         <hr>
         <a href="/courses/edit/<%=cursoElegido.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
         <hr>

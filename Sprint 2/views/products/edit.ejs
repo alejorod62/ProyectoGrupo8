@@ -19,26 +19,27 @@
         <label for="descripcion" class="form-label"> Breve descripcion</label>
         <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoAEditar.descripcion%> </textarea>
       </div>
-      <div class="col-12">
+      <div class="col-md-6">
         <label for="especific" class="form-label">Especificaciones</label> 
-        <input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input>
-        <input value="<%=cursoAEditar.duracion%>" class="form-control" id="duracion" class="especific" name="duracion"> </input>
-        <input value="<%=cursoAEditar.requisitos%>" class="form-control" id="requisitos" class="especific" name="requisitos"> </input>
-        <input value="<%=cursoAEditar.precio%>" class="form-control" id="precio" class="especific" name="precio"> </input>
-        <input value="<%=cursoAEditar.cuotas%>" class="form-control" id="cuotas" class="especific" name="cuotas"> </input>
+        <br>
+        <label>Horarios </label><input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input> 
+        <label>Duración </label><input value="<%=cursoAEditar.duracion%>" class="form-control" id="duracion" class="especific" name="duracion"> </input> 
+        <label>Requisitos</label><input value="<%=cursoAEditar.requisitos%>" class="form-control" id="requisitos" class="especific" name="requisitos"> </input> 
+        <label>Precio</label><input value="<%=cursoAEditar.precio%>" class="form-control" id="precio" class="especific" name="precio"> </input> 
+        <label>Cuotas </label><input value="<%=cursoAEditar.cuotas%>" class="form-control" id="cuotas" class="especific" name="cuotas"> </input> 
       </div>
       <div class="col-md-6">
-        <label for="incluye" class="form-label"> Temas que aborda el curso </label>
-        <select class="form-control" id="temas" >
+        <label for="temas" class="form-label"> Temas que aborda el curso </label>
+          <ul>
           <% for (let tema of temas) { %>
-        <option value="<%=tema.titulo%>" class="form-control" id="temas" name="temas"> <%=tema.titulo%></option>
+            <li><label><input value="<%=tema.titulo%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
           <% } %>
-      </select>
+          </ul>
       </div>
          <div class="col-md-4">
         <div class="col-md-4">
-          <label for="nombreImagen" class="form-label">Imagen del Curso</label>
-          <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" />
+          <label for="nombreImagen" class="form-label" >Imagen del Curso</label>
+          <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" value="<%=cursoAEditar.nombreImagen%>"/>
         </div>
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>
