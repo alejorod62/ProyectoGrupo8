@@ -28,7 +28,7 @@ router.get('/register', usuariosController.registro) ;
 router.post('/register', uploadFile.single ('nombreImagen'), validacionesReg, usuariosController.guardar) ;
 router.get('/edit', usuariosController.editar) ;
 router.post('/edit', uploadFile.single ('nombreImagen'),/*validacionesEdit, */ usuariosController.modificar);
-router.post('/edit', usuariosController.borrar); 
+router.delete('/edit', usuariosController.borrar); 
 router.get('/logout', usuariosController.logout);
 
 module.exports = router;
