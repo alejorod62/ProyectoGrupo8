@@ -83,7 +83,7 @@ const usuariosController = {
 				id: req.session.usuario.id
 			}
 		})
-		res.redirect('/') 			
+		res.redirect('/courses') 			
 	} ,
     borrar: (req, res) => {
 		db.usuarios.destroy ({
