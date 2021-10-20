@@ -27,7 +27,7 @@ router.get('/profile', /*profileMw,*/ usuariosController.perfil) ;
 router.get('/register', usuariosController.registro) ;
 router.post('/register', uploadFile.single ('nombreImagen'), validacionesReg, usuariosController.guardar) ;
 router.get('/edit', usuariosController.editar) ;
-router.post('/edit', uploadFile.single ('nombreImagen'),/*validacionesEdit, */ usuariosController.modificar);
+router.post('/edit', uploadFile.single ('nombreImagen'), validacionesEdit, usuariosController.modificar);
 router.delete('/edit', usuariosController.borrar); 
 router.get('/logout', usuariosController.logout);
 

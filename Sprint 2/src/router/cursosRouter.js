@@ -24,7 +24,7 @@ router.get('/details/:id', cursosController.detalle)
 router.get('/new', cursosController.crear)
 router.post('/new', uploadFile.single ("nombreImagen"), validacionesCursos, cursosController.guardar); 
 router.get('/edit/:id', cursosController.editar)
-router.post('/edit/:id' , uploadFile.single ("nombreImagen"), cursosController.modificar); 
+router.post('/edit/:id' , uploadFile.single ("nombreImagen"), validacionesCursos, cursosController.modificar); 
 router.post('/:id', cursosController.borrar); 
 
 module.exports = router;

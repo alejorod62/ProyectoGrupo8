@@ -74,24 +74,28 @@ const cursosController = {
     },
 
     modificar: function (req, res) {
-		db.cursos.update({
-			nombre: req.body.nombre, 
-			precio: req.body.precio,
-			nombreImagen: req.body.nombreImagen,
-			descripcion: req.body.descripcion,
-			horarios: req.body.horarios,
-			temas: req.body.temas,
-			duracion: req.body.duracion,
-			requisitos: req.body.requisitos,
-			cuotas: req.body.cuotas,
-		},
-		{
-			where: {
-				id: req.params.id
-			}
-		})
-
-		res.redirect('/') ;
+		const errors = validationResult(req);
+		if (errors.isEmpty()){
+			db.cursos.update({
+				nombre: req.body.nombre, 
+				precio: req.body.precio,
+				nombreImagen: req.body.nombreImagen,
+				descripcion: req.body.descripcion,
+				horarios: req.body.horarios,
+/*				temas: req.body.temas, */
+				duracion: req.body.duracion,
+				requisitos: req.body.requisitos,
+				cuotas: req.body.cuotas,
+			},
+			{
+				where: {
+					id: req.params.id
+				}
+			})
+			res.redirect('/') ;
+		} else {
+			res.render('products/edit', {errors: errors.array(), listaTemas: temas});
+		}
 	},
 
     borrar: (req, res) => { 

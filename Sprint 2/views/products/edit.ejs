@@ -14,19 +14,54 @@
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=cursoAEditar.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="nombre") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
         <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoAEditar.descripcion%> </textarea>
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="descripcion") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="especific" class="form-label">Especificaciones</label> 
         <br>
         <label>Horarios </label><input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="horarios") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
         <label>Duración </label><input value="<%=cursoAEditar.duracion%>" class="form-control" id="duracion" class="especific" name="duracion"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="duracion") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
         <label>Requisitos</label><input value="<%=cursoAEditar.requisitos%>" class="form-control" id="requisitos" class="especific" name="requisitos"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="requisitos") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
         <label>Precio</label><input value="<%=cursoAEditar.precio%>" class="form-control" id="precio" class="especific" name="precio"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="precio") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
         <label>Cuotas </label><input value="<%=cursoAEditar.cuotas%>" class="form-control" id="cuotas" class="especific" name="cuotas"> </input> 
+        <% if (locals && locals.errors) { %>
+          <% if (locals.errors[0].param=="cuotas") { %>
+          <h6> <%= locals.errors[0].msg %> </h6>
+          <% } %>
+        <% } %>
       </div>
       <div class="col-md-6">
         <label for="temas" class="form-label"> Temas que aborda el curso </label>
