@@ -1,29 +1,21 @@
-window.onload = function () { 
-
-    var c = document.getElementsByClassName('producto');
-    var botCarrito = document.getElementsByName('boton-carrito');
-    var carrito = document.getElementById('lista-carrito');
-    var botComprar = document.getElementById('comprar');
-    var botVaciar = document.getElementById('vaciar');
-
-    botCarrito.addEventListener('click', function (event) {
-        event.preventDefault();
-        console.log(armarCarrito());
-    })
-
     let arrayCursos = [];
 
-    function armarCarrito () {    
-        if (arrayCursos == []) {
-            arrayCursos.push(c.precio)
-            sessionStorage.setItem('carrito', arrayCursos)
-        } else {
+    function agregarCarrito(nombre, precio) {    
+        alert("agregado al carrito")
+        if (arrayCursos != []) {
             arrayCursos = sessionStorage.getItem('carrito')
-            arrayCursos.push(c.precio)
-            sessionStorage.setItem('carrito', arrayCursos)
-        }}
-}
+        }
+        arrayCursos.push({nombre: nombre, precio: precio})
+        sessionStorage.setItem('carrito', arrayCursos)
+    }
+
+    console.log(sessionStorage.getItem('carrito'))
 /*
+    p 
+    p.innerHTML = 
+
+
+
     function vaciarCarrito () {
     botVaciar.onclick = function(e) {
         event.preventDefault();
