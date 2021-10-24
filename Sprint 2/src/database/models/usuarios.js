@@ -24,7 +24,7 @@ function usuarios(sequelize, Datatypes){
 
       usuarios.belongsToMany(modelos.cursos, {
         as: "cursos",
-        through: "cursos_usuarios",   // tabla intermedia
+        through: "usuarios_Cursos",   // tabla intermedia
         foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
         otherKey: "usuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false

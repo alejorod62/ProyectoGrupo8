@@ -1,6 +1,7 @@
 const mainRouter = require('./src/router/mainRouter')
 const cursosRouter = require('./src/router/cursosRouter')
 const usuariosRouter = require('./src/router/usuariosRouter')
+const apiRouter = require('./src/router/apiRouter')
 
 const express = require('express');
 const path = require('path');
@@ -24,6 +25,8 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.use('/', mainRouter);
 app.use('/courses', cursosRouter);
 app.use('/user', usuariosRouter);
+app.use('/api', apiRouter);
+
 app.use(express.static(path.join(__dirname, './public')));  
 app.use(express.static(path.join(__dirname, './views')));
 
