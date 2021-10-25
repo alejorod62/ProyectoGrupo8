@@ -67,7 +67,7 @@
         <label for="temas" class="form-label"> Temas que aborda el curso </label>
           <ul>
           <% for (let tema of temas) { %>
-            <li><label><input value="<%=tema.titulo%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
+            <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
           <% } %>
           </ul>
       </div>
