@@ -4,8 +4,9 @@ const Op = db.Sequelize.Op
 module.exports = {
 
     usuarios: (req, res) => {
-        let usuariosPublicos =[] ;
         db.usuarios.findAll().then((usuarios) => {
+
+            let usuariosPublicos = [];
             for (usuario of usuarios) {
                 let usuarioPublico = {
                     id: usuario.id,
@@ -19,12 +20,12 @@ module.exports = {
                 }
                 usuariosPublicos.push(usuarioPublico)
             }
-        })       
-        return res.json({
-            code: 200,
-            data: usuariosPublicos,
+               
+            return res.json({
+                code: 200,
+                data: usuariosPublicos,
+            })
         })
-    /* ver pq no suma nada */
     },
 
     conteoUsuarios: (req, res) => {
@@ -120,7 +121,7 @@ module.exports = {
     },
 
     conteoCursos: (req, res) => {
-        db.cursos.findAll().count().then((cursos) => {
+        db.cursos.findAll().then((cursos) => {
             return res.json({
                 code: 200,
                 total: cursos.length,
@@ -129,16 +130,15 @@ module.exports = {
     },
 
     cursosPorTema: (req, res) => {
-        let listaTemas = [];
         db.temas.findAll().then((temas) => {
+            let listaTemas = [];
             for (tema of temas) {
                 listaTemas.push({tema: tema.titulo}, {cursos: tema.CursosFK})
             }
-        })
         return res.json({
             code: 200,
             data: listaTemas})
-    /* ver pq no suma nada */
+        })
     }, 
 
     cursosPorId: (req, res) => {
@@ -207,5 +207,6 @@ module.exports = {
                 data: temas,
             })
         })
+        /* sacar los cursos*/
     },
 }
