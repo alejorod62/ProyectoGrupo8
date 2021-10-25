@@ -4,14 +4,29 @@ const Op = db.Sequelize.Op
 module.exports = {
 
     usuarios: (req, res) => {
-        db.usuarios.findAll()
-        .then((usuarios) => {
-            return res.json({
-                code: 200,
-                data: usuarios,
-            })
+        let usuariosPublicos =[] ;
+        db.usuarios.findAll().then((usuarios) => {
+            for (usuario of usuarios) {
+                let usuarioPublico = {
+                    id: usuario.id,
+                    nombre: usuario.nombre,
+                    apellido: usuario.apellido,
+                    email: usuario.email,
+                    ciudad: usuario.ciudad,
+                    pais: usuario.pais,
+                    nombreImagen: usuario.nombreImagen,
+                    profesor: usuario.profesor
+                }
+                usuariosPublicos.push(usuarioPublico)
+            }
+        })       
+        return res.json({
+            code: 200,
+            data: usuariosPublicos,
         })
+    /* ver pq no suma nada */
     },
+
     conteoUsuarios: (req, res) => {
         db.usuarios.findAll().count().then((usuarios) => {
             return res.json({
@@ -20,16 +35,44 @@ module.exports = {
             })
         })
     },
+
     usuariosPorId: (req, res) => {
-        db.usuarios.findByPk(req.params.id, {include: [{association: "cursos"}, {association: "cursosP"}]}).then((usuario) => {
+        db.usuarios.findByPk(req.params.id, {include: [{association: "cursos"}, {association: "cursosP"}]})
+        .then((usuario) => {
+            let dictando = []; 
+            let cursando = [];
+
+            if (usuario.cursos) {
+
+                for (curso of usuario.cursos) {
+                    cursando.push(curso.nombre)
+                }
+            } else if (usuario.cursosP) {
+                for (cursoP of usuario.cursosP) {
+                    dictando.push(cursoP.nombre)
+                }
+            }
+            let usuarioPublico = {
+                    id: usuario.id,
+                    nombre: usuario.nombre,
+                    apellido: usuario.apellido,
+                    email: usuario.email,
+                    ciudad: usuario.ciudad,
+                    pais: usuario.pais,
+                    cursa: cursando,
+                    dicta: dictando,
+                    nombreImagen: usuario.nombreImagen,
+                    profesor: usuario.profesor,
+                }
+/* ver pq suma un solo curso */
             return res.json({
                 code: 200,
-                data: usuario,
+                data: usuarioPublico,
             })
         })
-// (no retornar password o datos sensibles)
     },
-    busquedaUsuarios: (req, res) => {
+
+/*    busquedaUsuarios: (req, res) => {
         db.usuarios.findAll({
             where: {
                 nombre: {[Op.like]: '%' + req.query.keyword + '%' }
@@ -39,25 +82,43 @@ module.exports = {
             return res.json(usuarios)
         })
     },
-
+*/
 
 /////////////////////////////// CURSOS ///////////////////////////////
 
-/*** Un servicio retorne todos los productos, tendrá un objeto con la estructura:
-
-. countByCategory --> Cantidad de productos por categoría
-
-*/
-
     cursos: (req, res) => {
-        db.cursos.findAll({include: [{association: 'temas'}]}).then((cursos) => {
+        db.cursos.findAll({include: [{association: 'temas'}]})
+        .then((cursos) => {
+
+            let listaCursos = [];
+            for (curso of cursos) {
+                let listaTemas = [];
+                for (tema of curso.temas) {
+                    listaTemas.push(tema.titulo)
+                }
+                let cursoConTema = {
+                    id: curso.id,
+                    nombre: curso.nombre,
+                    precio: curso.precio,
+                    nombreImagen: curso.nombreImagen,
+                    descripcion: curso.descripcion,
+                    horarios: curso.horarios,
+                    duracion: curso.duracion,
+                    requisitos: curso.requisitos,
+                    cuotas: curso.cuotas,
+                    temas: listaTemas,
+                }
+                listaCursos.push(cursoConTema)
+            }
+
             return res.json({
-                total: cursos.length,
-                data: cursos,
                 code: 200,
+                total: cursos.length,
+                data: listaCursos,
             })
         })
     },
+
     conteoCursos: (req, res) => {
         db.cursos.findAll().count().then((cursos) => {
             return res.json({
@@ -66,25 +127,76 @@ module.exports = {
             })
         })
     },
+
+    cursosPorTema: (req, res) => {
+        let listaTemas = [];
+        db.temas.findAll().then((temas) => {
+            for (tema of temas) {
+                listaTemas.push({tema: tema.titulo}, {cursos: tema.CursosFK})
+            }
+        })
+        return res.json({
+            code: 200,
+            data: listaTemas})
+    /* ver pq no suma nada */
+    }, 
+
     cursosPorId: (req, res) => {
-        db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((cursos) => {
+        db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]}).then((curso) => {
+                let listaTemas = [];
+                for (tema of curso.temas) {
+                    listaTemas.push(tema.titulo)
+                }
+                let cursoConTema = {
+                    id: curso.id,
+                    nombre: curso.nombre,
+                    precio: curso.precio,
+                    nombreImagen: curso.nombreImagen,
+                    descripcion: curso.descripcion,
+                    horarios: curso.horarios,
+                    duracion: curso.duracion,
+                    requisitos: curso.requisitos,
+                    cuotas: curso.cuotas,
+                    temas: listaTemas,
+                }
+
             return res.json({
                 code: 200,
-                data: cursos,
+                data: cursoConTema,
             })
         })
-        //  Tener en cuenta los datos de tablas relacionadas y la ruta de la imagen del producto //
     },
-    busquedaCursos: (req, res) => {
+
+/*    busquedaCursos: (req, res) => {
         db.cursos.findAll({
             where: {
                 nombre: {[Op.like]: '%' + req.query.keyword + '%' }
             }
-        }).then((cursos) =>{
-            return res.json(cursos)
-        })
-    },
+        }).then((curso) =>{
+            let listaTemas = [];
+            for (tema of curso.temas) {
+                listaTemas.push(tema.titulo)
+            }
+            let cursoConTema = {
+                id: curso.id,
+                nombre: curso.nombre,
+                precio: curso.precio,
+                nombreImagen: curso.nombreImagen,
+                descripcion: curso.descripcion,
+                horarios: curso.horarios,
+                duracion: curso.duracion,
+                requisitos: curso.requisitos,
+                cuotas: curso.cuotas,
+                temas: listaTemas,
+            }
 
+        return res.json({
+            code: 200,
+            data: cursoConTema,
+        })
+    })
+},
+*/
 /////////////////////////////// TEMAS ///////////////////////////////
 
     temas: (req, res) => {
@@ -96,5 +208,4 @@ module.exports = {
             })
         })
     },
-
 }

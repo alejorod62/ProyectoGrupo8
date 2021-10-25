@@ -8,7 +8,7 @@ function cursos(sequelize, Datatypes){
       precio: {type: Datatypes.INTEGER(40)},
       nombreImagen: {type: Datatypes.STRING(100)},
       descripcion: {type: Datatypes.TEXT},
-      horarios: { type: Datatypes.STRING(100)},
+      horarios: {type: Datatypes.STRING(100)},
       duracion: {type: Datatypes.STRING(50)},
       requisitos: {type: Datatypes.STRING(200)},
       cuotas: {type: Datatypes.STRING(100)},

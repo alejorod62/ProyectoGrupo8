@@ -12,6 +12,7 @@ router.get('/users/search', apiController.busquedaUsuarios);
 
 router.get('/courses', apiController.cursos);
 router.get('/courses/count', apiController.conteoCursos);
+router.get('/courses/topics', apiController.cursosPorTema);
 router.get('/courses/:id', apiController.cursosPorId);
 router.get('/courses/search', apiController.busquedaCursos);
 
