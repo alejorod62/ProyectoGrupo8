@@ -42,7 +42,7 @@ module.exports = {
         .then((usuario) => {
             let dictando = []; 
             let cursando = [];
-
+            console.log (usuario)
             if (usuario.cursos) {
 
                 for (curso of usuario.cursos) {

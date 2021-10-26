@@ -75,14 +75,18 @@ const cursosController = {
 
     modificar: function (req, res) {
 		const errors = validationResult(req);
+/*		let temasElegidos = []; */
 		if (errors.isEmpty()){
+		/*	for (tema of req.body.temas){
+				temasElegidos.push(tema)
+			}*/
 			db.cursos.update({
 				nombre: req.body.nombre, 
 				precio: req.body.precio,
 				nombreImagen: req.body.nombreImagen,
 				descripcion: req.body.descripcion,
 				horarios: req.body.horarios,
-/*				temas: req.body.temas, */
+/*				temas: temasElegidos, */
 				duracion: req.body.duracion,
 				requisitos: req.body.requisitos,
 				cuotas: req.body.cuotas,

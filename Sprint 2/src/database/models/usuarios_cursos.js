@@ -11,7 +11,7 @@ function usuarios_Cursos(sequelize, Datatypes){
       Medio_PagoFK: {type: Datatypes.INTEGER(11)},
     }
   
-    config = {camelCase: false, timestamps: false}; 
+    config = {camelCase: false, timestamps: false, tableName: "usuarios_Cursos"}; 
   
     const usuarios_Cursos = sequelize.define(alias,cols,config)
   

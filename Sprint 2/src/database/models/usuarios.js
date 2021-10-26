@@ -13,7 +13,7 @@ function usuarios(sequelize, Datatypes){
       ciudad: {type: Datatypes.STRING(40)},
       pais: {type: Datatypes.STRING(40)},
       nombreImagen: {type: Datatypes.STRING(100)},
-      profesor: {type: Datatypes.DOUBLE(1)},
+      profesor: {type: Datatypes.BOOLEAN(1)},
      }
   
     config = {camelCase: false, timestamps: false}; 
@@ -26,7 +26,7 @@ function usuarios(sequelize, Datatypes){
         as: "cursos",
         through: "usuarios_Cursos",   // tabla intermedia
         foreignKey: "CursosFK",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-        otherKey: "usuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
+        otherKey: "UsuarioFK",    // es el FK del otro modelo (en la tabla intermedia de la bd)
         timestamps: false
       });
       usuarios.belongsToMany(modelos.cursos, {

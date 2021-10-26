@@ -52,6 +52,8 @@ function addItemToShoppingCart(itemTitle, itemPrecio, itemImage, itemCuotas) {
     updateShoppingCartTotal();
 }
 
+/* agregar shoppingCartContent al localstorage y leer desde el otro js */
+
 function updateShoppingCartTotal() {
   let total = 0;
   const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
