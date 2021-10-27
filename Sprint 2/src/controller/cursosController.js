@@ -56,7 +56,7 @@ const cursosController = {
 			/*	temas: req.body.temas,*/
 				precio: req.body.precio,
 				cuotas: req.body.cuotas,
-				nombreImagen: req.body.nombreImagen,
+				nombreImagen: req.file.filename
 			});
 			res.redirect('/')
 		} else {
@@ -83,7 +83,7 @@ const cursosController = {
 			db.cursos.update({
 				nombre: req.body.nombre, 
 				precio: req.body.precio,
-				nombreImagen: req.body.nombreImagen,
+				nombreImagen: req.file.filename,
 				descripcion: req.body.descripcion,
 				horarios: req.body.horarios,
 /*				temas: temasElegidos, */

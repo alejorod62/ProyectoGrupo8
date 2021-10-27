@@ -76,7 +76,14 @@
           <% } %>
         <% } %>
       </div>
-
+ <!---     <div class="col-md-6">
+        <label for="temas" class="form-label"> Temas que aborda el curso </label>
+          <ul>
+          <% for (let tema of listaTemas) { %>
+            <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
+          <% } %>
+          </ul>
+      </div>--->
       <div class="col-4">
         <label for="nombreImagen" class="form-label">Imagen del Curso</label>
         <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" />
