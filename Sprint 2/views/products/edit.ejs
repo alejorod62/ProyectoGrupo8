@@ -67,7 +67,13 @@
         <label for="temas" class="form-label"> Temas que aborda el curso </label>
           <ul>
           <% for (let tema of temas) { %>
-            <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
+            <% for (temaC of listaTemas) { %>
+              <%if (temaC.id == tema.id) { %>
+                  <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas" checked /><%=tema.titulo%> </label></li>
+              <% } else { %>
+                <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"  /><%=tema.titulo%> </label></li>
+              <% } %>
+            <% } %>
           <% } %>
           </ul>
       </div>

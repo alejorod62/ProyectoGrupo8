@@ -65,11 +65,15 @@ const cursosController = {
 	},
 
     editar: (req, res) => {
-		let pedidoCurso = db.cursos.findByPk(req.params.id);
+		let pedidoCurso = db.cursos.findByPk(req.params.id, {include: [{association: 'temas'}]});
 		let pedidoTemas = db.temas.findAll();
 
-		Promise.all([pedidoCurso, pedidoTemas]).then(function ([cursos, temas]){
-			res.render('products/edit', {cursoAEditar: cursos, temas: temas})    
+		Promise.all([pedidoCurso, pedidoTemas]).then(function ([curso, temas]){
+			let listaTemas = [];
+			for (temaC of curso.temas) {
+				listaTemas.push(temaC.id)
+			}
+			res.render('products/edit', {cursoAEditar: cursos, temas: temas, listaTemas: listaTemas})    
 		})
     },
 
