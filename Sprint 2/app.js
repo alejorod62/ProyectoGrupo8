@@ -2,6 +2,7 @@ const mainRouter = require('./src/router/mainRouter')
 const cursosRouter = require('./src/router/cursosRouter')
 const usuariosRouter = require('./src/router/usuariosRouter')
 const apiRouter = require('./src/router/apiRouter')
+const cors = require('cors')
 
 const express = require('express');
 const path = require('path');
@@ -12,6 +13,7 @@ const bodyParser = require('body-parser');
 //const navBarMw = require('./src/middlewares/navBarMw');
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));   
 app.use(express.json());  
 app.use(session( {

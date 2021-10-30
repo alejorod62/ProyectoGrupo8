@@ -29,7 +29,7 @@ module.exports = {
     },
 
     conteoUsuarios: (req, res) => {
-        db.usuarios.findAll().count().then((usuarios) => {
+        db.usuarios.findAll().then((usuarios) => {
             return res.json({
                 code: 200,
                 total: usuarios.length,
