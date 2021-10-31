@@ -41,11 +41,13 @@
         <div >
         <a href="/courses/cart"> <button class="button-detail" name="boton-carrito" id="agregar-al-carrito"> Agregar al carrito </button> </a> 
         <hr>
+        <% if (locals.logueado) { %>
         <a href="/courses/edit/<%=cursoElegido.id%>"> <button type="submit" class="button-detail" id="edit-curso"> EDITAR </button> </a> 
         <hr>
         <form action="/courses/<%=cursoElegido.id%>" method="POST" onsubmit="return confirm('¿Estas seguro?');">
             <button type="submit" class="button-detail">ELIMINAR</button>
         </form>
+        <% } %>
 
     </div>
     </article>  
