@@ -20,7 +20,7 @@
           <% } %>
         <% } %>
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
         <textarea class="form-control" id="descripcion" name="descripcion" requiered> </textarea>
         <% if (locals && locals.errors) { %>
@@ -29,7 +29,7 @@
           <% } %>
         <% } %>
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
         <label for="duracion" class="form-label">Duracion</label>
         <input type="text" class="form-control" id="duracion" name="duracion" requiered/>
         <% if (locals && locals.errors) { %>
@@ -38,7 +38,7 @@
           <% } %>
         <% } %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <label for="horarios" class="form-label">Horarios</label>
         <input type="text" class="form-control" id="horarios" name="horarios" requiered/>
         <% if (locals && locals.errors) { %>
@@ -48,7 +48,7 @@
         <% } %>
       </div>
 
-      <div class="col-12">
+      <div class="col-md-6">
         <label for="requisitos" class="form-label">Requisitos</label>
         <input class="form-control" id="requisitos" name="requisitos" requiered></input>
         <% if (locals && locals.errors) { %>
@@ -58,7 +58,7 @@
         <% } %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         <label for="precio" class="form-label">Precio</label>
         <input type="text" class="form-control" id="precio" name="precio" requiered/>
         <% if (locals && locals.errors) { %>
@@ -76,15 +76,8 @@
           <% } %>
         <% } %>
       </div>
- <!---     <div class="col-md-6">
-        <label for="temas" class="form-label"> Temas que aborda el curso </label>
-          <ul>
-          <% for (let tema of listaTemas) { %>
-            <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"/><%=tema.titulo%> </label></li>
-          <% } %>
-          </ul>
-      </div>--->
-      <div class="col-4">
+
+      <div class="col-md-6">
         <label for="nombreImagen" class="form-label">Imagen del Curso</label>
         <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" />
       </div>
@@ -100,3 +93,4 @@
   <%-include ('.././partials/footer')%>
 </body>
 </html>
+

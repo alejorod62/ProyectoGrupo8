@@ -9,8 +9,11 @@
   <%-include ('.././partials/header')%>
 
  <section class= "Form-Container m-5">
+
   <h2>Editar <%=cursoAEditar.nombre%> </h2>
-  <form id="form4" class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>" method="POST" enctype="multipart/form-data" >
+
+  <form id="form4" class="row g-3" action="/courses/edit/<%=cursoAEditar.id%>" method="POST" enctype="multipart/form-data"  style="width: auto;">
+
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input value="<%=cursoAEditar.nombre%>" type="text" class="form-control" id="nombre" name="nombre"> </input> 
@@ -30,32 +33,43 @@
         <% } %>
       </div>
       <div class="col-md-6">
-        <label for="especific" class="form-label">Especificaciones</label> 
-        <br>
-        <label>Horarios </label><input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input> 
+        
+        <label  value="<%=cursoAEditar.horarios%>">Horarios </label><input value="<%=cursoAEditar.horarios%>" class="form-control" id="horarios" class="especific" name="horarios"> </input> 
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="horarios") { %>
           <h6> <%= locals.errors[0].msg %> </h6>
           <% } %>
         <% } %>
+      </div>
+
+      <div class="col-md-6">
         <label>Duración </label><input value="<%=cursoAEditar.duracion%>" class="form-control" id="duracion" class="especific" name="duracion"> </input> 
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="duracion") { %>
           <h6> <%= locals.errors[0].msg %> </h6>
           <% } %>
         <% } %>
+      </div>
+
+      <div class="col-md-6">
         <label>Requisitos</label><input value="<%=cursoAEditar.requisitos%>" class="form-control" id="requisitos" class="especific" name="requisitos"> </input> 
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="requisitos") { %>
           <h6> <%= locals.errors[0].msg %> </h6>
           <% } %>
         <% } %>
+      </div>
+
+      <div class="col-md-6">
         <label>Precio</label><input value="<%=cursoAEditar.precio%>" class="form-control" id="precio" class="especific" name="precio"> </input> 
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="precio") { %>
           <h6> <%= locals.errors[0].msg %> </h6>
           <% } %>
         <% } %>
+      </div>
+
+      <div class="col-md-6">
         <label>Cuotas </label><input value="<%=cursoAEditar.cuotas%>" class="form-control" id="cuotas" class="especific" name="cuotas"> </input> 
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="cuotas") { %>
@@ -63,28 +77,16 @@
           <% } %>
         <% } %>
       </div>
-      <div class="col-md-6">
-        <label for="temas" class="form-label"> Temas que aborda el curso </label>
-          <ul>
-          <% for (let tema of temas) { %>
-            <% for (temaC of listaTemas) { %>
-              <%if (temaC.id == tema.id) { %>
-                  <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas" checked /><%=tema.titulo%> </label></li>
-              <% } else { %>
-                <li><label><input value="<%=tema.id%>" type="checkbox" id="temas" name="temas"  /><%=tema.titulo%> </label></li>
-              <% } %>
-            <% } %>
-          <% } %>
-          </ul>
-      </div>
-         <div class="col-md-4">
-        <div class="col-md-4">
-          <label for="nombreImagen" class="form-label" >Imagen del Curso</label>
-          <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" value="<%=cursoAEditar.nombreImagen%>"/>
+     
+        <div class="col-md-6">
+          <label for="nombreImagen" class="form-label" > Imagen del Curso</label>
+          <input type="file"  class="form-control" id="nombreImagen" name="nombreImagen" value="<%=cursoAEditar.nombreImagen%>" style="width: auto;"/>
         </div>
+
       <div class="col-12">
         <button type="submit" class="button-detail">Guardar</button>
       </div>
+
     </form>
 </section>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

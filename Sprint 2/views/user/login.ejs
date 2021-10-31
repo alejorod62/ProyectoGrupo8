@@ -11,10 +11,10 @@
   <section class="Form-Container m-5 ">      
       <h2>Ingresar</h2>
 
-      <form id="form2" action="/user/login" method="POST" class="row g-3" >
+      <form id="form2" action="/user/login" method="POST" class="row g-3"  >
           <div class="mb-3">
             <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" />
+            <input type="email" class="form-control" id="email" name="email" style="width: 50%;"/>
             <% if (locals.error && locals.error[0].email) { %>
               <h6> <%= error[0].email %> </h6>
             <% } %>
@@ -23,7 +23,7 @@
           </div>
           <div class="mb-3">
             <label for="clave" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="clave" id="clave">
+            <input type="password" class="form-control" name="clave" id="clave" style="width: 50%;">
             <% if (locals.error && locals.error[0].clave) { %>
               <h6> <%= error[0].clave %> </h6>
             <% } %>
@@ -33,7 +33,7 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Recordarme</label>
           </div>
-          <button type="submit" class="button-detail">Ingresar</button>
+          <button type="submit" class="button-detail" style="width: auto;">Ingresar</button>
         </form>
   </section>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

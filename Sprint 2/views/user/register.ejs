@@ -8,123 +8,146 @@
 <body>
   <%-include ('.././partials/header-login')%>
 
- <section class= "Form-Container m-5">
-  <h2>Crear Cuenta</h2>
-  <form id="form1" action="/user/register" method="POST" class="row g-3" enctype="multipart/form-data">
-      <div class="col-md-6">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre">
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="nombre") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
+
+  <section class= "Form-Container m-5">
+    <h2>Crear Cuenta</h2>
+    <form id="form1" action="/user/register" method="POST" class="row g-3" enctype="multipart/form-data" style="width: auto;">
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre">
+          <% if (locals && locals.errors) { %>
+            <% if (locals.errors[0].param=="nombre") { %>
+            <h6> <%= locals.errors[0].msg %> </h6>
+            <% } %>
           <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="apellido" name="apellido">
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="apellido") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" name="email" />
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="email") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="clave" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="clave" name="clave">
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="clave") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="profesor" class="form-label">¿Sos profesor?</label>
-        <select id="profesor" name="profesor" class="form-select" >
-          <option value="1"> Si </option>
-          <option selected value="0"> No </option>
-      </div>
-      <br />
-      <div class="col-10">
-        <label for="direccion" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="direccion" name="direccion" >
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="direccion") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="ciudad" class="form-label">Ciudad</label>
-        <input type="text" class="form-control" id="ciudad" name="ciudad" >
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="ciudad") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-4">
-        <label for="pais" class="form-label">País</label>
-        <select id="pais" name="pais" class="form-select" >
-          <option selected>Seleccione...</option>
-          <option> Argentina </option>
-          <option> Uruguay </option>
-          <option> Chile </option>
-          <option> Paraguay </option>
-          <option> Bolivia </option>
-          <option> Perú </option>
-          <option> Colombia </option>
-          <option> Brasil </option>
-          <option> Venezuela </option>
-          <option> México </option>
-        </select>
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="pais") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <label for="telefono" class="form-label">Número de teléfono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono">
-        <% if (locals && locals.errors) { %>
-          <% if (locals.errors[0].param=="telefono") { %>
-          <h6> <%= locals.errors[0].msg %> </h6>
-          <% } %>
-        <% } %>
-      </div>
-      <br>
-      <hr>
-      <div class="col-md-4">
-        <label for="nombreImagen" class="form-label">Imagen de perfil</label>
-        <input type="file" class="form-control" id="nombreImagen" name="nombreImagen" />
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck" requiered>
-            Estoy de acuerdo con los "Terminos y condiciones"
-          </label>
         </div>
-      </div>
-      <div class="col-12">
-        <button id= "boton_submit" type="submit" class="button-detail">Continuar</button>
-      </div>
+
+        <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido">
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="apellido") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" />
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="email") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6">
+            <label for="clave" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="clave" name="clave">
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="clave") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6" >
+            <label for="profesor" class="form-label" >¿Sos profesor?</label>
+            <select id="profesor" name="profesor" class="form-select" style="width: auto;" >
+              <option value="1"> Si </option>
+              <option selected value="0"> No </option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" >
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="direccion") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" name="ciudad" >
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="ciudad") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6">
+            <label for="pais" class="form-label">País</label>
+            <select id="pais" name="pais" class="form-select" style="width: auto;">
+              <option selected>Seleccione...</option>
+              <option> Argentina </option>
+              <option> Uruguay </option>
+              <option> Chile </option>
+              <option> Paraguay </option>
+              <option> Bolivia </option>
+              <option> Perú </option>
+              <option> Colombia </option>
+              <option> Brasil </option>
+              <option> Venezuela </option>
+              <option> México </option>
+            </select>
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="pais") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div class="col-md-6">
+            <label for="telefono" class="form-label">Número de teléfono</label>
+            <input type="text" class="form-control" id="telefono" name="telefono">
+            <% if (locals && locals.errors) { %>
+              <% if (locals.errors[0].param=="telefono") { %>
+              <h6> <%= locals.errors[0].msg %> </h6>
+              <% } %>
+            <% } %>
+          </div>
+
+          <hr>
+
+          <div class="col-md-4">
+            <label for="nombreImagen" class="form-label">Imagen de perfil</label>
+            <input type="file" class="form-control" id="nombreImagen" name="nombreImagen" />
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck" requiered>
+                Estoy de acuerdo con los "Terminos y condiciones"
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button id= "boton_submit" type="submit" class="button-detail">Continuar</button>
+          </div>
+
+
+
     </form>
 </section>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/js/validfrontregister.js" type="text/javascript">  </script> 	
 
 
+
+
+
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/validfrontregister.js" type="text/javascript">  </script> 	
+  
   <%-include ('.././partials/footer')%>
 
 
