@@ -17,7 +17,6 @@ const usuariosController = {
             if (usuarioExistente) {
             let passCorrecta = bcryptjs.compareSync(req.body.clave, usuarioExistente.clave);
             if (passCorrecta==true) {
-        /*      delete usuarioExistente.clave;*/
 				req.session.usuario = usuarioExistente
                 res.redirect('/user/profile'); 
             } else {

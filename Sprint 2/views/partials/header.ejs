@@ -10,9 +10,13 @@
         </form>
 
         <div class="cuenta​​">
-            <p class="cuenta"> <a href="/user/register">Creá tu cuenta​​  <i class="fas fa-address-card"></i>  </a> </p>
-
-            <p class="cuenta" > <a href="/user/login">Inicia sesión  <i class="fas fa-address-card"></i>  </a> </p>
+            <% if (locals.logueado) { %>
+                <p class="cuenta" > <a href="/user/profile"> Mi perfil​​  <i class="fas fa-address-card"></i>  </a> </p>
+                <p class="cuenta" > <a href="/user/logout"> Cerrar sesión  <i class="fas fa-address-card"></i>  </a> </p>
+            <% } else { %>
+                <p class="cuenta"> <a href="/user/register">Creá tu cuenta​​  <i class="fas fa-address-card"></i>  </a> </p>
+                <p class="cuenta" > <a href="/user/login">Inicia sesión  <i class="fas fa-address-card"></i>  </a> </p>
+            <% } %>
         </div>
     </section>
 

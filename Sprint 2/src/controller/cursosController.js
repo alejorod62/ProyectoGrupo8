@@ -69,28 +69,20 @@ const cursosController = {
 		let pedidoTemas = db.temas.findAll();
 
 		Promise.all([pedidoCurso, pedidoTemas]).then(function ([curso, temas]){
-			let listaTemas = [];
-			for (temaC of curso.temas) {
-				listaTemas.push(temaC.id)
-			}
-			res.render('products/edit', {cursoAEditar: cursos, temas: temas, listaTemas: listaTemas})    
+			res.render('products/edit', {cursoAEditar: curso, temas: temas})    
 		})
     },
 
     modificar: function (req, res) {
 		const errors = validationResult(req);
-/*		let temasElegidos = []; */
 		if (errors.isEmpty()){
-		/*	for (tema of req.body.temas){
-				temasElegidos.push(tema)
-			}*/
+
 			db.cursos.update({
 				nombre: req.body.nombre, 
 				precio: req.body.precio,
 				nombreImagen: req.file.filename,
 				descripcion: req.body.descripcion,
 				horarios: req.body.horarios,
-/*				temas: temasElegidos, */
 				duracion: req.body.duracion,
 				requisitos: req.body.requisitos,
 				cuotas: req.body.cuotas,
@@ -102,7 +94,7 @@ const cursosController = {
 			})
 			res.redirect('/') ;
 		} else {
-			res.render('products/edit', {errors: errors.array(), listaTemas: temas});
+			res.render('products/edit', {errors: errors.array()});
 		}
 	},
 

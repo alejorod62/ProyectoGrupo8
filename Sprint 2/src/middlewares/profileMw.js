@@ -1,6 +1,6 @@
 function profileMw (req, res, next) {
-    if (!req.session.usuarioLogueado){
-        res.redirect('user/login')
+    if (!req.session.usuario){
+        return res.redirect('/user/login')
     }
     next();
 }

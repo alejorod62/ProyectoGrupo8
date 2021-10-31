@@ -10,7 +10,7 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 /* const auditoriaMiddleware = require('./middlewares/auditoriaMw'); */
 const session = require('express-session');
 const bodyParser = require('body-parser');
-//const navBarMw = require('./src/middlewares/navBarMw');
+const navBarMw = require('./src/middlewares/navBarMw');
 
 const app = express();
 app.use(cors());
@@ -20,7 +20,7 @@ app.use(session( {
     secret: "Este es mi secreto",
     resave: false, 
     saveUninitialized: false} ));
-//app.use(navBarMw);
+app.use(navBarMw);
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 /*app.use(auditoriaMiddleware); */
 

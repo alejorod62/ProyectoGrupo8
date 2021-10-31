@@ -25,7 +25,7 @@
       </div>
       <div class="col-md-6">
         <label for="descripcion" class="form-label"> Breve descripcion</label>
-        <textarea class="form-control" id="descripcion" name="descripcion"> <%=cursoAEditar.descripcion%> </textarea>
+        <textarea class="form-control" id="descripcion" name="descripcion" value="<%=cursoAEditar.descripcion%>">  </textarea>
         <% if (locals && locals.errors) { %>
           <% if (locals.errors[0].param=="descripcion") { %>
           <h6> <%= locals.errors[0].msg %> </h6>

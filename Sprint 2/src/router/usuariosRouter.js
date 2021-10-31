@@ -4,6 +4,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const profileMw = require('.././middlewares/profileMw');
+const registerMw = require('.././middlewares/registerMw');
 const validacionesReg = require('.././middlewares/validacionesReg');
 const validacionesEdit = require('.././middlewares/validacionesEdit');
 
@@ -23,8 +24,8 @@ const uploadFile = multer({ storage: configImagenPerfil });
 
 router.get('/login', usuariosController.login) ;
 router.post('/login', usuariosController.ingreso) ;
-router.get('/profile', /*profileMw,*/ usuariosController.perfil) ;
-router.get('/register', usuariosController.registro) ;
+router.get('/profile', profileMw, usuariosController.perfil) ;
+router.get('/register', registerMw, usuariosController.registro) ;
 router.post('/register', uploadFile.single ('nombreImagen'), validacionesReg, usuariosController.guardar) ;
 router.get('/edit', usuariosController.editar) ;
 router.post('/edit', uploadFile.single ('nombreImagen'), validacionesEdit, usuariosController.modificar);
