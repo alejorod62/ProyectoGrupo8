@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const navBarMw = require('.././middlewares/navBarMw');
 const validacionesCursos = require('.././middlewares/validacionesCursos');
 
 /* Multer config */
@@ -18,7 +19,7 @@ const configuracionImagen = multer.diskStorage({
 
 const uploadFile = multer({ storage: configuracionImagen});
 
-router.get('/', cursosController.index)
+router.get('/', navBarMw, cursosController.index)
 router.get('/cart', cursosController.carrito)
 router.get('/details/:id', cursosController.detalle)
 router.get('/new', cursosController.crear)
