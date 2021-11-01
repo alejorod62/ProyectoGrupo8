@@ -36,6 +36,7 @@ window.onload = function () {
               });
         }
         else{
+            alert ("Revise su casilla de correo y vuelva a loguearse")
             formulario.submit(); // se realiza el submit (va para el backend con los campos validados)
         }
 

@@ -98,6 +98,8 @@ padding: 15px;
 margin: auto;
 }
 
+.perfil { text-align: center;}
+
 .flexcaja {display: flex;
     flex-direction: column;
 justify-content: space-between;
