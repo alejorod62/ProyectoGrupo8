@@ -74,8 +74,8 @@ const cursosController = {
     },
 
     modificar: function (req, res) {
-		const errors = validationResult(req);
-		if (errors.isEmpty()){
+		/*const errors = validationResult(req);
+		if (errors.isEmpty()){*/
 
 			db.cursos.update({
 				nombre: req.body.nombre, 
@@ -93,9 +93,9 @@ const cursosController = {
 				}
 			})
 			res.redirect('/') ;
-		} else {
+		/*} else {
 			res.render('products/edit', {errors: errors.array()});
-		}
+		}*/
 	},
 
     borrar: (req, res) => { 

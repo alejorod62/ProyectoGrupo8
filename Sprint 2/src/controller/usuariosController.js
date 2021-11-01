@@ -74,15 +74,18 @@ const usuariosController = {
 			nombre: req.body.nombre, 
 			apellido: req.body.apellido,
 			email: req.body.email,
-			clave: req.body.clave,
+			direccion: req.body.direccion, 
+			ciudad: req.body.ciudad,
+			pais: req.body.pais,
 			telefono: req.body.telefono,
+			nombreImagen: req.file.filename
 		},
 		{
 			where: {
 				id: req.session.usuario.id
 			}
 		})
-		res.redirect('/courses') 			
+		res.redirect('/') 			
 	} ,
     borrar: (req, res) => {
 		db.usuarios.destroy ({

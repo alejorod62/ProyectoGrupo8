@@ -29,6 +29,17 @@
           <% } %>
         <% } %>
       </div>
+
+      <div class="col-md-6">
+        <label for="temas" class="form-label">Temas que aborda</label>
+          <% for (tema of listaTemas) { %>
+            <br/>
+            <label id="temas" name="temas" class="form-label" style="width: auto;">
+              <input value="<%tema.id%>" type="checkbox"/><%=tema.titulo%></input>
+            </label>
+          <% } %>
+      </div>
+
       <div class="col-md-6">
         <label for="duracion" class="form-label">Duracion</label>
         <input type="text" class="form-control" id="duracion" name="duracion" requiered/>
