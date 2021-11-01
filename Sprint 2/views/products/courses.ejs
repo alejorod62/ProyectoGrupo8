@@ -32,85 +32,87 @@
                   </ul>
               </div>
         </section>
+        <% if (locals.logueado) { %>
                 <button class="button-detail addToCart" name="boton-carrito" id="addToCart"> Agregar al carrito </button> 
-               <a href="/courses/details/<%=curso.id%>"> <button class="button-detail">Detalles del curso</button> </a>
+        <% } %> 
+                <a href="/courses/details/<%=curso.id%>"> <button class="button-detail">Detalles del curso</button> </a>
       </article>         
        
         <% } %>
 
         <% if (locals.logueado) { %>
-         <!-- START SECTION SHOPPING CART -->
-      <section class="shopping-cart">
-        <div class="container">
-            <h1 class="text-center">CARRITO</h1>
-            <hr>
-            <div class="row">
-                <div class="col-6">
-                    <div class="shopping-cart-header">
-                        <h2>AGREGUE AQUI SUS CURSOS</h2>
-                    </div>
-                </div>
-                
+            <div > <a href="/courses/new"> <button class="button-detail" id="crear-curso" style="margin-left: 75vw"> Crear curso </button> </a>
             </div>
-            <!-- ? START SHOPPING CART ITEMS -->
-            <div class="shopping-cart-items shoppingCartItemsContainer">
-
-            </div>
-            <!-- ? END SHOPPING CART ITEMS -->
-
-            <!-- START TOTAL -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="shopping-cart-total d-flex align-items-center">
-                        <p class="mb-0">Total : </p>
-                        <p class="ml-4 mb-0 shoppingCartTotal">$0</p>
-                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                            data-delay="2000">
-                            <div class="toast-header">
-                                <span>✅</span>
-                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
-                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+            <!-- START SECTION SHOPPING CART -->
+                <section class="shopping-cart">
+                    <div class="container">
+                        <h1 class="text-center">CARRITO</h1>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="shopping-cart-header">
+                                    <h2>AGREGUE AQUI SUS CURSOS</h2>
+                                </div>
                             </div>
-                            <div class="toast-body text-white">
-                                Se aumentó correctamente la cantidad
+                            
+                        </div>
+                        <!-- ? START SHOPPING CART ITEMS -->
+                        <div class="shopping-cart-items shoppingCartItemsContainer">
+
+                        </div>
+                        <!-- ? END SHOPPING CART ITEMS -->
+
+                        <!-- START TOTAL -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="shopping-cart-total d-flex align-items-center">
+                                    <p class="mb-0">Total : </p>
+                                    <p class="ml-4 mb-0 shoppingCartTotal">$0</p>
+                                    <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                                        data-delay="2000">
+                                        <div class="toast-header">
+                                            <span>✅</span>
+                                            <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="toast-body text-white">
+                                            Se aumentó correctamente la cantidad
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                                        data-target="#comprarModal">Comprar</button>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-                            data-target="#comprarModal">Comprar</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- END TOTAL -->
+                        <!-- END TOTAL -->
 
-            <!-- START MODAL COMPRA -->
-            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <!-- START MODAL COMPRA -->
+                        <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Pronto recibirá su pedido</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <p>Pronto recibirá su pedido</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END MODAL COMPRA -->
-        </section>
+                        <!-- END MODAL COMPRA -->
+                    </section>
         <% }%>
 
-        <div > <a href="/courses/new"> <button class="button-detail" id="crear-curso" style="margin-left: 75vw"> Crear curso </button> </a>
-        </div>
    
         <br>
 

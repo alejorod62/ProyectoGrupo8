@@ -1,4 +1,4 @@
-function navBarMw (req, res, next) {
+function restrictMw (req, res, next) {
     res.locals.logueado = false;
     if (req.session.usuario) {
         res.locals.logueado = true;
@@ -7,4 +7,4 @@ function navBarMw (req, res, next) {
     next();
 }
 
-module.exports = navBarMw;
+module.exports = restrictMw;
